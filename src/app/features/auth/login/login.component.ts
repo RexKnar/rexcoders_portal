@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
     'password': '',
   };
   public errorMessage: any;
+  
 
   constructor( private fb: FormBuilder,
     private router: Router) {
@@ -29,8 +30,13 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
+  userLogin() {
+    
 
-
+    };
+    logout() {
+     
+    }
 
 
 }
