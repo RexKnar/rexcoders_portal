@@ -13,11 +13,7 @@ import { FeatherIconsComponent } from './components/feather-icons/feather-icons.
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 import { RightSidebarComponent } from './components/right-sidebar/right-sidebar.component';
 import { BookmarkComponent } from './components/bookmark/bookmark.component';
-import { TranslateModule } from '@ngx-translate/core';
 import { CustomizerComponent } from './components/customizer/customizer.component';
-import { DragulaModule } from 'ng2-dragula';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { GalleryModule } from '@ks89/angular-modal-gallery';
 import 'hammerjs';
 import 'mousetrap';
 
@@ -29,6 +25,9 @@ import { TableService } from './services/table.service';
 // Directives
 import { ToggleFullscreenDirective } from "./directives/fullscreen.directive";
 import { NgbdSortableHeader } from './directives/NgbdSortableHeader';
+
+import { AdminLayoutComponent } from './theme/admin-layout/admin-layout.component';
+import { AuthLayoutComponent } from './theme/auth-layout/auth-layout.component';
 
 
 @NgModule({
@@ -45,21 +44,18 @@ import { NgbdSortableHeader } from './directives/NgbdSortableHeader';
     ToggleFullscreenDirective,
     NgbdSortableHeader,
     BreadcrumbComponent,
-    CustomizerComponent
+    CustomizerComponent,
+    AdminLayoutComponent,
+    AuthLayoutComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     FormsModule,
-    TranslateModule,
-    DragulaModule.forRoot(),
-    NgbModule,
-    GalleryModule
   ],
   exports: [
     LoaderComponent,
     FeatherIconsComponent,
-    TranslateModule,
     NgbdSortableHeader
   ],
   providers: [
