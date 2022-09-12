@@ -1,0 +1,14 @@
+.page-body{
+    margin-left: 28%;
+    transition: 0.3s;
+}
+
+.page-sidebar {
+    width: 255px;
+    position: fixed;
+    background: #2f3c4e;
+    top: 0;
+    height: 100vh;
+    z-index: 1000;
+    transition: 0.3s;
+}

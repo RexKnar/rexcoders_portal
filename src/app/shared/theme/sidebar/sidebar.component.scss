@@ -1,0 +1,34 @@
+$sidebar-shadow: 0 0 11px rgba(69, 110, 243, 0.13);
+$transparent-color: transparent;
+.overflow-scroll
+{
+    overflow: scroll;
+    transition: all 3s;
+}
+
+
+
+.page-sidebar{
+    height: calc(100vh - 80px);
+    overflow: auto;
+    box-shadow: $sidebar-shadow;
+    &.custom-scrollbar {
+      &::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px $transparent-color;
+      }
+      &::-webkit-scrollbar {
+        width: 6px;
+        transition: .3s;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: $transparent-color;
+      }
+    }
+    &:hover {
+      &.custom-scrollbar {
+        &::-webkit-scrollbar-thumb {
+          background-color: rgba(0, 0, 0, 0.30);
+        }
+      }
+    }
+  }

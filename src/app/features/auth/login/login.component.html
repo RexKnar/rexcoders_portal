@@ -1,60 +1,39 @@
-<div class="page-wrapper">
-	<div class="auth-bg">
-		<div class="authentication-box">
-			<div class="text-center"><img src="assets/images/endless-logo.png" alt=""></div>
-			<div class="card mt-4">
-				<div class="card-body">
-					<div class="text-center">
-						<h4>LOGIN</h4>
-						<h6>Enter your Username and Password </h6>
+<section class="login-section">
+	<div class="container">
+		<div class="row justify-content-center">
+		
+			<div class="col-xl-7 col-lg-8 col-md-12 col-sm-12">
+				<form>
+					<div class="crs_log_wrap">
+						<div class="crs_log__thumb">
+							<img src="assets/img/banner-2.jpg" class="img-fluid" alt="" />
+						</div>
+						<div class="crs_log__caption">
+							<div class="rcs_log_123">
+								<div class="rcs_ico"><i class="fas fa-lock"></i></div>
+							</div>
+							
+							<div class="rcs_log_124">
+								<div class="Lpo09"><h4>Login Your Account</h4></div>
+								<div class="form-group">
+									<label>User Name</label>
+									<input type="text" class="form-control" placeholder="support@themezhub.com" />
+								</div>
+								<div class="form-group">
+									<label>Password</label>
+									<input type="text" class="form-control" placeholder="*******" />
+								</div>
+								
+								<div class="form-group">
+									<button type="button" class="btn full-width btn-md theme-bg text-white">Login</button>
+								</div>
+								<div class="fhg_45"><p class="musrt"><a href="forgot.html" class="text-danger">Forgot Password?</a></p></div>
+							</div>
+						</div>
 					</div>
-					<form class="theme-form" [formGroup]="loginForm" *ngIf="!newUser">
-						<div class="form-group">
-							<label class="col-form-label pt-0">Email</label>
-							<input class="form-control" formControlName="email" type="email" required="">
-							<div *ngIf="loginForm.controls['email'].touched && loginForm.controls['email'].errors"
-								class="text text-danger mt-1">
-								Email is required
-							</div>
-							<div *ngIf="loginForm.controls['email'].touched && loginForm.controls['email'].errors"
-								class="text text-danger mt-1">
-								Invalid Email
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="col-form-label">Password</label>
-							<input class="form-control" type="password" formControlName="password" required="">
-							<div *ngIf="loginForm.controls['password'].touched && loginForm.controls['password'].errors"
-								class="text text-danger mt-1">
-								Password is required
-							</div>
-						</div>
-						<div class="checkbox p-0">
-							<input id="checkbox1" type="checkbox">
-							<label for="checkbox1">Remember me</label>
-						</div>
-						<div class="form-group row mt-3 mb-0">
-							<button class="btn btn-primary btn-block btn-lg"
-								type="submit"><span>Login</span>
-							</button>
-						</div>
-						<div class="login-divider"></div>
-						<div class="social mt-3">
-							<div class="form-group btn-showcase d-flex">
-								<button class="btn social-btn btn-fb d-inline-block" >
-									<i class="fa fa-facebook"></i>
-								</button>
-								<button class="btn social-btn btn-twitter d-inline-block" >
-									<i class="fa fa-twitter"></i>
-								</button>
-								<button class="btn social-btn btn-google d-inline-block" >
-									<i class="fa fa-google"></i>
-								</button>
-							</div>
-						</div>
-					</form>
-				</div>
+				</form>
 			</div>
+
 		</div>
 	</div>
-</div>
+</section>

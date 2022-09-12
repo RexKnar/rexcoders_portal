@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminLayoutComponent } from './shared/theme/admin-layout/admin-layout.component';
+import { AuthLayoutComponent } from './shared/theme/auth-layout/auth-layout.component';
 
 const routes: Routes = [
   {
@@ -10,12 +11,13 @@ const routes: Routes = [
   },
   {
     path:'auth',
-    component:AuthenticatorResponse,
+    component:AuthLayoutComponent,
     loadChildren: () => import('./features/auth/auth.module').then(module => module.AuthModule),
   },
   {
     path:'admin',
-    component: AdminLayoutComponent
+    component: AdminLayoutComponent,
+    loadChildren: () => import('./features/auth/auth.module').then(module => module.AuthModule),
   }
 ];
 
