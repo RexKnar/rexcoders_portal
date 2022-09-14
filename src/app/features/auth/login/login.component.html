@@ -19,9 +19,9 @@
 									<label>User Name</label>
 									<input type="email" class="form-control" placeholder="support@themezhub.com" formControlName="email" />
 					
-<div *ngIf="fval['email'].touched && fval['email'].invalid" class="text-danger">
-	<span *ngIf="fval['email'].errors?.['required']">User Name is required.</span>
-	<span *ngIf="fval['email'].errors?.['pattern'] && fval['email'].errors?.['email']">Invalid User</span>
+<div *ngIf="logincontrol['email'].touched && logincontrol['email'].invalid" class="text-danger">
+	<span *ngIf="logincontrol['email'].errors?.['required']">User Name is required.</span>
+	<span *ngIf="logincontrol['email'].errors?.['pattern'] && logincontrol['email'].errors?.['email']">Invalid User</span>
 
 </div>
 </div>
@@ -30,9 +30,9 @@
 									<label>Password</label>
 									<input type="password" class="form-control" placeholder="*******" formControlName="password" />
 								</div>
-								<div *ngIf="fval['password'].touched && fval['password'].invalid" class="text-danger">
-									<div *ngIf="fval['password'].errors?.['required']">Password is required.</div>
-									<div *ngIf="fval['password'].errors?.['minlength']">Password should be minimum 6 character.</div>
+								<div *ngIf="logincontrol['password'].touched && logincontrol['password'].invalid" class="text-danger">
+									<div *ngIf="logincontrol['password'].errors?.['required']">Password is required.</div>
+									<div *ngIf="logincontrol['password'].errors?.['minlength']">Password should be minimum 6 character.</div>
 								</div>
 								
 

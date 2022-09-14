@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
    
 
   }
-  get fval() {
+  get logincontrol() {
    return this.loginForm.controls;
     }
   ngOnInit() {
