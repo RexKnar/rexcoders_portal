@@ -1,9 +1,9 @@
 <section class="login-section">
 	<div class="container">
 		<div class="row justify-content-center">
-		
+
 			<div class="col-xl-7 col-lg-8 col-md-12 col-sm-12">
-				<form [formGroup]="loginForm" (ngSubmit)="loginSubmit()">
+				<form [formGroup]="login_Form" (ngSubmit)="login_Submit()">
 					<div class="crs_log_wrap">
 						<div class="crs_log__thumb">
 							<img src="assets/img/banner-2.jpg" class="img-fluid" alt="" />
@@ -12,34 +12,45 @@
 							<div class="rcs_log_123">
 								<div class="rcs_ico"><i class="fas fa-lock"></i></div>
 							</div>
-							
+
 							<div class="rcs_log_124">
-								<div class="Lpo09"><h4>Login Your Account</h4></div>
+								<div class="Lpo09">
+									<h4>Login Your Account</h4>
+								</div>
 								<div class="form-group">
 									<label>User Name</label>
-									<input type="email" class="form-control" placeholder="support@themezhub.com" formControlName="email" />
-					
-<div *ngIf="logincontrol['email'].touched && logincontrol['email'].invalid" class="text-danger">
-	<span *ngIf="logincontrol['email'].errors?.['required']">User Name is required.</span>
-	<span *ngIf="logincontrol['email'].errors?.['pattern'] && logincontrol['email'].errors?.['email']">Invalid User</span>
+									<input type="user_id" class="form-control" placeholder=""
+										formControlName="user_id" />
 
-</div>
-</div>
-								
+									<div *ngIf="login_control['user_id'].touched && login_control['user_id'].invalid"
+										class="text-danger">
+										<span *ngIf="login_control['user_id'].errors?.['required']">User Name is
+											required.</span>
+										<span *ngIf="login_control['user_id'].errors?.['pattern']">Invalid User</span>
+									</div>
+								</div>
+
 								<div class="form-group">
 									<label>Password</label>
-									<input type="password" class="form-control" placeholder="*******" formControlName="password" />
+									<input type="password" class="form-control" placeholder=""
+										formControlName="password" />
 								</div>
-								<div *ngIf="logincontrol['password'].touched && logincontrol['password'].invalid" class="text-danger">
-									<div *ngIf="logincontrol['password'].errors?.['required']">Password is required.</div>
-									<div *ngIf="logincontrol['password'].errors?.['minlength']">Password should be minimum 6 character.</div>
+								<div *ngIf="login_control['password'].touched && login_control['password'].invalid"
+									class="text-danger">
+									<div *ngIf="login_control['password'].errors?.['required']">Password is required.
+									</div>
+									<div *ngIf="login_control['password'].errors?.['minlength']">Password should be
+										minimum 6 character.</div>
 								</div>
-								
+
 
 								<div class="form-group">
-									<button type="submit" class="btn full-width btn-md theme-bg text-white">Login</button>
+									<button type="submit"
+										class="btn full-width btn-md theme-bg text-white">Login</button>
 								</div>
-								<div class="fhg_45"><p class="musrt"><a href="forgot.html" class="text-danger">Forgot Password?</a></p></div>
+								<div class="fhg_45">
+									<p class="musrt"><a href="forgot.html" class="text-danger">Forgot Password?</a></p>
+								</div>
 							</div>
 						</div>
 					</div>
