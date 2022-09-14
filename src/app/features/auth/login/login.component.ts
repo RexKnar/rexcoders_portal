@@ -2,11 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormArray, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
-<<<<<<< Updated upstream
-
-
-=======
->>>>>>> Stashed changes
 
 @Component({
   selector: 'app-login',
