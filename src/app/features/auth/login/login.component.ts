@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormArray, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
-import { NgModule } from '@angular/core';
-
 
 @Component({
   selector: 'app-login',
@@ -24,7 +22,7 @@ export class LoginComponent implements OnInit {
       password: [null, [Validators.required, Validators.minLength(6)]]
     });
   }
-  login_Submit() {
+  loginSubmit() {
     if (this.login_Form.valid) {
       Swal.fire('success');
     }
