@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   constructor(private fb: FormBuilder,
     private router: Router) {
   }
+  
   get login_control() {
     return this.login_Form.controls;
   }
