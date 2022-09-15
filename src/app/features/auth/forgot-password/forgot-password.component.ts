@@ -7,13 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ForgotPasswordComponent implements OnInit {
 
-  formData:{umail:string}={umail:''};
+  formData:{userEmail:string}={userEmail:''};
 
   constructor() { }
 
   ngOnInit(): void {
   }
-  getFormData(form:any){
+  getForgotFormData(form:any){
 console.log("form submitted");
 console.log(form.value);
   }
