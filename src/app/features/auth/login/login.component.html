@@ -19,14 +19,14 @@
 								</div>
 								<div class="form-group">
 									<label>User Name</label>
-									<input type="user_id" class="form-control" placeholder=""
-										formControlName="user_id" />
+									<input type="text" class="form-control" placeholder=""
+										formControlName="userId" />
 
-									<div *ngIf="login_control['user_id'].touched && login_control['user_id'].invalid"
+									<div *ngIf="loginControl['userId'].touched && loginControl['userId'].invalid"
 										class="text-danger">
-										<span *ngIf="login_control['user_id'].errors?.['required']">User Name is
+										<span *ngIf="loginControl['userId'].errors?.['required']">User Name is
 											required.</span>
-										<span *ngIf="login_control['user_id'].errors?.['pattern']">Invalid User</span>
+										<span *ngIf="loginControl['userId'].errors?.['pattern']">Invalid User</span>
 									</div>
 								</div>
 
@@ -35,11 +35,11 @@
 									<input type="password" class="form-control" placeholder=""
 										formControlName="password" />
 								</div>
-								<div *ngIf="login_control['password'].touched && login_control['password'].invalid"
+								<div *ngIf="loginControl['password'].touched && loginControl['password'].invalid"
 									class="text-danger">
-									<div *ngIf="login_control['password'].errors?.['required']">Password is required.
+									<div *ngIf="loginControl['password'].errors?.['required']">Password is required.
 									</div>
-									<div *ngIf="login_control['password'].errors?.['minlength']">Password should be
+									<div *ngIf="loginControl['password'].errors?.['minlength']">Password should be
 										minimum 6 character.</div>
 								</div>
 
