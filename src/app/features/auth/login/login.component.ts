@@ -9,10 +9,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  // login_Form!: FormGroup;
-  // loginControl:FormGroup;
-  // constructor(private fb: FormBuilder,
-
+  
   loginForm!: FormGroup;
   constructor(private loginFormBuilder: FormBuilder,
 
