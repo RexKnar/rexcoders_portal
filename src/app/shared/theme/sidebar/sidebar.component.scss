@@ -8,6 +8,14 @@ $transparent-color: transparent;
 
 
 
+.dashboard-navbar .d-navigation ul a[class=""] {
+  background-color: #03B97C1F;
+  color: #03b97c !important;;
+}
+.dashboard-navbar .d-navigation ul a[class=""] span::before{
+  content: "\e64b";
+}
+
 .page-sidebar{
     height: calc(100vh - 80px);
     overflow: auto;
@@ -32,3 +40,5 @@ $transparent-color: transparent;
       }
     }
   }
+
+ 

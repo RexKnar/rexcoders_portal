@@ -9,8 +9,8 @@ import { SidebarComponent } from './theme/sidebar/sidebar.component';
 
 import { AdminLayoutComponent } from './theme/admin-layout/admin-layout.component';
 import { AuthLayoutComponent } from './theme/auth-layout/auth-layout.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './theme/footer/footer.component';
+import { HeaderComponent } from './theme/header/header.component';
 
 
 @NgModule({

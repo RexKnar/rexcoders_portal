@@ -1,20 +1,43 @@
-
+/*
+* Theme Name: SkillUp - Online Learning Platform HTML Template
+* Author: Themezhub
+* Version: 1.0
+* Last Change: 29 Aug 2021
+  Author URI    : https://themezhub.com/
+-------------------------------------------------------------------*/
+/*------------- List Of Table -----------
+# Fonts
+# Global Settings
+# Header Navigation Styles
+# Homes Banner
+# Education Elements
+# Inner page design
+# General Features
+# Blog Designs
+# Education Detail 
+# E-Commerce & Product Designs
+# Dashboard Design
+# Footer Start 
+# Responsiveness Start
+------------- List Of Table ----------*/
 
 /* CSS Document */
-@import url(plugins/animation.css);
-@import url(plugins/bootstrap.min.css);
-@import url(plugins/date-picker.css);
-@import url(plugins/select2.css);
-@import url(plugins/themify.css);
-@import url(plugins/morris.css);
-@import url(plugins/font-awesome.css);
-@import url(plugins/flaticon.css);
-@import url(plugins/summernote.min.css);
+/* @import url(../css/plugins/animation.css); */
+@import url(../css/plugins/bootstrap.min.css);
+@import url(../css/plugins/date-picker.css);
+@import url(../css/plugins/select2.css);
+@import url(../css/plugins/slick.css);
+@import url(../css/plugins/slick-theme.css);
+@import url(../css/plugins/themify.css);
+@import url(../css/plugins/morris.css);
+@import url(../css/plugins/font-awesome.css);
+@import url(../css/plugins/flaticon.css);
+@import url(../css/plugins/summernote.min.css);
 
 /*------------------------------------
 	Fonts
 ------------------------------------*/
-@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&amp;display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Muli:300,400,600,700');
 
 /*------------------------------------------------------------
@@ -56,7 +79,7 @@ a:focus {
   text-decoration: none; }
 
 a.link {
-  color:#03b97c; }
+  color:#e42d29; }
 a.link:hover, a.link:focus, a:hover, a:focus {
     color:#03b97c; 
 }
@@ -507,7 +530,7 @@ html body .text-purple {
   color: #7460ee; }
 
 html body .text-primary {
-  color:#03b97c !important; }
+  color:#e42d29 !important; }
 
 html body .text-megna {
   color: #1dc8cd; }
@@ -516,7 +539,7 @@ html body .text-dark {
   color: #8d97ad; }
 
 html body .text-themecolor {
-  color:#03b97c; }
+  color:#e42d29; }
 
 /*------------------------ Global Settings: Lists ------------------*/
 .lists-4, .lists-3, .lists-2, .lists-1 {
@@ -540,7 +563,7 @@ html body .text-themecolor {
     display: block;
 }
 .lists-4.color li:before, .lists-3.color li:before, .lists-2.color li:before, .lists-1.color li:before{
-	color:#03b97c;
+	color:#e42d29;
 }
 .lists-1 li:before {
     content: "\e71b";
@@ -596,7 +619,7 @@ html body .text-themecolor {
 }
 /*-------------- GLobal Settings: Background Colors ----------------*/
 .bg-primary {
-  background-color:#03b97c !important; }
+  background-color:#e42d29 !important; }
 
 .bg-success {
   background-color: #27b737 !important; }
@@ -626,7 +649,7 @@ html body .bg-megna {
   background-color: #1dc8cd; }
 
 html body .bg-theme {
-  background-color:#03b97c; }
+  background-color:#e42d29; }
 
 html body .bg-inverse {
   background-color:#374158; }
@@ -931,7 +954,7 @@ border-radius: 50%;
 }
 
 .radio-custom:checked + .radio-custom-label:before {
-background:#03b97c;
+background:#e42d29;
 box-shadow: inset 0px 0px 0px 4px #fff;
 }
 .company-brands label{
@@ -1144,7 +1167,7 @@ label i.count{
 	color:#ffffff;
 }
 .color-heading .sec-heading h2{
-    color: #03b97c;	
+    color: #e42d29;	
 }
 .sec-heading p{
 	margin-bottom:5px;
@@ -1684,11 +1707,11 @@ nav a:hover {
     z-index: 19999
 }
 
-/* .no-scroll {
+.no-scroll {
     width: 100%;
     height: 100%;
     overflow: hidden
-} */
+}
 
 .nav-search {
     height: 70px;
@@ -1751,7 +1774,7 @@ nav a:hover {
 }
 
 .nav-search-button:hover .nav-search-icon {
-    color: #03b97c
+    color: #e42d29
 }
 
 .navigation-portrait .nav-search-button {
@@ -1831,16 +1854,14 @@ nav a:hover {
     top: 10px;
     right: 14px
 }
-.nav-menu .active{
-    color:#03b97c;  
-}
+
 .nav-button {
     margin: 18px 15px 0;
     padding: 8px 14px;
     color: #fff;
     text-align: center;
     border-radius: 4px;
-    background-color: #03b97c;
+    background-color: #e42d29;
     transition: opacity .3s
 }
 
@@ -2523,7 +2544,7 @@ span.expiration {
     color: #404656;
 }
 .header-transparent.dark-text .nav-menu>li>a:hover, .header-transparent.dark-text .nav-menu>li>a:focus {
-    color:#03b97c;
+    color:#e42d29;
 }
 .header-transparent .submenu-indicator-chevron {
     border-color: transparent #ffffff #ffffff transparent;
@@ -2753,7 +2774,7 @@ li.login-attri .account-drop a {
  Homes Banner
 ==================================================*/
 .hero_banner{
-	/* display: flex; */
+	display: flex;
     height: auto;
     padding:7rem 0;
     align-items: center;
@@ -3162,8 +3183,8 @@ span.esli_vd {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    /* width: 33.333333%; */
-    flex: 0 0 50.333333%;
+    width: 33.333333%;
+    flex: 0 0 33.333333%;
     color: #4e6579;
     font-size: 14px;
     list-style: none;
@@ -4265,8 +4286,8 @@ ul.lt_cr_list li i{
 }
 .blog-page .article_detail_wrapss .article_bottom_info .post-tags .list li a:hover {
     color: #ffffff;
-    background:#03b97c;
-    border-color:#03b97c;
+    background:#e42d29;
+    border-color:#e42d29;
 }
 .blog-page .article_detail_wrapss .article_bottom_info .post-share .list {
     padding: 0;
@@ -4311,7 +4332,7 @@ ul.lt_cr_list li i{
 }
 .single_article_pagination .article_pagination_center_grid a {
     font-size: 2.5rem;
-    color:#03b97c;
+    color:#e42d29;
 }
 .single_article_pagination .prev-post a, .single_article_pagination .next-post a {
     display: inline-block;
@@ -4452,7 +4473,7 @@ h3.pa-name {
 }
 .social-links li a:hover,
 .social-links li a:focus{
-	color:#03b97c;
+	color:#e42d29;
 }
 /*-------------- Sidebar -----------*/
 .single_widgets {
@@ -4700,7 +4721,7 @@ h3.pa-name {
     color: #ffffff;
 }
 ._smart_testimons_info span {
-    color: #03b97c;
+    color: #e42d29;
     font-size: 13px;
     font-weight: 600;
 }
@@ -5637,7 +5658,7 @@ ul.edu_list.third li {
     transition: all 0.3s linear;
 }
 .ovrlio.min{
-    margin-top:-50px;
+    margin-top:-150px;
     z-index: 9;
     -webkit-transition: all 0.3s linear;
     transition: all 0.3s linear;
