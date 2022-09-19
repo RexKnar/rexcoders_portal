@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -8,29 +9,31 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  
+  loginForm!: FormGroup;
+  constructor(private loginFormBuilder: FormBuilder,
 
-  public newUser = false;
-  // public user: firebase.User;
-  public loginForm: FormGroup;
-  public formErrors: {email:any,password:any} = {
-    'email': '',
-    'password': '',
-  };
-  public errorMessage: any;
-
-  constructor( private fb: FormBuilder,
     private router: Router) {
-    this.loginForm = fb.group({
-      email: ['test@gmail.com', [Validators.required, Validators.email]],
-      password: ['test123', Validators.required]
+  }
+  get loginControl() {
+    return this.loginForm.controls;
+  }
+  ngOnInit() {
+    this.loginForm = this.loginFormBuilder.group({
+      userId: [null, [Validators.required, Validators.email]],
+      password: [null, [Validators.required, Validators.minLength(6)]]
     });
   }
-
-  ngOnInit() {
+  loginSubmit() {
+    if (this.loginForm.valid) {
+      Swal.fire('success');
+    }
+    else {
+      Swal.fire('Invalid User');
+    }
   }
-
-
-
-
-
 }
+
+
+
+
