@@ -20,13 +20,13 @@
 								<div class="form-group">
 									<label>User Name</label>
 									<input type="text" class="form-control" placeholder=""
-										formControlName="userId" />
+										formControlName="username" />
 
-									<div *ngIf="loginControl['userId'].touched && loginControl['userId'].invalid"
+									<div *ngIf="loginControl['username'].touched && loginControl['username'].invalid"
 										class="text-danger">
-										<span *ngIf="loginControl['userId'].errors?.['required']">User Name is
+										<span *ngIf="loginControl['username'].errors?.['required']">User Name is
 											required.</span>
-										<span *ngIf="loginControl['userId'].errors?.['pattern']">Invalid User</span>
+										<span *ngIf="loginControl['username'].errors?.['email']">Invalid User</span>
 									</div>
 								</div>
 

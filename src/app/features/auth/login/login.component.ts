@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { AuthService } from 'src/app/shared/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,31 +10,32 @@ import Swal from 'sweetalert2';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  
-  loginForm!: FormGroup;
-  constructor(private loginFormBuilder: FormBuilder,
 
-    private router: Router) {
+  loginForm!: FormGroup;
+  constructor(private loginFormBuilder: FormBuilder, public _authservice: AuthService, private router: Router) {
   }
   get loginControl() {
     return this.loginForm.controls;
   }
   ngOnInit() {
     this.loginForm = this.loginFormBuilder.group({
-      userId: [null, [Validators.required, Validators.email]],
+      username: [null, [Validators.required, Validators.email]],
       password: [null, [Validators.required, Validators.minLength(6)]]
     });
   }
   loginSubmit() {
     if (this.loginForm.valid) {
-      Swal.fire('success');
-    }
-    else {
-      Swal.fire('Invalid User');
+      this._authservice.postlogin(this.loginForm.value).subscribe({
+        next: (data) => {
+          console.log(data);
+          Swal.fire('success');
+        },
+        error: (err) => { 
+          Swal.fire('Invalid'); 
+        }
+      });
     }
   }
 }
-
-
 
 
