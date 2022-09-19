@@ -1,5 +1,5 @@
 .page-body{
-    margin-left: 28%;
+    margin-left: 0%;
     transition: 0.3s;
 }
 
@@ -12,3 +12,30 @@
     z-index: 1000;
     transition: 0.3s;
 }
+
+#left-sidebar.slide-in{
+  margin-left:0;
+  transition:0.5s;
+  }
+  #parent-container.slide-in{
+    margin-left : 300px;
+    transition:0.5s;
+
+  }
+  #nav-header.slide-in{
+    width: calc(100% - 300px);
+  }
+
+  #left-sidebar.slide-out{
+    margin-left:-350px;
+    transition:0.5s;
+  }
+  #parent-container.slide-out{
+    margin-left : 0;
+    transition:0.5s;
+  }
+  #nav-header.slide-out{
+    width:100%;
+
+
+  }
