@@ -6,14 +6,10 @@ import { AUTH_CONFIG, ROUTE_CONFIG} from './config/endpoints';
   providedIn: 'root'
 })
 export class AuthService {
-
   constructor(public httpClient: HttpClient) { 
   }
-  
   loginapi(loginPayload:any):Observable<any>
   {
     return this.httpClient.post(ROUTE_CONFIG.baseUrl + AUTH_CONFIG.loginUrl,loginPayload);
   }
- 
-  
 }
