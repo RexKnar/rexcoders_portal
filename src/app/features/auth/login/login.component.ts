@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit, OnDestroy {
-  loginsubscription: Subscription
+  loginSubscription: Subscription
   loginForm!: FormGroup;
   constructor(private loginFormBuilder: FormBuilder, public _authservice: AuthService, private router: Router) {
   }
@@ -25,11 +25,11 @@ export class LoginComponent implements OnInit, OnDestroy {
     });
   }
   ngOnDestroy() {
-    this.loginsubscription.unsubscribe()
+    this.loginSubscription.unsubscribe()
   }
   loginSubmit() {
     if (this.loginForm.valid) {
-      this.loginsubscription=this._authservice.adminLoginendpoint(this.loginForm.value).subscribe({
+      this.loginSubscription=this._authservice.authenticateUser(this.loginForm.value).subscribe({
         next: (data) => {
           Swal.fire('Welcome to Rexcoders');
         },

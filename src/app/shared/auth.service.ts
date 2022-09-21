@@ -8,7 +8,7 @@ import { AUTH_CONFIG, ROUTE_CONFIG} from './config/endpoints';
 export class AuthService {
   constructor(public httpClient: HttpClient) { 
   }
-  adminLoginendpoint(loginPayload:any):Observable<any>
+  authenticateUser(loginPayload:any):Observable<any>
   {
     return this.httpClient.post(ROUTE_CONFIG.baseUrl + AUTH_CONFIG.loginUrl,loginPayload);
   }
