@@ -34,8 +34,8 @@ export class LoginComponent implements OnInit {
     }
   ngOnInit() {
     this.loginForm = this.fb.group({
-      email: [null, [Validators.required, Validators.email,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
-      password: [null, [Validators.required, Validators.minLength(6)]]
+      email: ["", [Validators.required, Validators.email]],
+      password: ["", [Validators.required, Validators.minLength(6)]]
     });
     
   }
@@ -44,6 +44,7 @@ export class LoginComponent implements OnInit {
    
 
    if (this.loginForm.invalid) {
+    console.log(this.loginForm);
     this.submitted = true;
  
     Swal.fire('Invalid User');
