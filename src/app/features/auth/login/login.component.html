@@ -20,13 +20,13 @@
 								<div class="form-group">
 									<label>User Name</label>
 									<input type="text" class="form-control" placeholder=""
-										formControlName="userId" />
+										formControlName="username" />
 
-									<div *ngIf="loginControl['userId'].touched && loginControl['userId'].invalid"
+									<div *ngIf="loginControls['username'].touched && loginControls['username'].invalid"
 										class="text-danger">
-										<span *ngIf="loginControl['userId'].errors?.['required']">User Name is
+										<span *ngIf="loginControls['username'].errors?.['required']">User Name is
 											required.</span>
-										<span *ngIf="loginControl['userId'].errors?.['pattern']">Invalid User</span>
+										<span *ngIf="loginControls['username'].errors?.['email']">Invalid User</span>
 									</div>
 								</div>
 
@@ -35,15 +35,13 @@
 									<input type="password" class="form-control" placeholder=""
 										formControlName="password" />
 								</div>
-								<div *ngIf="loginControl['password'].touched && loginControl['password'].invalid"
+								<div *ngIf="loginControls['password'].touched && loginControls['password'].invalid"
 									class="text-danger">
-									<div *ngIf="loginControl['password'].errors?.['required']">Password is required.
+									<div *ngIf="loginControls['password'].errors?.['required']">Password is required.
 									</div>
-									<div *ngIf="loginControl['password'].errors?.['minlength']">Password should be
+									<div *ngIf="loginControls['password'].errors?.['minlength']">Password should be
 										minimum 6 character.</div>
 								</div>
-
-
 								<div class="form-group">
 									<button type="submit"
 										class="btn full-width btn-md theme-bg text-white">Login</button>
