@@ -10,14 +10,18 @@ $transparent-color: transparent;
 
 .dashboard-navbar .d-navigation ul a[class=""] {
   background-color: #03B97C1F;
-  color: #03b97c !important;;
+  color: #03b97c !important;
+  cursor:pointer;
+}
+.dashboard-navbar .d-navigation ul a {
+  cursor:pointer;
 }
 .dashboard-navbar .d-navigation ul a[class=""] span::before{
   content: "\e64b";
 }
 
 .page-sidebar{
-    height: calc(100vh - 80px);
+    height: 100vh;
     overflow: auto;
     box-shadow: $sidebar-shadow;
     &.custom-scrollbar {

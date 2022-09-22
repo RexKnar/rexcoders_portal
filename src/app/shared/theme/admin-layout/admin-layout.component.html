@@ -4,7 +4,7 @@
   <section class="gray pt-4" style="box-sizing:border-box">
     <div class="container-fluid" style="padding-left:0;padding-right:0">
       <div class="row">
-        <div class="col-lg-3 col-md-3 fixed-top " [ngClass]="isToogleSidebar?'slide-in':'slide-out'" id="left-sidebar">
+        <div class="col-lg-3 col-md-3 col-sm-3 fixed-top" [ngClass]="isToogleSidebar?'slide-in':'slide-out'" id="left-sidebar">
           <app-sidebar></app-sidebar>
         </div>
       </div>
@@ -13,7 +13,7 @@
           [ngClass]="isToogleSidebar?'slide-in':'slide-out'" id="nav-header" >
           <app-header (isToggleSidebar)="toggleSidebar($event)"></app-header>
         </div>
-        <div class="col-lg-12 col-md-12 col-sm-12 p-5">
+        <div class="col-lg-12 col-md-12 col-sm-12">
           <router-outlet></router-outlet>
         </div>
         <div class="col-lg-12 col-md-12 col-sm-12">
