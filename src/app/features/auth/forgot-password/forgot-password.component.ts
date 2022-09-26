@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ForgotPasswordComponent implements OnInit {
 
   formData: { userEmail: string } = { userEmail: '' };
+  toggleForgotPasswordForm:boolean=true;
 
   constructor() { }
 
@@ -15,5 +16,6 @@ export class ForgotPasswordComponent implements OnInit {
   }
   getForgotFormData(form: any) {
     console.log(form.value);
+    this.toggleForgotPasswordForm=false;
   }
 }
