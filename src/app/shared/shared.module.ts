@@ -15,7 +15,8 @@ import {CookieService} from 'ngx-cookie-service';
     SidebarComponent,
     AdminLayoutComponent,
     AuthLayoutComponent,
-    FooterComponent
+    FooterComponent,
+    
   ],
   imports: [
     CommonModule,
