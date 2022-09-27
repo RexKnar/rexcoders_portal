@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
-
+import {CookieService} from 'ngx-cookie-service';
 @NgModule({
   declarations: [
     AppComponent
@@ -15,9 +15,10 @@ import { SharedModule } from './shared/shared.module';
     AppRoutingModule,
     SharedModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+  
   ],
-  providers: [],
+  providers: [CookieService],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })
