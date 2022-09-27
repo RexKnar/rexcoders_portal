@@ -4,19 +4,26 @@
   <section class="gray pt-4" style="box-sizing:border-box">
     <div class="container-fluid" style="padding-left:0;padding-right:0">
       <div class="row">
-        <div class="col-lg-3 col-md-3 col-sm-3 fixed-top" [ngClass]="isToogleSidebar?'slide-in':'slide-out'" id="left-sidebar">
+        <div class="col-lg-3 col-md-3 col-sm-3 col-3 fixed-top d-none d-md-block left-sidebar-mobile"
+          [ngClass]="isToogleSidebar?'slide-in':'slide-out'" id="left-sidebar">
+          <app-sidebar></app-sidebar>
+        </div>
+        </div>
+        <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-4 col-4 mw-100 fixed-top d-hidden left-sidebar"
+          [ngClass]="isSidebarMobile?'slide-in-mobile':'slide-out-mobile'">
           <app-sidebar></app-sidebar>
         </div>
       </div>
-      <div class="row" id="parent-container" [ngClass]="isToogleSidebar?'slide-in':'slide-out'">
-        <div class="col-lg-12 col-md-12 col-sm-12 collapse-off-sidebar ms-0 bg-white"
-          [ngClass]="isToogleSidebar?'slide-in':'slide-out'" id="nav-header" >
+      <div class="row parent-container-mobile" id="parent-container" [ngClass]="isToogleSidebar?'slide-in':'slide-out'">
+        <div #navbarmobile class="col-lg-12 col-md-12 col-sm-12 collapse-off-sidebar ms-0 bg-white nav-header-mobile" id="nav-header"
+          [ngClass]="isToogleSidebar?'slide-in':'slide-out'">
           <app-header (isToggleSidebar)="toggleSidebar($event)"></app-header>
         </div>
         <div class="col-lg-12 col-md-12 col-sm-12">
           <router-outlet></router-outlet>
         </div>
-        <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="col-lg-12 col-md-12 col-sm-12" style="z-index:0;">
           <app-footer></app-footer>
         </div>
       </div>
