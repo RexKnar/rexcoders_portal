@@ -1,13 +1,29 @@
-import { Component, Input, OnInit } from '@angular/core';
-
+import { Component, Input, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Menu, MENUITEMS } from '../../config/menuitems';
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
-  constructor() { }
+  public menuItems: Menu[] = MENUITEMS;
+  isBtnClick = false;
+  isBtnClickValue = true;
+  @ViewChild('submenu') submenu!: ElementRef;
+  constructor() {
+    console.log(this.menuItems);
 
+  }
+  toggletNavActive(item:any) {
+    if (!item.active) {
+      this.menuItems.forEach((a) => {
+        if (this.menuItems.includes(item)){
+          a.active = false;
+        }
+      });
+    }
+    item.active = !item.active;
+  }
   ngOnInit(): void {
   }
 
