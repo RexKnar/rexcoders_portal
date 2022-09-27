@@ -19,7 +19,8 @@ import { HeaderComponent } from './theme/header/header.component';
     SidebarComponent,
     AdminLayoutComponent,
     AuthLayoutComponent,
-    FooterComponent
+    FooterComponent,
+    
   ],
   imports: [
     CommonModule,
