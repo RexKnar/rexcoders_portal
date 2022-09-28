@@ -11,7 +11,7 @@ export class SidebarComponent implements OnInit {
   isBtnClickValue = true;
   @ViewChild('submenu') submenu!: ElementRef;
   constructor() {
-    console.log(this.menuItems);
+
 
   }
   toggletNavActive(item:any) {

@@ -24,22 +24,21 @@ export class AdminLayoutComponent implements OnInit, AfterViewInit {
     this.isToogleSidebar = event;
     if(this.isMobileToogleSidebar) {
       this.isSidebarMobile = event;
-      console.log(this.isSidebarMobile);
+
     }
     else{
       this.isSidebarMobile = false;
-      console.log(this.isSidebarMobile);
+
     }
   }
 
 
   ngOnInit() {
     this.screenWidth = window.innerWidth;
-    console.log(this.screenWidth);
-    console.log(this.isSidebarMobile);
+
   }
   ngAfterViewInit(): void {
-    // console.log(this.navsbarmobile.nativeElement.getAttribute('class'));
+
   }
   @HostListener('window:resize', ['$event'])
   @HostListener('window:load', ['$event'])
