@@ -9,7 +9,6 @@ export class SidebarComponent implements OnInit {
   public menuItems: Menu[] = MENUITEMS;
   isBtnClick = false;
   isBtnClickValue = true;
-  @ViewChild('submenu') submenu!: ElementRef;
   constructor() {
 
 
