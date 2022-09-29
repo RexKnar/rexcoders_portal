@@ -19,7 +19,10 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     FormsModule,
     ReactiveFormsModule,
     
-    
-]
+  ]
+
+  
+
+
 })
 export class AuthModule { }
