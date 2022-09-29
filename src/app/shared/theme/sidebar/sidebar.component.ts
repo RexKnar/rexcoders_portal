@@ -11,13 +11,13 @@ export class SidebarComponent implements OnInit {
   isBtnClickValue = true;
   constructor() {
 
-
   }
   toggletNavActive(item:any) {
     if (!item.active) {
       this.menuItems.forEach((a) => {
         if (this.menuItems.includes(item)){
           a.active = false;
+          console.log();
         }
       });
     }

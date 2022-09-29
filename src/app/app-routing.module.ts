@@ -17,7 +17,8 @@ const routes: Routes = [
   {
     path:'admin',
     component: AdminLayoutComponent,
-    loadChildren: () => import('./features/auth/auth.module').then(module => module.AuthModule),
+    loadChildren: () => import('./superadmin/superadmin.module').then(module => module.SuperadminModule)
+    
   }
 ];
 
