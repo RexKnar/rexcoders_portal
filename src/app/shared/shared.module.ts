@@ -11,6 +11,7 @@ import { AdminLayoutComponent } from './theme/admin-layout/admin-layout.componen
 import { AuthLayoutComponent } from './theme/auth-layout/auth-layout.component';
 import { FooterComponent } from './theme/footer/footer.component';
 import { HeaderComponent } from './theme/header/header.component';
+// import { CourseCardComponent } from './components/course-card/course-card.component';
 
 
 @NgModule({
