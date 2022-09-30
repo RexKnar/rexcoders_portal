@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 import { AuthService } from 'src/app/shared/auth.service';
 import{CookiesService} from 'src/app/shared/service/cookies.service';
 import { Subscription } from 'rxjs';
-import {CookieService} from 'ngx-cookie-service';
+
 
 @Component({
   selector: 'app-login',
@@ -21,8 +21,8 @@ export class LoginComponent implements OnInit, OnDestroy {
  
      public _authservice: AuthService,
      private cookiesService: CookiesService,
-     private cookieService: CookieService,
       private router: Router) {
+
   }
   get loginControls() {
     return this.loginForm.controls;
@@ -38,6 +38,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
   loginSubmit() {
     if (this.loginForm.valid) {
+
       this.loginSubscription=this._authservice.authenticateUser(this.loginForm.value).subscribe({
         next: (data) => {
           Swal.fire('Welcome to Rexcoders');
@@ -49,11 +50,13 @@ export class LoginComponent implements OnInit, OnDestroy {
         },
         error: (err) => { 
           Swal.fire('Invalid User'); 
+
         }
       });
     }
   }
 
 }
+
 
 
