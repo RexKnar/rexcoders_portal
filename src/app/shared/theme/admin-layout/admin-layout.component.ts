@@ -10,27 +10,20 @@ export class AdminLayoutComponent implements OnInit {
  
   public right_side_bar: boolean=false;
 
- 
+  isToogleSidebar:boolean=true;
+
 
   constructor() { }
 
 
-  ngAfterViewInit() {
-    
-  } 
+  toggleSidebar(event:boolean){
 
-  @HostListener('document:click', ['$event'])
-  clickedOutside(event: any) {
+    this.isToogleSidebar=event;
+
+
+
+  }
  
-  }
-
-  public getRouterOutletState(outlet: { isActivated: any; activatedRoute: any; }) {
-    return outlet.isActivated ? outlet.activatedRoute : '';
-  }
-
-  public rightSidebar($event: boolean) {
-    this.right_side_bar = $event
-  }
   
   ngOnInit() { }
 
