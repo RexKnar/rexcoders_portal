@@ -26,8 +26,8 @@
         </div>
         <div class="row mb-4">
             <div class="col">
-                <label>Image URL</label>
-                <input type="text" class="form-control" placeholder="Image URL" name="imageUrl">
+                <label>Image URL</label> <i class="loader ml-4 mr-3"></i> Loading...    
+                <input type="file" class="form-control" id="imgurl" name="imgurl">
             </div>
             <div class="col">
                 <label>Sample Video URL</label>
@@ -36,13 +36,13 @@
         </div>
         <div class="row mb-4">
             <div class="col">
-                <label for="domainId">Domain</label>
+                <label for="category">Category</label>
                 <select class="form-control">
                     <option></option>
                 </select>
             </div>
             <div class="col">
-                <label for="category">Category</label>
+                <label for="subcategory">Sub Category</label>
                 <select class="form-control">
                     <option></option>
                 </select>
@@ -64,17 +64,25 @@
         </div>
         <div class="row mb-4">
             <div class="col">
-                <label>Class Links</label>
-                <input type="text" class="form-control" placeholder="Class Links" name="classLink">
+                <label for="domainId">Domain</label>
+                <select class="form-control">
+                    <option></option>
+                </select>
             </div>
             <div class="col">
-                <label>Others</label>
-                <input type="text" class="form-control" placeholder="Others" name="others">
+                <label>Class Links</label>
+                <input type="text" class="form-control" placeholder="Class Links" name="classLink">
             </div>
         </div>
         <div class="row mb-4">
             <div class="col">
                 <label>Prerequisite</label>
+                <ckeditor name="myckeditor" debounce="300" [editor]="editor"></ckeditor>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col">
+                <label>Perks</label>
                 <ckeditor name="myckeditor" debounce="300" [editor]="editor"></ckeditor>
             </div>
         </div>
@@ -90,13 +98,6 @@
                 <ckeditor name="myckeditor" debounce="300" [editor]="editor"></ckeditor>
             </div>
         </div>
-        <div class="row mb-4">
-            <div class="col">
-                <label>Perks</label>
-                <ckeditor name="myckeditor" debounce="300" [editor]="editor"></ckeditor>
-            </div>
-        </div>
+        
     </form>
 </div>
-# If you use npm
-$ npm install @tinymce/tinymce-angular
