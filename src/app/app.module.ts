@@ -17,7 +17,7 @@ import { SharedModule } from './shared/shared.module';
     SharedModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],

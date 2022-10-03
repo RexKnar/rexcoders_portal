@@ -1,4 +1,4 @@
-<div class="container mb-5 mb-lg-0">
+<div class="container mb-5 mb-lg-0 shadow">
     <form action="#" class="p-3">
         <div class="row mt-5 mb-4">
             <div class="col">
@@ -7,22 +7,11 @@
             </div>
             <div class="col">
                 <label for="learnersLevel">Learners Level</label>
-                <select class="form-control">
-                    <option>Select Learners Level</option>
-                    <option>Beginners</option>
-                    <option>Intermediaters</option>
-                    <option>Advanced</option>
-                </select>
-            </div>
-        </div>
-        <div class="row mb-4">
-            <div class="col">
-                <label>Prerequisite</label>
-                <input type="text" class="form-control" placeholder="Enter the Prerequisite" name="prerequisite">
+                <input type="text" class="form-control" placeholder="Beginners" name="trainingName">
             </div>
             <div class="col">
-                <label>Description</label>
-                <textarea class="form-control" rows="5"></textarea>
+                <label>Stack</label>
+                <input type="text" class="form-control" placeholder="Stack" name="stack">
             </div>
         </div>
         <div class="row mb-4">
@@ -47,13 +36,71 @@
         </div>
         <div class="row mb-4">
             <div class="col">
-                <label>Perks</label>
-                <input type="text" class="form-control" placeholder="Perks" name="perks">
+                <label for="domainId">Domain</label>
+                <select class="form-control">
+                    <option>HTML</option>
+                    <option>CSS</option>
+                    <option>JS</option>
+                    <option>jQuery</option>
+                    <option>Angular</option>
+                </select>
             </div>
             <div class="col">
-                <label>Stack</label>
-                <input type="text" class="form-control" placeholder="Stack" name="stack">
+                <label for="category">Category</label>
+                <select class="form-control">
+                    <option></option>
+                </select>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col">
+                <label for="domainId">Language</label>
+                <select class="form-control">
+                    <option></option>
+                </select>
+            </div>
+            <div class="col">
+                <label for="category">Medium</label>
+                <select class="form-control">
+                    <option></option>
+                </select>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col">
+                <label>Class Links</label>
+                <input type="text" class="form-control" placeholder="Class Links" name="classLink">
+            </div>
+            <div class="col">
+                <label>Others</label>
+                <input type="text" class="form-control" placeholder="Others" name="others">
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col">
+                <label>Prerequisite</label>
+                <ckeditor name="myckeditor" debounce="300" [editor]="editor"></ckeditor>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col">
+                <label>Description</label>
+                <ckeditor name="myckeditor" debounce="300" [editor]="editor"></ckeditor>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col">
+                <label>Syllabus</label>
+                <ckeditor name="myckeditor" debounce="300" [editor]="editor"></ckeditor>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col">
+                <label>Perks</label>
+                <ckeditor name="myckeditor" debounce="300" [editor]="editor"></ckeditor>
             </div>
         </div>
     </form>
 </div>
+# If you use npm
+$ npm install @tinymce/tinymce-angular

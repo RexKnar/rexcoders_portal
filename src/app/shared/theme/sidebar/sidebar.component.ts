@@ -7,8 +7,6 @@ import { Menu, MENUITEMS } from '../../config/menuitems';
 })
 export class SidebarComponent implements OnInit {
   public menuItems: Menu[] = MENUITEMS;
-  isBtnClick = false;
-  isBtnClickValue = true;
   constructor() {
 
   }

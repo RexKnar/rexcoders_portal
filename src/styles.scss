@@ -19,3 +19,9 @@
         margin-left: 0px;
         transition: 0.9s;
     }
+
+    .ck.ck-editor__editable.ck-focused:not(.ck-editor__nested-editable) {
+        border: 1px solid #03b97c !important;
+        box-shadow: var(--ck-inner-shadow),0 0 !important;
+        outline: none !important;
+    }

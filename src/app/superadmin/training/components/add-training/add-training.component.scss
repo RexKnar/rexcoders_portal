@@ -1,0 +1,7 @@
+$myColor: #03b97c;
+.form-control {
+    height: 42px !important;
+}
+.form-control:focus{
+    border:1px solid $myColor;
+}
