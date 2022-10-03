@@ -1,0 +1,102 @@
+<div class="container mb-5 mb-lg-0 shadow">
+    <form action="#" class="p-3">
+        <div class="row mt-5 mb-4">
+            <div class="col">
+                <label>Training Name</label>
+                <input type="text" class="form-control" placeholder="Enter the Training Name" name="trainingName">
+            </div>
+            <div class="col">
+                <label for="learnersLevel">Learners Level</label>
+                <input type="text" class="form-control" placeholder="Beginners" name="trainingName">
+            </div>
+            <div class="col">
+                <label>Stack</label>
+                <input type="text" class="form-control" placeholder="Stack" name="stack">
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col">
+                <label>Training Amount</label>
+                <input type="text" class="form-control" placeholder="Enter Training Amount" name="amount">
+            </div>
+            <div class="col">
+                <label>Discount Amount</label>
+                <input type="text" class="form-control" placeholder="Discount Amount" name="discountAmount">
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col">
+                <label>Image URL</label>
+                <input type="text" class="form-control" placeholder="Image URL" name="imageUrl">
+            </div>
+            <div class="col">
+                <label>Sample Video URL</label>
+                <input type="text" class="form-control" placeholder="Sample Video URL" name="sampleVideoUrl">
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col">
+                <label for="domainId">Domain</label>
+                <select class="form-control">
+                    <option></option>
+                </select>
+            </div>
+            <div class="col">
+                <label for="category">Category</label>
+                <select class="form-control">
+                    <option></option>
+                </select>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col">
+                <label for="domainId">Language</label>
+                <select class="form-control">
+                    <option></option>
+                </select>
+            </div>
+            <div class="col">
+                <label for="category">Medium</label>
+                <select class="form-control">
+                    <option></option>
+                </select>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col">
+                <label>Class Links</label>
+                <input type="text" class="form-control" placeholder="Class Links" name="classLink">
+            </div>
+            <div class="col">
+                <label>Others</label>
+                <input type="text" class="form-control" placeholder="Others" name="others">
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col">
+                <label>Prerequisite</label>
+                <ckeditor name="myckeditor" debounce="300" [editor]="editor"></ckeditor>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col">
+                <label>Description</label>
+                <ckeditor name="myckeditor" debounce="300" [editor]="editor"></ckeditor>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col">
+                <label>Syllabus</label>
+                <ckeditor name="myckeditor" debounce="300" [editor]="editor"></ckeditor>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col">
+                <label>Perks</label>
+                <ckeditor name="myckeditor" debounce="300" [editor]="editor"></ckeditor>
+            </div>
+        </div>
+    </form>
+</div>
+# If you use npm
+$ npm install @tinymce/tinymce-angular
