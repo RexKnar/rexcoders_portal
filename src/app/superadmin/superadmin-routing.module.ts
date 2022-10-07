@@ -8,9 +8,13 @@ const routes: Routes = [
   },
   {
     path:'',
-    redirectTo:'training',
+    redirectTo:'domain',
     pathMatch:'full'
-  }
+  },
+  {
+    path:'domain',
+    loadChildren:() => import('./settings/settings.module').then(module=>module.SettingsModule)
+  },
 
 ];
 
