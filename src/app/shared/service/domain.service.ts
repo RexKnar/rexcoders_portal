@@ -10,8 +10,17 @@ export class DomainService {
   getDomain(): Observable<any> {
     return this.httpClient.get(ROUTE_CONFIG.baseUrl+DOMAIN_CONFIG.getDomainListUrl);
   }
+
+  deleteDomain(domainID:number): Observable<any> {
+    return this.httpClient.delete(ROUTE_CONFIG.baseUrl+DOMAIN_CONFIG.getDomainListUrl+"?"+domainID);
+  }
+
+
   postDomain(domainPayload: any): Observable<any> {
-    console.log(domainPayload);
     return this.httpClient.post(ROUTE_CONFIG.baseUrl+DOMAIN_CONFIG.addDomainUrl, domainPayload);
+  }
+
+  updateDomain(domainPayload: any): Observable<any> {
+    return this.httpClient.put(ROUTE_CONFIG.baseUrl+DOMAIN_CONFIG.addDomainUrl, domainPayload);
   }
 }

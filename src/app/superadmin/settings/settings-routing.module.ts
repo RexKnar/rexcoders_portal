@@ -1,15 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AddDomainComponent } from './domain/components/add-domain/add-domain.component';
-
+import { DomainListComponent } from './domain/components/domain-list/domain-list.component';
 const routes: Routes = [
   {
-    path:'add-domain',
-    component:AddDomainComponent
+    path:'domain-list',
+    component:DomainListComponent
    },
    {
     path:'',
-    redirectTo:'add-domain',
+    redirectTo:'domain-list',
     pathMatch:'full'
   }
 ];

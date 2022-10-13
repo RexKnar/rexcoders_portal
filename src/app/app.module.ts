@@ -17,7 +17,6 @@ import {CookieService} from 'ngx-cookie-service';
     AppRoutingModule,
     SharedModule,
     FormsModule,
-    ReactiveFormsModule,
     HttpClientModule,
   ],
   providers: [CookieService],
