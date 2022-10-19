@@ -16,6 +16,7 @@ export const TRAINING_CONFIG = {
 };
 export const DOMAIN_CONFIG = {
   getDomainListUrl: '/api/domain/getall',
+  addDomainUrl: '/api/domain/add'
 };
 
 export const PAYMENT_CONFIG = {
