@@ -10,19 +10,20 @@ import { TrainingCardComponent } from 'src/app/shared/components/training-card/t
 
 
 
+
 @NgModule({
   declarations: [
     LoginComponent,
     ForgotPasswordComponent,
-    //TrainingCardComponent
+    TrainingCardComponent
   ],
   imports: [
     CommonModule,
     AuthRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    
-    
+
+
 ]
 })
 export class AuthModule { }

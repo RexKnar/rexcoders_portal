@@ -9,15 +9,22 @@ import { LoginComponent } from './login/login.component';
 const routes: Routes = [
   {
     path:'',
+
     component:LoginComponent
+
+
+
   },
   {
     path:'forgot',
     component:ForgotPasswordComponent
   },
+
   {
     path:'card',component:TrainingCardComponent
   },
+
+
 
 
 ];

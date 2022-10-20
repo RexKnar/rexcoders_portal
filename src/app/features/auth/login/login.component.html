@@ -22,11 +22,13 @@
 									<input type="text" class="form-control" placeholder=""
 										formControlName="username" />
 
+
 									<div *ngIf="loginControls['username'].touched && loginControls['username'].invalid"
 										class="text-danger">
 										<span *ngIf="loginControls['username'].errors?.['required']">User Name is
 											required.</span>
 										<span *ngIf="loginControls['username'].errors?.['email']">Invalid User</span>
+
 									</div>
 								</div>
 

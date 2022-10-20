@@ -3,17 +3,17 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { SidebarComponent } from './theme/sidebar/sidebar.component';
-
-
-
-
 import { AdminLayoutComponent } from './theme/admin-layout/admin-layout.component';
 import { AuthLayoutComponent } from './theme/auth-layout/auth-layout.component';
 import { FooterComponent } from './theme/footer/footer.component';
 import { HeaderComponent } from './theme/header/header.component';
+
 //import { CourseCardComponent } from './components/course-card/course-card.component';
 import { TrainingCardComponent } from './components/training-card/training-card.component';
 // import { CourseCardComponent } from './components/course-card/course-card.component';
+
+
+import {CookieService} from 'ngx-cookie-service';
 
 
 @NgModule({
@@ -24,13 +24,14 @@ import { TrainingCardComponent } from './components/training-card/training-card.
     AuthLayoutComponent,
     FooterComponent,
     TrainingCardComponent
-    
+
   ],
   imports: [
     CommonModule,
     FormsModule,
     RouterModule
   ],
+
   exports: [
     HeaderComponent,
     SidebarComponent,
@@ -39,10 +40,9 @@ import { TrainingCardComponent } from './components/training-card/training-card.
     FooterComponent,
     TrainingCardComponent
 
-    
+
   ],
-  providers: [
-  ]
+
 })
 export class SharedModule { }
 

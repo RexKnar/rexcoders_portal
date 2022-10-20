@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './shared/theme/admin-layout/admin-layout.component';
 import { AuthLayoutComponent } from './shared/theme/auth-layout/auth-layout.component';
 
@@ -20,11 +21,14 @@ const routes: Routes = [
     loadChildren: () => import('./features/auth/auth.module').then(module => module.AuthModule),
   },
   {
-    path:'student', 
+    path:'student',
     component: AdminLayoutComponent,
     loadChildren: () => import('./features/student/student.module').then(module => module.StudentModule),
 
   },
+  //   loadChildren: () => import('./superadmin/superadmin.module').then(module => module.SuperadminModule)
+
+  // }
 ];
 
 @NgModule({
