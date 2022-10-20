@@ -1,8 +1,15 @@
 export class CourseCardDetails{
-    image:string;
-    title:string;
-    description:string;
-    time:string;
+    
     numberOfLectures:string;
     progress:string;
+    domain:domain;
+    trainingName:string;
+    totalHours:string|number;
+    imageUrl:any;
+    
+    
+}
+
+export class domain{
+    domainName:string;
 }

@@ -1,7 +1,7 @@
 <div class="crs_grid">
     <div class="crs_grid_thumb">
         <a href="course-detail.html" class="crs_detail_link">
-            <img src={{cardDetails.image}} class="img-fluid rounded" alt="" />
+            <img src="{{environment.baseUrl + cardDetails.imageUrl}}" class="img-fluid rounded" alt="" />
         </a>
         <div class="crs_video_ico">
             <i class="fa fa-play"></i>
@@ -13,14 +13,13 @@
     <div class="crs_grid_caption">
         <div class="crs_flex">
             <div class="crs_fl_first">
-                <div class="crs_cates cl_3"><span>{{cardDetails.title}}</span></div>
+               <div class="crs_cates cl_3"><span>{{cardDetails.domain.domainName}}</span></div>
             </div>
-            
         </div>
-        <div class="crs_title"><h4><a href="course-detail.html" class="crs_title_link">{{cardDetails.description}}</a></h4></div>
+        <div class="crs_title"><h4><a href="course-detail.html" class="crs_title_link">{{cardDetails.trainingName}}</a></h4></div>
         <div class="crs_info_detail">
             <ul>
-                <li><i class="fa fa-clock text-danger"></i><span>{{cardDetails.time}}</span></li>
+                <li><i class="fa fa-clock text-danger"></i><span>{{cardDetails.totalHours}}</span></li>
                 <li><i class="fa fa-video text-success"></i><span>{{cardDetails.numberOfLectures}}</span></li>
             </ul>
         </div>
@@ -39,3 +38,13 @@
         </div>
     </div>
 </div>
+        
+
+        
+
+           
+
+    
+
+
+

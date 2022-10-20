@@ -19,6 +19,11 @@
     "@angular/platform-browser-dynamic": "^14.1.0",
     "@angular/router": "^14.1.0",
     "bootstrap": "^5.2.1",
+
+
+    "cookie": "^0.5.0",
+    "cookies": "^0.8.0",
+
     "font-awesome": "^4.7.0",
     "jquery": "^3.6.1",
     "jquery-slim": "^3.0.0",

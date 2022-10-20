@@ -5,7 +5,8 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { LoginComponent } from './login/login.component';
 import {  FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { CourseCardComponent } from 'src/app/shared/components/course-card/course-card.component';
+
+import { TrainingCardComponent } from 'src/app/shared/components/training-card/training-card.component';
 
 
 
@@ -13,7 +14,7 @@ import { CourseCardComponent } from 'src/app/shared/components/course-card/cours
   declarations: [
     LoginComponent,
     ForgotPasswordComponent,
-    CourseCardComponent
+    //TrainingCardComponent
   ],
   imports: [
     CommonModule,
