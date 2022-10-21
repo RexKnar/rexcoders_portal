@@ -3,140 +3,100 @@
     <div class="col-xl-12 col-lg-12 col-md-12">
       <div class="dashboard_wrap">
         <div class="form_blocs_wrap">
-            <div class="row">
-              <div class="col-6 add mb">
-                <h3 class="txt-color">Domain List</h3>
+          <div class="row">
+            <div class="col-6 add mb">
+              <h3 class="txt-color">Domain List</h3>
+            </div>
+            <div class="col-6 text-right add mb align-self-center">
+              <div class="">
+                <a href="#" class="add_new_btn" data-toggle="modal" data-target="#addEditDomain"
+                  (click)="resetAddModal();"><i class="fas fa-plus-circle mr-1"></i>Add Domain</a>
               </div>
-              <div class="col-6 text-right add mb align-self-center">
-                <div class="">
-                  <a
-                    href="#"
-                    class="add_new_btn"
-                    data-toggle="modal"
-                    data-target="#addEditDomain"
-                    (click)="resetAddModal();"
-                    ><i class="fas fa-plus-circle mr-1"></i>Add Domain</a
-                  >
-                </div>
-              </div>
-              <div class="col-12">
-                <hr class="mt" />
-              </div>
+            </div>
+            <div class="col-12">
+              <hr class="mt" />
+            </div>
 
-              <!-- Modal for Add Domain and Edit Domain -->
-              <div class="modal fade" id="addEditDomain" role="dialog">
-                <div class="modal-dialog">
-                  <!-- Modal content-->
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <ng-container *ngIf="isAddDomain">
-                        <button
-                          type="button"
-                          class="close"
-                          data-dismiss="modal"
-                        >
-                          &times;
-                        </button>
-                        <h4 class="modal-title">Add New Domain</h4>
-                      </ng-container>
-                      <ng-container *ngIf="isEditDomain">
-                        <button
-                          type="button"
-                          class="close"
-                          data-dismiss="modal"
-                        >
-                          &times;
-                        </button>
-                        <h4 class="modal-title">Update Domain</h4>
-                      </ng-container>
-                    </div>
-                    <div class="modal-body">
-                      <ng-container *ngIf="isAddDomain">
-                        <label>Enter the Domain Name:</label>
-                        <input
-                          type="text"
-                          [ngModelOptions]="{ standalone: true }"
-                          [(ngModel)]="domainData.domainName"
-                          placeholder="Enter the domain name"
-                          class="form-control"
-                        />
-                      </ng-container>
-           
-                      <ng-container *ngIf="isEditDomain">
-                        <label>Domain Name:</label>
-                        <input
-                          type="text"
-                          [ngModelOptions]="{ standalone: true }"
-                          [(ngModel)]="domainData.domainName"
-                          placeholder="Edit the domain name"
-                          class="form-control"
-                        />
-                      </ng-container>
-                    </div>
-                    <div class="modal-footer">
-                      <ng-container *ngIf="isAddDomain">
-                        <button
-                        data-dismiss="modal"
-                        type="button"
-                        (click)="insertDomain()"
-                        class="btn"
-                      >
+            <!-- Modal for Add Domain and Edit Domain -->
+            <div class="modal fade" id="addEditDomain" role="dialog">
+              <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <ng-container *ngIf="isAddDomain">
+                      <button type="button" class="close" data-dismiss="modal">
+                        &times;
+                      </button>
+                      <h4 class="modal-title">Add New Domain</h4>
+                    </ng-container>
+                    <ng-container *ngIf="isEditDomain">
+                      <button type="button" class="close" data-dismiss="modal">
+                        &times;
+                      </button>
+                      <h4 class="modal-title">Update Domain</h4>
+                    </ng-container>
+                  </div>
+                  <div class="modal-body">
+                    <ng-container *ngIf="isAddDomain">
+                      <label>Enter the Domain Name:</label>
+                      <input type="text" [ngModelOptions]="{ standalone: true }" [(ngModel)]="domainData.domainName"
+                        placeholder="Enter the domain name" class="form-control" />
+                    </ng-container>
+
+                    <ng-container *ngIf="isEditDomain">
+                      <label>Domain Name:</label>
+                      <input type="text" [ngModelOptions]="{ standalone: true }" [(ngModel)]="domainData.domainName"
+                        placeholder="Edit the domain name" class="form-control" />
+                    </ng-container>
+                  </div>
+                  <div class="modal-footer">
+                    <ng-container *ngIf="isAddDomain">
+                      <button data-dismiss="modal" type="button" (click)="insertDomain()" class="btn">
                         Save
                       </button>
-                      </ng-container>
-                      <ng-container *ngIf="isEditDomain">
-                        <button
-                        data-dismiss="modal"
-                        type="button"
-                        class="btn"
-                        (click)="updateDomain()"
-                      >
+                    </ng-container>
+                    <ng-container *ngIf="isEditDomain">
+                      <button data-dismiss="modal" type="button" class="btn" (click)="updateDomain()">
                         Update
                       </button>
-                      </ng-container>
-                      <button type="button" class="btn" data-dismiss="modal">
-                        Close
-                      </button>
-                    </div>
+                    </ng-container>
+                    <button type="button" class="btn" data-dismiss="modal">
+                      Close
+                    </button>
                   </div>
                 </div>
               </div>
-             
-              <div class="col-12">
-                <table class="table mx-auto text-center">
-                  <thead>
-                    <tr>
-                      <th class="text-center">#</th>
-                      <th class="text-center">Domain Id</th>
-                      <th class="text-center">Domain Name</th>
-                      <th class="text-center">Action</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr
-                      *ngFor="let domain of domainlist.data.rows; let i = index"
-                    >
-                      <td>{{ i + 1 }}</td>
-                      <td>{{ domain.domainId }}</td>
-                      <td>{{ domain.domainName }}</td>
-                      <td>
-                        <button
-                          class="btn"
-                          data-toggle="modal"
-                          data-target="#addEditDomain"
-                          (click)="isAddDomain=false; isEditDomain=true;sendDomain(domain);"
-                        >
-                          Edit
-                        </button>
-                        <button class="btn" (click)="deleteDomain(domain)">
-                          Delete
-                        </button>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
             </div>
+
+            <div class="col-12">
+              <table class="table mx-auto text-center">
+                <thead>
+                  <tr>
+                    <th class="text-center">#</th>
+                    <th class="text-center">Domain Id</th>
+                    <th class="text-center">Domain Name</th>
+                    <th class="text-center">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let domain of domainlist.data.rows; let i = index">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ domain.domainId }}</td>
+                    <td>{{ domain.domainName }}</td>
+                    <td>
+                      <button class="btn" data-toggle="modal" data-target="#addEditDomain"
+                        (click)="isAddDomain=false; isEditDomain=true;sendDomain(domain);">
+                        Edit
+                      </button>
+                      <button class="btn" (click)="deleteDomain(domain)">
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
     </div>
