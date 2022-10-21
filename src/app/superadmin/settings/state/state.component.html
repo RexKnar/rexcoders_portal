@@ -1,98 +1,102 @@
 <div class="container mt">
-    <div class="row">
-        <div class="col-xl-12 col-lg-12 col-md-12">
-            <div class="dashboard_wrap">
-                <div class="form_blocs_wrap">
-                    <div class="row">
-                        <div class="col-6 add mb">
-                            <h3 class="txt-color">State List</h3>
-                        </div>
-                        <div class="col-6 text-right add mb align-self-center">
-                            <div class="">
-                                <a href="#" class="add_new_btn" data-toggle="modal" data-target="#addEditDomain">
-                                    <i class="fas fa-plus-circle mr-1"></i>Add State</a>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <hr class="mt" />
-                        </div>
-
-                        <!-- Modal for Add Domain and Edit Domain -->
-                        <div class="modal fade" id="addEditDomain" role="dialog">
-                            <div class="modal-dialog">
-                              <!-- Modal content-->
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <ng-container>
-                                    <button type="button" class="close" data-dismiss="modal">
-                                      &times;
-                                    </button>
-                                    <h4 class="modal-title">Add New State</h4>
-                                  </ng-container>
-                                  <ng-container>
-                                    <button type="button" class="close" data-dismiss="modal">
-                                      &times;
-                                    </button>
-                                    <h4 class="modal-title">Update State</h4>
-                                  </ng-container>
-                                </div>
-                                <div class="modal-body">
-                                  
-                                    <label>Enter the State Name:</label>
-                                    <input type="text" placeholder="Enter the state name" class="form-control" />
-                              
-              
-                          
-                                    <label>State Name:</label>
-                                    <input type="text" placeholder="Edit the state name" class="form-control" />
-                               
-                                </div>
-                                <div class="modal-footer">
-                                  
-                                    <button data-dismiss="modal" type="button" class="btn">
-                                      Save
-                                    </button>
-                                  
-                                  
-                                    <button data-dismiss="modal" type="button" class="btn">
-                                      Update
-                                    </button>
-                                  
-                                  <button type="button" class="btn" data-dismiss="modal">
-                                    Close
-                                  </button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-
-                        <div class="col-12">
-                            <table class="table mx-auto text-center">
-                                <thead>
-                                    <tr>
-                                        <th class="text-center">#</th>
-                                        <th class="text-center">State Id</th>
-                                        <th class="text-center">State Name</th>
-                                        <th class="text-center">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td>
-                                            <button class="btn" data-toggle="modal"
-                                                data-target="#addEditDomain">Edit</button>
-                                            <button class="btn">Delete</button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
+  <div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12">
+      <div class="dashboard_wrap">
+        <div class="form_blocs_wrap">
+          <div class="row">
+            <div class="col-6 add mb">
+              <h3 class="txt-color">State List</h3>
             </div>
+            <div class="col-6 text-right add mb align-self-center">
+              <div class="">
+                <a href="#" class="add_new_btn" data-toggle="modal" data-target="#addEditState"
+                  (click)="resetAddModal();"><i class="fas fa-plus-circle mr-1"></i>Add State</a>
+              </div>
+            </div>
+            <div class="col-12">
+              <hr class="mt" />
+            </div>
+
+            <!-- Modal for Add Domain and Edit Domain -->
+            <div class="modal fade" id="addEditState" role="dialog">
+              <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <ng-container *ngIf="isAddState">
+                      <button type="button" class="close" data-dismiss="modal">
+                        &times;
+                      </button>
+                      <h4 class="modal-title">Add New State</h4>
+                    </ng-container>
+                    <ng-container *ngIf="isEditState">
+                      <button type="button" class="close" data-dismiss="modal">
+                        &times;
+                      </button>
+                      <h4 class="modal-title">Update State</h4>
+                    </ng-container>
+                  </div>
+                  <div class="modal-body">
+                    <ng-container *ngIf="isAddState">
+                      <label>Enter the State Name:</label>
+                      <input type="text" [ngModelOptions]="{ standalone: true }" [(ngModel)]="stateData.stateName"
+                        placeholder="Enter the state name" class="form-control" />
+                    </ng-container>
+
+                    <ng-container *ngIf="isEditState">
+                      <label>State Name:</label>
+                      <input type="text" [ngModelOptions]="{ standalone: true }" [(ngModel)]="stateData.stateName"
+                        placeholder="Edit the state name" class="form-control" />
+                    </ng-container>
+                  </div>
+                  <div class="modal-footer">
+                    <ng-container *ngIf="isAddState">
+                      <button data-dismiss="modal" type="button" (click)="insertState()" class="btn">
+                        Save
+                      </button>
+                    </ng-container>
+                    <ng-container *ngIf="isEditState">
+                      <button data-dismiss="modal" type="button" class="btn" (click)="updateState()">
+                        Update
+                      </button>
+                    </ng-container>
+                    <button type="button" class="btn" data-dismiss="modal">
+                      Close
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <table class="table mx-auto text-center">
+                <thead>
+                  <tr>
+                    <th class="text-center">#</th>
+                    <th class="text-center">State Id</th>
+                    <th class="text-center">State Name</th>
+                    <th class="text-center">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                      <button class="btn" data-toggle="modal" data-target="#addEditState"
+                        (click)="isAddState=false; isEditState=true;">
+                        Edit
+                      </button>
+                      <button class="btn" (click)="deleteState()">Delete</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>

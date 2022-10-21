@@ -9,8 +9,8 @@
             </div>
             <div class="col-6 text-right add mb align-self-center">
               <div class="">
-                <a href="#" class="add_new_btn" data-toggle="modal" data-target="#addEditDomain">
-                  <i class="fas fa-plus-circle mr-1"></i>Add Category</a>
+                <a href="#" class="add_new_btn" data-toggle="modal" data-target="#addEditCategory"
+                  (click)="resetAddModal();"><i class="fas fa-plus-circle mr-1"></i>Add Category</a>
               </div>
             </div>
             <div class="col-12">
@@ -18,18 +18,18 @@
             </div>
 
             <!-- Modal for Add Domain and Edit Domain -->
-            <div class="modal fade" id="addEditDomain" role="dialog">
+            <div class="modal fade" id="addEditCategory" role="dialog">
               <div class="modal-dialog">
                 <!-- Modal content-->
                 <div class="modal-content">
                   <div class="modal-header">
-                    <ng-container>
+                    <ng-container *ngIf="isAddCategory">
                       <button type="button" class="close" data-dismiss="modal">
                         &times;
                       </button>
                       <h4 class="modal-title">Add New Category</h4>
                     </ng-container>
-                    <ng-container>
+                    <ng-container *ngIf="isEditCategory">
                       <button type="button" class="close" data-dismiss="modal">
                         &times;
                       </button>
@@ -37,27 +37,29 @@
                     </ng-container>
                   </div>
                   <div class="modal-body">
+                    <ng-container *ngIf="isAddCategory">
+                      <label>Enter the Category Name:</label>
+                      <input type="text" [ngModelOptions]="{ standalone: true }" [(ngModel)]="categoryData.categoryName"
+                        placeholder="Enter the category name" class="form-control" />
+                    </ng-container>
 
-                    <label>Enter the Category Name:</label>
-                    <input type="text" placeholder="Enter the category name" class="form-control" />
-
-
-
-                    <label>Category Name:</label>
-                    <input type="text" placeholder="Edit the category name" class="form-control" />
-
+                    <ng-container *ngIf="isEditCategory">
+                      <label>Category Name:</label>
+                      <input type="text" [ngModelOptions]="{ standalone: true }" [(ngModel)]="categoryData.categoryName"
+                        placeholder="Edit the category name" class="form-control" />
+                    </ng-container>
                   </div>
                   <div class="modal-footer">
-
-                    <button data-dismiss="modal" type="button" class="btn">
-                      Save
-                    </button>
-
-
-                    <button data-dismiss="modal" type="button" class="btn">
-                      Update
-                    </button>
-
+                    <ng-container *ngIf="isAddCategory">
+                      <button data-dismiss="modal" type="button" (click)="insertCategory()" class="btn">
+                        Save
+                      </button>
+                    </ng-container>
+                    <ng-container *ngIf="isEditCategory">
+                      <button data-dismiss="modal" type="button" class="btn" (click)="updateCategory()">
+                        Update
+                      </button>
+                    </ng-container>
                     <button type="button" class="btn" data-dismiss="modal">
                       Close
                     </button>
@@ -82,8 +84,13 @@
                     <td></td>
                     <td></td>
                     <td>
-                      <button class="btn" data-toggle="modal" data-target="#addEditDomain">Edit</button>
-                      <button class="btn">Delete</button>
+                      <button class="btn" data-toggle="modal" data-target="#addEditCategory"
+                        (click)="isAddCategory=false; isEditCategory=true;">
+                        Edit
+                      </button>
+                      <button class="btn" (click)="deleteCategory()">
+                        Delete
+                      </button>
                     </td>
                   </tr>
                 </tbody>
