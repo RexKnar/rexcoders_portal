@@ -19,7 +19,7 @@ import {CookieService} from 'ngx-cookie-service';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule
-    
+
   ],
   providers: [CookieService],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AddDomainModel } from 'src/app/shared/model/domain.model';
 
 @Component({
   selector: 'app-sub-category',

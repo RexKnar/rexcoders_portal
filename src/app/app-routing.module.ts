@@ -18,7 +18,7 @@ const routes: Routes = [
   {
     path:'admin',
     component: AdminLayoutComponent,
-    loadChildren: () => import('./features/auth/auth.module').then(module => module.AuthModule),
+    loadChildren: () => import('./superadmin/superadmin.module').then(module => module.SuperadminModule)
   },
   {
     path:'student',
@@ -26,9 +26,9 @@ const routes: Routes = [
     loadChildren: () => import('./features/student/student.module').then(module => module.StudentModule),
 
   },
-  //   loadChildren: () => import('./superadmin/superadmin.module').then(module => module.SuperadminModule)
 
-  // }
+
+
 ];
 
 @NgModule({
