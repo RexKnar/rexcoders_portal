@@ -26,15 +26,13 @@ export class StateComponent implements OnInit {
 
   insertState()
   {
-    // this._domainService.insertDomain(this.domainData).subscribe((postDomainRespose: any) => {
-    // console.log(postDomainRespose);
+
     Swal.fire(
       'Good job!',
       'State name added!',
       'success'
     )
-  //   this.getDomain();
-  //   })
+  
   
   }
   sendState(stateDetails:any){
@@ -42,21 +40,20 @@ export class StateComponent implements OnInit {
   }
   updateState()
   {
-    // this._domainService.updateDomain(this.domainData).subscribe((updateDomainRespose: any) => {
-    //   console.log(updateDomainRespose);
+    
       Swal.fire(
         '',
         'State name updated successfully!',
         'success'
       )
-  //   })
+  
  }
  deleteState()
   {
     
     Swal.fire({
       title: 'Are you sure?',
-      // text: "Do you want to delete the Domain:"+domainDetails.domainName,
+      
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -65,13 +62,13 @@ export class StateComponent implements OnInit {
     })
     .then((result) => {
       if (result.isConfirmed) {
-        //  this._domainService.deleteDomain(domainDetails.domainId).subscribe((userRespose: any) => {
+     
           Swal.fire(
             'Deleted!',
             'Your state has been deleted.',
             'success'
           )
-        // });
+        
        
       }
     })

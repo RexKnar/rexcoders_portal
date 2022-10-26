@@ -26,15 +26,13 @@ export class CityComponent implements OnInit {
 
   insertCity()
   {
-    // this._domainService.insertDomain(this.domainData).subscribe((postDomainRespose: any) => {
-    // console.log(postDomainRespose);
+    
     Swal.fire(
       'Good job!',
       'City name added!',
       'success'
     )
-  //   this.getDomain();
-  //   })
+
   
   }
   sendCity(cityDetails:any){
@@ -42,21 +40,20 @@ export class CityComponent implements OnInit {
   }
   updateCity()
   {
-    // this._domainService.updateDomain(this.domainData).subscribe((updateDomainRespose: any) => {
-    //   console.log(updateDomainRespose);
+    
       Swal.fire(
         '',
         'City name updated successfully!',
         'success'
       )
-  //   })
+
  }
  deleteCity()
   {
     
     Swal.fire({
       title: 'Are you sure?',
-      // text: "Do you want to delete the Domain:"+domainDetails.domainName,
+      
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -65,13 +62,13 @@ export class CityComponent implements OnInit {
     })
     .then((result) => {
       if (result.isConfirmed) {
-        //  this._domainService.deleteDomain(domainDetails.domainId).subscribe((userRespose: any) => {
+        
           Swal.fire(
             'Deleted!',
             'Your city has been deleted.',
             'success'
           )
-        // });
+        
        
       }
     })

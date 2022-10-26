@@ -8,7 +8,7 @@
               <h3 class="txt-color">City List</h3>
             </div>
             <div class="col-6 text-right add mb align-self-center">
-              <div class="">
+              <div>
                 <a href="#" class="add_new_btn" data-toggle="modal" data-target="#addEditCity"
                   (click)="resetAddModal();"><i class="fas fa-plus-circle mr-1"></i>Add City</a>
               </div>
@@ -17,7 +17,7 @@
               <hr class="mt" />
             </div>
 
-            <!-- Modal for Add Domain and Edit Domain -->
+            <!-- Modal for Add City and Edit City -->
             <div class="modal fade" id="addEditCity" role="dialog">
               <div class="modal-dialog">
                 <!-- Modal content-->
@@ -80,9 +80,9 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>Nagercoil</td>
                     <td>
                       <button class="btn" data-toggle="modal" data-target="#addEditCity"
                         (click)="isAddCity=false; isEditCity=true;">
