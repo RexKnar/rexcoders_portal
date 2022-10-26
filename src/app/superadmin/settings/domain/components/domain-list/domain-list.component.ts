@@ -1,4 +1,5 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit,ViewChild,ElementRef} from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { AddDomainModel } from 'src/app/shared/model/domain.model';
 import { DomainService } from 'src/app/shared/service/domain.service';
 import Swal from 'sweetalert2';
@@ -12,6 +13,7 @@ export class DomainListComponent implements OnInit {
   domainData: AddDomainModel= new AddDomainModel();
   isAddDomain:boolean;
   isEditDomain:boolean;
+  @ViewChild('closemodal') closemodal:ElementRef;
   constructor(private _domainService: DomainService) { }
 
 resetAddModal(){
@@ -30,16 +32,20 @@ getDomain(){
 });
 }
 
+
   insertDomain()
   {
     this._domainService.insertDomain(this.domainData).subscribe((postDomainRespose: any) => {
-    console.log(postDomainRespose);
     Swal.fire(
       'Good job!',
       'Domain name added!',
       'success'
     )
     this.getDomain();
+    
+    console.log(this.closemodal.nativeElement.getAttribute('type'));
+    this.closemodal.nativeElement.click();
+    console.log(this.closemodal.nativeElement.getAttribute('class'));
     })
   
   }
@@ -49,12 +55,12 @@ getDomain(){
   updateDomain()
   {
     this._domainService.updateDomain(this.domainData).subscribe((updateDomainRespose: any) => {
-      console.log(updateDomainRespose);
       Swal.fire(
         '',
         'Domain name updated successfully!',
         'success'
       )
+      this.closemodal.nativeElement.click();
     })
   }
   deleteDomain(domainDetails:any)
