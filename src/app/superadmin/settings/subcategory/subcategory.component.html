@@ -19,52 +19,37 @@
                         </div>
 
                         <!-- Modal for Add Subcategory and Edit Subcategory -->
-                        <div class="modal fade" id="addEditSubCategory" role="dialog">
+                        <div class="modal fade" id="addEditSubCategory" role="dialog" #closemodal>
                             <div class="modal-dialog">
                                 <!-- Modal content-->
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <ng-container *ngIf="isAddSubCategory">
-                                            <button type="button" class="close" data-dismiss="modal">
-                                                &times;
-                                            </button>
-                                            <h4 class="modal-title">Add New Subcategory</h4>
-                                        </ng-container>
-                                        <ng-container *ngIf="isEditSubCategory">
-                                            <button type="button" class="close" data-dismiss="modal">
-                                                &times;
-                                            </button>
-                                            <h4 class="modal-title">Update Subcategory</h4>
-                                        </ng-container>
+                                        <button type="button" class="close" data-dismiss="modal">
+                                            &times;
+                                        </button>
+                                        <h4 class="modal-title">
+                                            {{ isAddSubCategory ? "Add New Subcategory" : "Update Subcategory" }}
+                                        </h4>
                                     </div>
                                     <div class="modal-body">
-                                        <ng-container *ngIf="isAddSubCategory">
+                                        <form #subcategoryForm="ngForm" name="subcategory">
                                             <label>Enter the Subcategory Name:</label>
-                                            <input type="text" [ngModelOptions]="{ standalone: true }"
-                                                [(ngModel)]="subCategoryData.subCategoryName"
-                                                placeholder="Enter the Subcategory name" class="form-control" />
-                                        </ng-container>
-
-                                        <ng-container *ngIf="isEditSubCategory">
-                                            <label>Subcategory Name:</label>
-                                            <input type="text" [ngModelOptions]="{ standalone: true }"
-                                                [(ngModel)]="subCategoryData.subCategoryName"
-                                                placeholder="Edit the Subcategory name" class="form-control" />
-                                        </ng-container>
+                                            <input type="text" id="scname" [(ngModel)]="subCategoryData.subCategoryName"
+                                                placeholder="Enter the subcategory name" class="form-control" required
+                                                name="scname" #scname="ngModel" />
+                                            <p class="alert-msg"
+                                                *ngIf="scname.errors?.['required'] && (scname.touched || scname.dirty)">
+                                                Please Enter the Subcategory Name
+                                            </p>
+                                        </form>
                                     </div>
                                     <div class="modal-footer">
-                                        <ng-container *ngIf="isAddSubCategory">
-                                            <button data-dismiss="modal" type="button" (click)="insertSubCategory()"
-                                                class="btn">
-                                                Save
-                                            </button>
-                                        </ng-container>
-                                        <ng-container *ngIf="isEditSubCategory">
-                                            <button data-dismiss="modal" type="button" class="btn"
-                                                (click)="updateSubCategory()">
-                                                Update
-                                            </button>
-                                        </ng-container>
+                                        <button type="submit" class="btn"
+                                            (click)="isAddSubCategory ? insertSubCategory() : updateSubCategory()"
+                                            [disabled]="subcategoryForm.invalid">
+                                            {{ isAddSubCategory ? "Save" : "Update" }}
+                                        </button>
+
                                         <button type="button" class="btn" data-dismiss="modal">
                                             Close
                                         </button>
@@ -90,7 +75,9 @@
                                         <td>Angular</td>
                                         <td>
                                             <button class="btn" data-toggle="modal" data-target="#addEditSubCategory"
-                                                (click)="isAddSubCategory=false; isEditSubCategory=true;">Edit</button>
+                                            (click)="isAddSubCategory=false; isEditSubCategory=true;sendSubCategory">
+                                            Edit
+                                          </button>
                                             <button class="btn" (click)="deleteSubCategory()">Delete</button>
                                         </td>
                                     </tr>

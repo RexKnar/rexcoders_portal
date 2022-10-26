@@ -10,7 +10,7 @@
             <div class="col-6 text-right add mb align-self-center">
               <div>
                 <a href="#" class="add_new_btn" data-toggle="modal" data-target="#addEditCategory"
-                  (click)="resetAddModal();"><i class="fas fa-plus-circle mr-1"></i>Add Category</a>
+                  (click)="resetAddModal()"><i class="fas fa-plus-circle mr-1"></i>Add Category</a>
               </div>
             </div>
             <div class="col-12">
@@ -18,48 +18,36 @@
             </div>
 
             <!-- Modal for Add Category and Edit Category -->
-            <div class="modal fade" id="addEditCategory" role="dialog">
+            <div class="modal fade" id="addEditCategory" role="dialog" #closemodal>
               <div class="modal-dialog">
                 <!-- Modal content-->
                 <div class="modal-content">
                   <div class="modal-header">
-                    <ng-container *ngIf="isAddCategory">
-                      <button type="button" class="close" data-dismiss="modal">
-                        &times;
-                      </button>
-                      <h4 class="modal-title">Add New Category</h4>
-                    </ng-container>
-                    <ng-container *ngIf="isEditCategory">
-                      <button type="button" class="close" data-dismiss="modal">
-                        &times;
-                      </button>
-                      <h4 class="modal-title">Update Category</h4>
-                    </ng-container>
+                    <button type="button" class="close" data-dismiss="modal">
+                      &times;
+                    </button>
+                    <h4 class="modal-title">
+                      {{ isAddCategory ? "Add New Category" : "Update Category" }}
+                    </h4>
                   </div>
                   <div class="modal-body">
-                    <ng-container *ngIf="isAddCategory">
-                      <label>Enter the Category Name:</label>
-                      <input type="text" [ngModelOptions]="{ standalone: true }" [(ngModel)]="categoryData.categoryName"
-                        placeholder="Enter the category name" class="form-control" />
-                    </ng-container>
-
-                    <ng-container *ngIf="isEditCategory">
+                    <form #categoryForm="ngForm" name="category">
                       <label>Category Name:</label>
-                      <input type="text" [ngModelOptions]="{ standalone: true }" [(ngModel)]="categoryData.categoryName"
-                        placeholder="Edit the category name" class="form-control" />
-                    </ng-container>
+                      <input type="text" id="categname" [(ngModel)]="categoryData.categoryName"
+                        placeholder="Enter the category name" class="form-control" required name="categname"
+                        #categname="ngModel" />
+                      <p class="alert-msg"
+                        *ngIf="categname.errors?.['required'] && (categname.touched || categname.dirty)">
+                        Please Enter the Category Name
+                      </p>
+                    </form>
                   </div>
                   <div class="modal-footer">
-                    <ng-container *ngIf="isAddCategory">
-                      <button data-dismiss="modal" type="button" (click)="insertCategory()" class="btn">
-                        Save
-                      </button>
-                    </ng-container>
-                    <ng-container *ngIf="isEditCategory">
-                      <button data-dismiss="modal" type="button" class="btn" (click)="updateCategory()">
-                        Update
-                      </button>
-                    </ng-container>
+                    <button type="submit" class="btn" (click)="isAddCategory ? insertCategory() : updateCategory()"
+                      [disabled]="categoryForm.invalid">
+                      {{ isAddCategory ? "Save" : "Update" }}
+                    </button>
+
                     <button type="button" class="btn" data-dismiss="modal">
                       Close
                     </button>
@@ -85,7 +73,7 @@
                     <td>Full Stack</td>
                     <td>
                       <button class="btn" data-toggle="modal" data-target="#addEditCategory"
-                        (click)="isAddCategory=false; isEditCategory=true;">
+                        (click)="isAddCategory=false; isEditCategory=true;sendCategory">
                         Edit
                       </button>
                       <button class="btn" (click)="deleteCategory()">

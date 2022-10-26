@@ -18,48 +18,34 @@
             </div>
 
             <!-- Modal for Add State and Edit State -->
-            <div class="modal fade" id="addEditState" role="dialog">
+            <div class="modal fade" id="addEditState" role="dialog" #closemodal>
               <div class="modal-dialog">
                 <!-- Modal content-->
                 <div class="modal-content">
                   <div class="modal-header">
-                    <ng-container *ngIf="isAddState">
-                      <button type="button" class="close" data-dismiss="modal">
-                        &times;
-                      </button>
-                      <h4 class="modal-title">Add New State</h4>
-                    </ng-container>
-                    <ng-container *ngIf="isEditState">
-                      <button type="button" class="close" data-dismiss="modal">
-                        &times;
-                      </button>
-                      <h4 class="modal-title">Update State</h4>
-                    </ng-container>
+                    <button type="button" class="close" data-dismiss="modal">
+                      &times;
+                    </button>
+                    <h4 class="modal-title">
+                      {{ isAddState ? "Add New State" : "Update State" }}
+                    </h4>
                   </div>
                   <div class="modal-body">
-                    <ng-container *ngIf="isAddState">
+                    <form #stateForm="ngForm" name="state">
                       <label>Enter the State Name:</label>
-                      <input type="text" [ngModelOptions]="{ standalone: true }" [(ngModel)]="stateData.stateName"
-                        placeholder="Enter the state name" class="form-control" />
-                    </ng-container>
-
-                    <ng-container *ngIf="isEditState">
-                      <label>State Name:</label>
-                      <input type="text" [ngModelOptions]="{ standalone: true }" [(ngModel)]="stateData.stateName"
-                        placeholder="Edit the state name" class="form-control" />
-                    </ng-container>
+                      <input type="text" id="sname" [(ngModel)]="stateData.stateName" placeholder="Enter the state name"
+                        class="form-control" required name="sname" #sname="ngModel" />
+                      <p class="alert-msg" *ngIf="sname.errors?.['required'] && (sname.touched || sname.dirty)">
+                        Please Enter the State Name
+                      </p>
+                    </form>
                   </div>
                   <div class="modal-footer">
-                    <ng-container *ngIf="isAddState">
-                      <button data-dismiss="modal" type="button" (click)="insertState()" class="btn">
-                        Save
-                      </button>
-                    </ng-container>
-                    <ng-container *ngIf="isEditState">
-                      <button data-dismiss="modal" type="button" class="btn" (click)="updateState()">
-                        Update
-                      </button>
-                    </ng-container>
+                    <button type="submit" class="btn" (click)="isAddState ? insertState() : updateState()"
+                      [disabled]="stateForm.invalid">
+                      {{ isAddState ? "Save" : "Update" }}
+                    </button>
+
                     <button type="button" class="btn" data-dismiss="modal">
                       Close
                     </button>
@@ -85,7 +71,7 @@
                     <td>Tamil Nadu</td>
                     <td>
                       <button class="btn" data-toggle="modal" data-target="#addEditState"
-                        (click)="isAddState=false; isEditState=true;">
+                        (click)="isAddState=false; isEditState=true; sendState">
                         Edit
                       </button>
                       <button class="btn" (click)="deleteState()">Delete</button>
