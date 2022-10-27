@@ -33,9 +33,9 @@
                   <div class="modal-body">
                     <form #stateForm="ngForm" name="state">
                       <label>Enter the State Name:</label>
-                      <input type="text" id="sname" [(ngModel)]="stateData.stateName" placeholder="Enter the state name"
-                        class="form-control" required name="sname" #sname="ngModel" />
-                      <p class="alert-msg" *ngIf="sname.errors?.['required'] && (sname.touched || sname.dirty)">
+                      <input type="text" id="statename" [(ngModel)]="stateData.stateName" placeholder="Enter the state name"
+                        class="form-control" required name="statename" #statename="ngModel" />
+                      <p class="alert-msg" *ngIf="statename.errors?.['required'] && (statename.touched || statename.dirty)">
                         Please Enter the State Name
                       </p>
                     </form>

@@ -34,11 +34,11 @@
                                     <div class="modal-body">
                                         <form #subcategoryForm="ngForm" name="subcategory">
                                             <label>Enter the Subcategory Name:</label>
-                                            <input type="text" id="scname" [(ngModel)]="subCategoryData.subCategoryName"
+                                            <input type="text" id="subcategoryname" [(ngModel)]="subCategoryData.subCategoryName"
                                                 placeholder="Enter the subcategory name" class="form-control" required
-                                                name="scname" #scname="ngModel" />
+                                                name="subcategoryname" #subcategoryname="ngModel" />
                                             <p class="alert-msg"
-                                                *ngIf="scname.errors?.['required'] && (scname.touched || scname.dirty)">
+                                                *ngIf="subcategoryname.errors?.['required'] && (subcategoryname.touched || subcategoryname.dirty)">
                                                 Please Enter the Subcategory Name
                                             </p>
                                         </form>
