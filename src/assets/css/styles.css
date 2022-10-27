@@ -6693,10 +6693,10 @@ ul.woo_info li {
 
 .dashboard-navbar, .dashboard-wraper {
     position: relative;
-    width: 100%;
-    padding: 2em 0rem;
+    width: 50%;
+    padding: 0em 0rem;
 	background:#ffffff;
-    border-radius:0.2rem;
+    border: radius 0rem;
 }
 .d-user-avater {
     text-align: center;
@@ -8020,7 +8020,7 @@ footer.skin-dark-footer ul.footer-bottom-social li a:hover, footer.skin-dark-foo
 		margin-right:7px;
 	}
 	.dashboard-navbar, .dashboard-wraper{
-		margin-bottom:2rem;
+		margin-bottom:0rem;
 	}
 	.breadcrumb {
 		margin-bottom: 0;
