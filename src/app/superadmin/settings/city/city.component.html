@@ -33,9 +33,10 @@
                   <div class="modal-body">
                     <form #cityForm="ngForm" name="city">
                       <label>Enter the City Name:</label>
-                      <input type="text" id="cityname" [(ngModel)]="cityData.cityName" placeholder="Enter the city name"
-                        class="form-control" required name="cityname" #cityname="ngModel" />
-                      <p class="alert-msg" *ngIf="cityname.errors?.['required'] && (cityname.touched || cityname.dirty)">
+                      <input type="text" id="cityName" [(ngModel)]="cityData.cityName" placeholder="Enter the city name"
+                        class="form-control" required name="cityName" #cityName="ngModel" />
+                      <p class="alert-msg"
+                        *ngIf="cityName.errors?.['required'] && (cityName.touched || cityName.dirty)">
                         Please Enter the City Name
                       </p>
                     </form>

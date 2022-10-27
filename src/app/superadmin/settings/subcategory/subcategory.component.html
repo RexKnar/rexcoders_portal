@@ -34,11 +34,12 @@
                                     <div class="modal-body">
                                         <form #subcategoryForm="ngForm" name="subcategory">
                                             <label>Enter the Subcategory Name:</label>
-                                            <input type="text" id="subcategoryname" [(ngModel)]="subCategoryData.subCategoryName"
+                                            <input type="text" id="subcategoryName"
+                                                [(ngModel)]="subCategoryData.subCategoryName"
                                                 placeholder="Enter the subcategory name" class="form-control" required
-                                                name="subcategoryname" #subcategoryname="ngModel" />
+                                                name="subcategoryName" #subcategoryName="ngModel" />
                                             <p class="alert-msg"
-                                                *ngIf="subcategoryname.errors?.['required'] && (subcategoryname.touched || subcategoryname.dirty)">
+                                                *ngIf="subcategoryName.errors?.['required'] && (subcategoryName.touched || subcategoryName.dirty)">
                                                 Please Enter the Subcategory Name
                                             </p>
                                         </form>
@@ -75,9 +76,9 @@
                                         <td>Angular</td>
                                         <td>
                                             <button class="btn" data-toggle="modal" data-target="#addEditSubCategory"
-                                            (click)="isAddSubCategory=false; isEditSubCategory=true;sendSubCategory">
-                                            Edit
-                                          </button>
+                                                (click)="isAddSubCategory=false; isEditSubCategory=true;sendSubCategory">
+                                                Edit
+                                            </button>
                                             <button class="btn" (click)="deleteSubCategory()">Delete</button>
                                         </td>
                                     </tr>
