@@ -1,0 +1,151 @@
+<!-- <section class="login-section">
+	<div class="container">
+		<div class="row justify-content-center">
+
+			<div class="col-xl-7 col-lg-8 col-md-12 col-sm-12">
+				<form [formGroup]="loginForm" (ngSubmit)="loginSubmit()">
+					<div class="crs_log_wrap">
+						<div class="crs_log__thumb">
+							<img src="assets/img/banner-2.jpg" class="img-fluid" alt="" />
+						</div>
+						<div class="crs_log__caption">
+							<div class="rcs_log_123">
+								<div class="rcs_ico"><i class="fas fa-lock"></i></div>
+							</div>
+
+							<div class="rcs_log_124">
+								<div class="Lpo09">
+									<h4>Login Your Account</h4>
+								</div>
+								<div class="form-group">
+									<label>User Name</label>
+									<input type="text" class="form-control" placeholder=""
+										formControlName="username" />
+
+
+									<div *ngIf="loginControls['username'].touched && loginControls['username'].invalid"
+										class="text-danger">
+										<span *ngIf="loginControls['username'].errors?.['required']">User Name is
+											required.</span>
+										<span *ngIf="loginControls['username'].errors?.['email']">Invalid User</span>
+
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label>Password</label>
+									<input type="password" class="form-control" placeholder=""
+										formControlName="password" />
+								</div>
+								<div *ngIf="loginControls['password'].touched && loginControls['password'].invalid"
+									class="text-danger">
+									<div *ngIf="loginControls['password'].errors?.['required']">Password is required.
+									</div>
+									<div *ngIf="loginControls['password'].errors?.['minlength']">Password should be
+										minimum 6 character.</div>
+								</div>
+								<div class="form-group">
+									<button type="submit"
+										class="btn full-width btn-md theme-bg text-white">Login</button>
+								</div>
+								<div class="fhg_45">
+									<p class="musrt"><a href="" class="text-danger">Forgot Password?</a></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+
+		</div>
+	</div>
+
+
+</section> -->
+
+<section>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-xl-7 col-lg-8 col-md-12 col-sm-12">
+        <div class="crs_log_wrap">
+          <div class="crs_log__thumb">
+            <img src="assets/img/banner-2.jpg" class="img-fluid" alt="" />
+          </div>
+          <div class="crs_log__caption">
+            <div class="rcs_log_123">
+              <div class="rcs_ico"><i class="fas fa-lock"></i></div>
+            </div>
+
+            <div class="rcs_log_124">
+              <div class="Lpo09">
+                <h4>Login Your Account</h4>
+              </div>
+              <ul
+                class="nav nav-pills mb-3 login-tab"
+                id="pills-tab"
+                role="tablist"
+              >
+                <li class="nav-item">
+                  <button
+                    class="nav-link active login-tab-button"
+                    data-toggle="pill"
+                    data-target="#student"
+                    type="button"
+                    role="tab"
+                    aria-controls="pills-home"
+                    aria-selected="true"
+                    #student
+                    (click)="getUserType('Student')"
+                  >
+                    Student
+                  </button>
+                </li>
+                <li>
+                  <button
+                    class="nav-link login-tab-button"
+                    data-toggle="pill"
+                    data-target="#staff"
+                    type="button"
+                    role="tab"
+                    aria-controls="pills-home"
+                    aria-selected="true"
+                    #staff
+                    (click)="getUserType('Staff')"
+                  >
+                    Staff
+                  </button>
+                </li>
+                <li>
+                  <button
+                    class="nav-link login-tab-button"
+                    data-toggle="pill"
+                    data-target="#admin"
+                    type="button"
+                    role="tab"
+                    aria-controls="pills-home"
+                    aria-selected="true"
+                    #admin
+                    (click)="getUserType('Admin')"
+                  >
+                    Admin
+                  </button>
+                </li>
+              </ul>
+              <div class="tab-content">
+                <div id="student" class="tab-pane fade show active">
+                  <app-login [userRole]="userType"></app-login>
+                </div>
+                <div id="staff" class="tab-pane fade">
+                  <app-login [userRole]="userType"></app-login>
+                </div>
+                <div id="admin" class="tab-pane fade">
+                  <app-login [userRole]="userType"></app-login>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

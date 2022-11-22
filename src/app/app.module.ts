@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import {CookieService} from 'ngx-cookie-service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,6 +16,7 @@ import {CookieService} from 'ngx-cookie-service';
     AppRoutingModule,
     SharedModule,  
     FormsModule,
+    
     HttpClientModule,
   ],
   providers: [CookieService],

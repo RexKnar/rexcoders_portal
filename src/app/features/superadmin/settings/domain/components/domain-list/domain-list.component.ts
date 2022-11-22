@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { AddDomainModel } from 'src/app/shared/model/domain.model';
 import { DomainService } from 'src/app/shared/service/domain.service';
 import Swal from 'sweetalert2';
@@ -9,60 +9,62 @@ import Swal from 'sweetalert2';
 })
 export class DomainListComponent implements OnInit {
   domainlist: any;
-  domainData: AddDomainModel= new AddDomainModel();
-  isAddDomain:boolean;
-  isEditDomain:boolean;
+  domainData: AddDomainModel = new AddDomainModel();
+  isAddDomain: boolean;
+  isEditDomain: boolean;
+  @ViewChild('closemodal') closemodal: ElementRef;
   constructor(private _domainService: DomainService) { }
 
-resetAddModal(){
-  this.isAddDomain=true; 
-  this.isEditDomain=false; 
-  this.domainData=new AddDomainModel();
-}
+  resetAddModal() {
+    this.isAddDomain = true;
+    this.isEditDomain = false;
+    this.domainData = new AddDomainModel();
+  }
 
   ngOnInit(): void {
-     this.getDomain();
-}
-getDomain(){
-  this._domainService.getDomain().subscribe((getDomainRespose: any) => {
- this.domainlist = getDomainRespose;
- this.domainData=this.domainlist;
-});
-}
-
-  insertDomain()
-  {
-    this._domainService.insertDomain(this.domainData).subscribe((postDomainRespose: any) => {
-    console.log(postDomainRespose);
-    Swal.fire(
-      'Good job!',
-      'Domain name added!',
-      'success'
-    )
     this.getDomain();
+  }
+  getDomain() {
+    this._domainService.getDomain().subscribe((getDomainRespose: any) => {
+      this.domainlist = getDomainRespose;
+      this.domainData = this.domainlist;
+    });
+  }
+
+
+  insertDomain() {
+    this._domainService.insertDomain(this.domainData).subscribe((postDomainRespose: any) => {
+      Swal.fire(
+        'Good job!',
+        'Domain name added!',
+        'success'
+      )
+      this.getDomain();
+
+      console.log(this.closemodal.nativeElement.getAttribute('type'));
+      this.closemodal.nativeElement.click();
+      console.log(this.closemodal.nativeElement.getAttribute('class'));
     })
-  
+
   }
-  sendDomain(domainDetails:any){
-    this.domainData=domainDetails;
+  sendDomain(domainDetails: any) {
+    this.domainData = domainDetails;
   }
-  updateDomain()
-  {
+  updateDomain() {
     this._domainService.updateDomain(this.domainData).subscribe((updateDomainRespose: any) => {
-      console.log(updateDomainRespose);
       Swal.fire(
         '',
         'Domain name updated successfully!',
         'success'
       )
+      this.closemodal.nativeElement.click();
     })
   }
-  deleteDomain(domainDetails:any)
-  {
-    
+  deleteDomain(domainDetails: any) {
+
     Swal.fire({
       title: 'Are you sure?',
-      text: "Do you want to delete the Domain:"+domainDetails.domainName,
+      text: "Do you want to delete the Domain:" + domainDetails.domainName,
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -77,7 +79,7 @@ getDomain(){
             'success'
           )
         });
-       
+
       }
     })
   }

@@ -8,7 +8,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { StateComponent } from './state/state.component';
 import { CityComponent } from './city/city.component';
 import { CategoryComponent } from './category/category.component';
-import { SubCategoryComponent } from './sub-category/sub-category.component';
+import { SubCategoryComponent } from './sub-category/subcategory.component';
 
 
 @NgModule({

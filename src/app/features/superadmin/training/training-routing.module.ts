@@ -4,15 +4,20 @@ import { AddTrainingComponent } from './components/add-training/add-training.com
 import { TrainingListComponent } from './components/training-list/training-list.component';
 
 const routes: Routes = [
+  {
+    path:'',
+    redirectTo:'training-list',
+    pathMatch:'full'
+  },
+ {
+  path:'training-list',
+  component:TrainingListComponent
+ },
  {
   path:'training-list',
   component:AddTrainingComponent
- },
- {
-  path:'',
-  redirectTo:'training-list',
-  pathMatch:'full'
-}
+ }
+ 
 ];
 
 @NgModule({
