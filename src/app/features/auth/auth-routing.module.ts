@@ -3,17 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { TrainingCardComponent } from 'src/app/shared/components/training-card/training-card.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { LoginComponent } from './login/login.component';
+
+import { AuthComponent } from './auth.component';
 
 
 const routes: Routes = [
   {
     path:'',
-
-    component:LoginComponent
-
-
-
+    component: AuthComponent
   },
   {
     path:'forgot',
