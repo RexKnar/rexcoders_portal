@@ -16,6 +16,10 @@ export const TRAINING_CONFIG = {
 };
 export const DOMAIN_CONFIG = {
   getDomainListUrl: '/api/domain/getall',
+  addDomainUrl: '/api/domain/add',
+  updateDomainUrl:'/api/domain/update',
+  deleteDomainUrl:'/api/domain/delete'
+
 };
 
 export const PAYMENT_CONFIG = {

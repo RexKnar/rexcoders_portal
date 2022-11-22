@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './shared/theme/admin-layout/admin-layout.component';
 import { AuthLayoutComponent } from './shared/theme/auth-layout/auth-layout.component';
 
@@ -17,12 +18,14 @@ const routes: Routes = [
   {
     path:'admin',
     component: AdminLayoutComponent,
-    loadChildren: () => import('./features/auth/auth.module').then(module => module.AuthModule),
+    loadChildren: () => import('./superadmin/superadmin.module').then(module => module.SuperadminModule)
+    
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,{enableTracing: true})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+   

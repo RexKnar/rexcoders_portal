@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output,ViewChild,ElementRef,AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -12,12 +12,12 @@ export class HeaderComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 toggleSidebar(){
   this.isSidebar=this.isSidebar?false:true;
   this.isToggleSidebar.emit(this.isSidebar);
-
 }
 
 }

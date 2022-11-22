@@ -20,13 +20,7 @@ import {CookieService} from 'ngx-cookie-service';
     AppRoutingModule,
     SharedModule,
     FormsModule,
-
-    ReactiveFormsModule,
-    HttpClientModule
-
-    
-  
-
+    HttpClientModule,
   ],
   providers: [CookieService],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
