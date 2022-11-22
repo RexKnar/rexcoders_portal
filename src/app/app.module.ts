@@ -5,9 +5,11 @@ import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { AuthInterceptor } from './shared/Interceptors/auth.interceptor';
+
+
 import { SharedModule } from './shared/shared.module';
 import {CookieService} from 'ngx-cookie-service';
+import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
