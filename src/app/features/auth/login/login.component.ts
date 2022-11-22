@@ -47,7 +47,6 @@ export class LoginComponent implements OnInit, OnDestroy {
       this.loginSubscription=this._authservice.authenticateUser(this.loginForm.value).subscribe({
         next: (data) => {
           Swal.fire('Hi '+this.userRole + ', Welcome to Rexcoders');
-          console.log(this.loginForm.value);
           this.loginForm.reset();
       
        this.responsedata=data.data;
