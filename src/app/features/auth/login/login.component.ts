@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   responsedata: any;
   @Input() userRole:string;
   constructor(private loginFormBuilder: FormBuilder,
- 
+
      public _authservice: AuthService,
      private cookiesService: CookiesService,
       private router: Router) {
@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   get loginControls() {
     return this.loginForm.controls;
   }
- 
+
   ngOnInit() {
     this.loginForm = this.loginFormBuilder.group({
       username: [null, [Validators.required, Validators.email]],
@@ -35,9 +35,9 @@ export class LoginComponent implements OnInit, OnDestroy {
       userType:[null]
     });
   }
- 
+
   ngOnDestroy() {
-    this.loginSubscription.unsubscribe()
+    // this.loginSubscription.unsubscribe()
   }
   loginSubmit() {
     if (this.loginForm.valid) {
@@ -49,14 +49,14 @@ export class LoginComponent implements OnInit, OnDestroy {
           Swal.fire('Hi '+this.userRole + ', Welcome to Rexcoders');
           console.log(this.loginForm.value);
           this.loginForm.reset();
-      
+
        this.responsedata=data.data;
-       
+
           this.cookiesService.setAuthCookies(this.responsedata);
           console.log(this.cookiesService.getAuthCookies());
         },
-        error: (err) => { 
-          Swal.fire('Invalid User'); 
+        error: (err) => {
+          Swal.fire('Invalid User');
           console.log(this.loginForm.value);
 
         }
