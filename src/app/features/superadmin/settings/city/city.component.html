@@ -1,0 +1,89 @@
+<div class="container mt">
+  <div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12">
+      <div class="dashboard_wrap">
+        <div class="form_blocs_wrap">
+          <div class="row">
+            <div class="col-6 add mb">
+              <h3 class="txt-color">City List</h3>
+            </div>
+            <div class="col-6 text-right add mb align-self-center">
+              <div>
+                <a href="#" class="add_new_btn" data-toggle="modal" data-target="#addEditCity"
+                  (click)="resetAddModal();"><i class="fas fa-plus-circle mr-1"></i>Add City</a>
+              </div>
+            </div>
+            <div class="col-12">
+              <hr class="mt" />
+            </div>
+
+            <!-- Modal for Add City and Edit City -->
+            <div class="modal fade" id="addEditCity" role="dialog" #closemodal>
+              <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                      &times;
+                    </button>
+                    <h4 class="modal-title">
+                      {{ isAddCity ? "Add New City" : "Update City" }}
+                    </h4>
+                  </div>
+                  <div class="modal-body">
+                    <form #cityForm="ngForm" name="city">
+                      <label>Enter the City Name:</label>
+                      <input type="text" id="cityName" [(ngModel)]="cityData.cityName" placeholder="Enter the city name"
+                        class="form-control" required name="cityName" #cityName="ngModel" />
+                      <p class="alert-msg"
+                        *ngIf="cityName.errors?.['required'] && (cityName.touched || cityName.dirty)">
+                        Please Enter the City Name
+                      </p>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="submit" class="btn" (click)="isAddCity ? insertCity() : updateCity()"
+                      [disabled]="cityForm.invalid">
+                      {{ isAddCity ? "Save" : "Update" }}
+                    </button>
+
+                    <button type="button" class="btn" data-dismiss="modal">
+                      Close
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <table class="table mx-auto text-center">
+                <thead>
+                  <tr>
+                    <th class="text-center">#</th>
+                    <th class="text-center">City Id</th>
+                    <th class="text-center">City Name</th>
+                    <th class="text-center">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>Nagercoil</td>
+                    <td>
+                      <button class="btn" data-toggle="modal" data-target="#addEditCity"
+                        (click)="isAddCity=false; isEditCity=true; sendCity">
+                        Edit
+                      </button>
+                      <button class="btn" (click)="deleteCity()">Delete</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

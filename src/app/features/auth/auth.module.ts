@@ -9,6 +9,9 @@ import { AuthComponent } from './auth.component';
 
 
 
+
+
+
 @NgModule({
   declarations: [
     LoginComponent,
@@ -20,11 +23,8 @@ import { AuthComponent } from './auth.component';
     AuthRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    
-  ]
-
-  
 
 
+]
 })
 export class AuthModule { }

@@ -1,0 +1,92 @@
+<div class="container mt">
+  <div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12">
+      <div class="dashboard_wrap">
+        <div class="form_blocs_wrap">
+          <div class="row">
+            <div class="col-6 add mb">
+              <h3 class="txt-color">State List</h3>
+            </div>
+            <div class="col-6 text-right add mb align-self-center">
+              <div>
+                <a href="#" class="add_new_btn" data-toggle="modal" data-target="#addEditState"
+                  (click)="resetAddModal();"><i class="fas fa-plus-circle mr-1"></i>Add State</a>
+              </div>
+            </div>
+            <div class="col-12">
+              <hr class="mt" />
+            </div>
+
+            <!-- Modal for Add State and Edit State -->
+            <div class="modal fade" id="addEditState" role="dialog" #closemodal>
+              <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                      &times;
+                    </button>
+                    <h4 class="modal-title">
+                      {{ isAddState ? "Add New State" : "Update State" }}
+                    </h4>
+                  </div>
+                  <div class="modal-body">
+                    <form #stateForm="ngForm" name="state">
+                      <label>Enter the State Name:</label>
+                      <input type="text" id="stateName" [(ngModel)]="stateData.stateName"
+                        placeholder="Enter the state name" class="form-control" required name="stateName"
+                        #stateName="ngModel" />
+                      <p class="alert-msg"
+                        *ngIf="stateName.errors?.['required'] && (stateName.touched || stateName.dirty)">
+                        Please Enter the State Name
+                      </p>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="submit" class="btn" (click)="isAddState ? insertState() : updateState()"
+                      [disabled]="stateForm.invalid">
+                      {{ isAddState ? "Save" : "Update" }}
+                    </button>
+
+                    <button type="button" class="btn" data-dismiss="modal">
+                      Close
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <table class="table mx-auto text-center">
+                <thead>
+                  <tr>
+                    <th class="text-center">#</th>
+                    <th class="text-center">State Id</th>
+                    <th class="text-center">State Code</th>
+                    <th class="text-center">State Name</th>
+                    <th class="text-center">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>TN</td>
+                    <td>Tamil Nadu</td>
+                    <td>
+                      <button class="btn" data-toggle="modal" data-target="#addEditState"
+                        (click)="isAddState=false; isEditState=true; sendState">
+                        Edit
+                      </button>
+                      <button class="btn" (click)="deleteState()">Delete</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
