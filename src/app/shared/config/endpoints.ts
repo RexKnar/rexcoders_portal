@@ -19,7 +19,6 @@ export const DOMAIN_CONFIG = {
   addDomainUrl: '/api/domain/add',
   updateDomainUrl:'/api/domain/update',
   deleteDomainUrl:'/api/domain/delete'
-
 };
 
 export const PAYMENT_CONFIG = {
@@ -28,7 +27,17 @@ export const PAYMENT_CONFIG = {
 };
 
 export const STATE_CONFIG = {
-  getStateListUrl:'/api/state/getall?countryId=1'
+  getStateListUrl:'/api/state/getall?countryId=1',
+  postStateListUrl:'/api/state/add',
+  putStateListUrl:'/api/state/update',
+  deleteStateListUrl:'/api/state/delete/?stateId=1'
+}
+
+export const CITY_CONFIG = {
+  getCityListUrl:'/api/city/getall',
+  postCityListUrl:'/api/city/add',
+  putCityListUrl:'/api/city/update',
+  deleteCityListUrl:'/api/city/delete/?cityId=3'
 }
 
 export const BATCH_CONFIG = {
