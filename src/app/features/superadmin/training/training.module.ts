@@ -7,6 +7,10 @@ import { TrainingDetailsComponent } from './components/training-details/training
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { AddSyllabusComponent } from './components/add-training/add-syllabus/add-syllabus.component';
 import { ViewSyllabusComponent } from './components/training-details/view-syllabus/view-syllabus.component';
+import { AddModuleComponent } from './components/syllabus/add-module/add-module.component';
+import { ModuleListComponent } from './components/syllabus/module-list/module-list.component';
+import { ChapterListComponent } from './components/syllabus/chapter-list/chapter-list.component';
+import { AddChapterComponent } from './components/syllabus/add-chapter/add-chapter.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +19,10 @@ import { ViewSyllabusComponent } from './components/training-details/view-syllab
     TrainingDetailsComponent,
     AddSyllabusComponent,
     ViewSyllabusComponent,
+    AddModuleComponent,
+    ModuleListComponent,
+    ChapterListComponent,
+    AddChapterComponent,
 
   ],
   imports: [
