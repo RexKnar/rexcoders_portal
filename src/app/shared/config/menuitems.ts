@@ -17,10 +17,10 @@ export var MENUITEMS: Menu[] = [
     {
         title: 'Trainings', icon: 'fas fa-shopping-basket', type: 'sub', active: false, children: [
 
-            { path: '#', title: 'Add Training', type: 'link', },
-            { path: '#', title: 'Training List', type: 'link' },
-            { path: '#', title: 'Approved List', type: 'link', },
-            { path: '#', title: 'Pending List', type: 'link', },
+            { path: '/admin/training/add', title: 'Add Training', type: 'link', },
+            { path: '/admin/training/list', title: 'Training List', type: 'link' },
+            { path: '/admin/training/approval-list', title: 'Approved List', type: 'link', },
+            { path: '/admin/training/pending-list', title: 'Pending List', type: 'link', },
             
         ]
     },

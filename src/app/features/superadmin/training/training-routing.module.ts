@@ -10,11 +10,11 @@ const routes: Routes = [
     pathMatch:'full'
   },
  {
-  path:'training-list',
+  path:'list',
   component:TrainingListComponent
  },
  {
-  path:'training-list',
+  path:'add',
   component:AddTrainingComponent
  }
  

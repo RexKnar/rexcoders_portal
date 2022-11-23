@@ -20,7 +20,16 @@ const routes: Routes = [
     component: AdminLayoutComponent,
     loadChildren: () => import('./features/superadmin/superadmin.module').then(module => module.SuperadminModule)
     
-  }
+  },
+  {
+    path:'student',
+    component: AdminLayoutComponent,
+    loadChildren: () => import('./features/student/student.module').then(module => module.StudentModule),
+
+  },
+
+
+
 ];
 
 @NgModule({
