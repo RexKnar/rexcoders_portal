@@ -1,1 +1,92 @@
-<p>category works!</p>
+<div class="container mt">
+  <div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12">
+      <div class="dashboard_wrap">
+        <div class="form_blocs_wrap">
+          <div class="row">
+            <div class="col-6 add mb">
+              <h3 class="txt-color">Category List</h3>
+            </div>
+            <div class="col-6 text-right add mb align-self-center">
+              <div>
+                <a href="#" class="add_new_btn" data-toggle="modal" data-target="#addEditCategory"
+                  (click)="resetAddModal()"><i class="fas fa-plus-circle mr-1"></i>Add Category</a>
+              </div>
+            </div>
+            <div class="col-12">
+              <hr class="mt" />
+            </div>
+
+            <!-- Modal for Add Category and Edit Category -->
+            <div class="modal fade" id="addEditCategory" role="dialog" #closemodal>
+              <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                      &times;
+                    </button>
+                    <h4 class="modal-title">
+                      {{ isAddCategory ? "Add New Category" : "Update Category" }}
+                    </h4>
+                  </div>
+                  <div class="modal-body">
+                    <form #categoryForm="ngForm" name="category">
+                      <label>Category Name:</label>
+                      <input type="text" id="categoryName" [(ngModel)]="categoryData.categoryName"
+                        placeholder="Enter the category name" class="form-control" required name="categoryName"
+                        #categoryName="ngModel" />
+                      <p class="alert-msg"
+                        *ngIf="categoryName.errors?.['required'] && (categoryName.touched || categoryName.dirty)">
+                        Please Enter the Category Name
+                      </p>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="submit" class="btn" (click)="isAddCategory ? insertCategory() : updateCategory()"
+                      [disabled]="categoryForm.invalid">
+                      {{ isAddCategory ? "Save" : "Update" }}
+                    </button>
+
+                    <button type="button" class="btn" data-dismiss="modal">
+                      Close
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <table class="table mx-auto text-center">
+                <thead>
+                  <tr>
+                    <th class="text-center">#</th>
+                    <th class="text-center">Category Id</th>
+                    <th class="text-center">Category Name</th>
+                    <th class="text-center">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>Full Stack</td>
+                    <td>
+                      <button class="btn" data-toggle="modal" data-target="#addEditCategory"
+                        (click)="isAddCategory=false; isEditCategory=true;sendCategory">
+                        Edit
+                      </button>
+                      <button class="btn" (click)="deleteCategory()">
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -8,15 +8,9 @@
               <h3 class="txt-color">Domain List</h3>
             </div>
             <div class="col-6 text-right add mb align-self-center">
-              <div class="">
-                <a
-                  href="#"
-                  class="add_new_btn"
-                  data-toggle="modal"
-                  data-target="#addEditDomain"
-                  (click)="resetAddModal()"
-                  ><i class="fas fa-plus-circle mr-1"></i>Add Domain</a
-                >
+              <div>
+                <a href="#" class="add_new_btn" data-toggle="modal" data-target="#addEditDomain"
+                  (click)="resetAddModal()"><i class="fas fa-plus-circle mr-1"></i>Add Domain</a>
               </div>
             </div>
             <div class="col-12">
@@ -37,36 +31,25 @@
                     </h4>
                   </div>
                   <div class="modal-body">
-                    <form
-                      #domainForm="ngForm"
-                      name="demo"
-                    >
+                    <form class="form-group" #domainForm="ngForm" name="demo">
                       <label>Domain Name:</label>
-                      <input
-                        type="text"
-                        id="dname"
-                        [(ngModel)]="domainData.domainName"
-                        placeholder="Enter the domain name"
-                        class="form-control"
-                        required
-                        name="dname"
-                        #dname="ngModel"
-                      />
-                      <p
-                        class="alert-msg"
-                        *ngIf="dname.errors?.['required'] && (dname.touched || dname.dirty)"
-                      >
+                      <input type="text" id="domainName" [(ngModel)]="domainData.domainName"
+                        placeholder="Enter the domain name" class="form-control" required name="domainName"
+                        #domainName="ngModel" />
+                      <div class="d-flex">
+                        <input type="file" class="form-control-file  mt-3" id="exampleFormControlFile1">
+                        <i class="fas fa-camera-retro mt-4"></i>
+                      </div>
+                      <p class="alert-msg"
+                        *ngIf="domainName.errors?.['required'] && (domainName.touched || domainName.dirty)">
                         Please Enter the Domain Name
                       </p>
                     </form>
                   </div>
                   <div class="modal-footer">
-                    <button
-                      type="submit"
-                      class="btn"
-                      (click)="isAddDomain ? insertDomain() : updateDomain()"
-                      [disabled]="domainForm.invalid"
-                    >
+
+                    <button type="submit" class="btn" (click)="isAddDomain ? insertDomain() : updateDomain()"
+                      [disabled]="domainForm.invalid">
                       {{ isAddDomain ? "Save" : "Update" }}
                     </button>
 
@@ -85,27 +68,22 @@
                     <th class="text-center">#</th>
                     <th class="text-center">Domain Id</th>
                     <th class="text-center">Domain Name</th>
+                    <th class="text-center">Domain Icon</th>
                     <th class="text-center">Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr
-                    *ngFor="let domain of domainlist.data.rows; let i = index"
-                  >
+                  <tr *ngFor="let domain of domainlist.data.rows; let i = index">
                     <td>{{ i + 1 }}</td>
                     <td>{{ domain.domainId }}</td>
                     <td>{{ domain.domainName }}</td>
+                    <td>Image</td>
                     <td>
-                      <button
-                        class="btn"
-                        data-toggle="modal"
-                        data-target="#addEditDomain"
-                        (click)="
+                      <button class="btn" data-toggle="modal" data-target="#addEditDomain" (click)="
                           isAddDomain = false;
                           isEditDomain = true;
                           sendDomain(domain)
-                        "
-                      >
+                        ">
                         Edit
                       </button>
                       <button class="btn" (click)="deleteDomain(domain)">

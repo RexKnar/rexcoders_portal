@@ -8,11 +8,11 @@ const routes: Routes = [
   },
   {
     path:'',
-    redirectTo:'domain',
+    redirectTo:'settings',
     pathMatch:'full'
   },
   {
-    path:'domain',
+    path:'settings',
     loadChildren:() => import('./settings/settings.module').then(module=>module.SettingsModule)
   },
 
