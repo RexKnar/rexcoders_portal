@@ -11,6 +11,9 @@ import { AddModuleComponent } from './components/syllabus/add-module/add-module.
 import { ModuleListComponent } from './components/syllabus/module-list/module-list.component';
 import { ChapterListComponent } from './components/syllabus/chapter-list/chapter-list.component';
 import { AddChapterComponent } from './components/syllabus/add-chapter/add-chapter.component';
+import { ReviewComponent } from './components/review/review.component';
+
+
 
 @NgModule({
   declarations: [
@@ -23,6 +26,7 @@ import { AddChapterComponent } from './components/syllabus/add-chapter/add-chapt
     ModuleListComponent,
     ChapterListComponent,
     AddChapterComponent,
+    ReviewComponent,
 
   ],
   imports: [
