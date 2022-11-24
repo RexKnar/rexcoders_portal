@@ -27,6 +27,7 @@ const routes: Routes = [
     loadChildren: () => import('./features/student/student.module').then(module => module.StudentModule),
 
   },
+  
 
 
 
