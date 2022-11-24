@@ -26,7 +26,10 @@ const routes: Routes = [
     component: AdminLayoutComponent,
     loadChildren: () => import('./features/student/student.module').then(module => module.StudentModule),
 
-  },
+  }
+  
+    
+  
 
 
 
