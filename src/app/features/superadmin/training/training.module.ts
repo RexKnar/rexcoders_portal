@@ -12,6 +12,7 @@ import { ModuleListComponent } from './components/syllabus/module-list/module-li
 import { ChapterListComponent } from './components/syllabus/chapter-list/chapter-list.component';
 import { AddChapterComponent } from './components/syllabus/add-chapter/add-chapter.component';
 import { TopicListComponent } from './components/syllabus/topic-list/topic-list.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,9 @@ import { TopicListComponent } from './components/syllabus/topic-list/topic-list.
   imports: [
     CommonModule,
     TrainingRoutingModule,
-    CKEditorModule
+    CKEditorModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
 })
 export class TrainingModule { }
