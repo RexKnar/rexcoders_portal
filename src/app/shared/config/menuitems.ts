@@ -51,10 +51,11 @@ export var MENUITEMS: Menu[] = [
     },
     {
         title: 'Settings', icon: 'fas fa-cog', type: 'sub', active: false, children: [
-            { path: '#', title: 'Manage State', type: 'link' },
-            { path: '#', title: 'Manage City', type: 'link', },
-            { path: '#', title: 'Manage Domain', type: 'link', },
-            { path: '#', title: 'Manage Category', type: 'link', }
+            { path: '/admin/settings/country-list', title: 'Manage Country', type: 'link' },
+            { path: '/admin/settings/state-list', title: 'Manage State', type: 'link' },
+            { path: '/admin/settings/city-list', title: 'Manage City', type: 'link', },
+            { path: '/admin/settings/domain-list', title: 'Manage Domain', type: 'link', },
+            { path: '/admin/settings/category-list', title: 'Manage Category', type: 'link', }
         ]
     },
     {
