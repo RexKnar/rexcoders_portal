@@ -993,9 +993,9 @@ label i.count{
 .onoffswitch {
   position: relative;
   width: 70px;
-  -webkit-user-select: none;
+  /* -webkit-user-select: none;
   -moz-user-select: none;
-  -ms-user-select: none;
+  -ms-user-select: none; */
   margin: 0 auto;
 }
 

@@ -23,7 +23,7 @@ const routes: Routes = [
  {
  
 
-  path:'topiclist',
+  path:'topic-list',
   component:TopicListComponent
  },
  {
