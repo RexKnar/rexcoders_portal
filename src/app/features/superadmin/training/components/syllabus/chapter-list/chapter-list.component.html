@@ -1,89 +1,101 @@
-<div class="container pt-5">
-    <div class="row">
-      <div class="col-xl-12 col-lg-12 col-md-12">
-        <div class="dashboard_wrap">
-          <div class="form_blocs_wrap">
-            <div class="row">
-              <div class="col-6 add mb">
-                <h3 class="txt-color">Chapter List</h3>
+<div class="container pt-5 ">
+  <div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12">
+      <div class="dashboard_wrap">
+        <div class="form_blocs_wrap">
+          <div class="row">
+            <div class="col-6 add mb">
+              <h3 class="txt-color">Chapter List</h3>
+            </div>
+            <div class="col-6 text-right add mb align-self-center">
+              <div>
+                <a href="#" (click)="addChapterButton()" class="add_new_btn" data-toggle="modal"
+                  data-target="#addEditChapter"><i class="fas fa-plus-circle mr-1"></i>Add Chapter</a>
               </div>
-              <div class="col-6 text-right add mb align-self-center">
-                <div>
-                  <a href="#" class="add_new_btn" data-toggle="modal" data-target="#addEditChapter"
-                    ><i class="fas fa-plus-circle mr-1"></i>Add Chapter</a>
-                </div>
-              </div>
-              <div class="col-12">
-                <hr class="mt" />
-              </div>
-              <!-- Modal for Add Chapter and Edit Chapter -->
-              <div class="modal fade" id="addEditChapter" role="dialog" #closemodal>
-                <div class="modal-dialog modal-lg">
-                  <!-- Modal content-->
-                  <div class="modal-content ">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal">
-                        &times;
-                      </button>
-                      <h4 class="modal-title">
-                        Update chapter
-                      </h4>
-                    </div>
-                    <div class="modal-body">
-                      <form #chapterForm="ngForm" name="chapter">
-                        <label>Chapter Name:</label>
-                        <input type="text" id="chapterName" 
-                          placeholder="Enter the chapter name" class="form-control" required name="chapterName"
-                          />
-                        <p class="alert-msg">
-                          Please Enter the Chapter Name
-                        </p>
-                      </form>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="submit" class="btn" 
-                        [disabled]="chapterForm.invalid">
-                         Save
-                      </button>
-  
-                      <button type="button" class="btn" data-dismiss="modal">
-                        Close
-                      </button>
-                    </div>
+            </div>
+            <div class="col-12">
+              <hr class="mt" />
+            </div>
+            <!-- Modal for Add Chapter and Edit Chapter -->
+            <div class="modal fade" id="addEditChapter" role="dialog" #closemodal>
+              <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content ">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                      &times;
+                    </button>
+                    <h4 class="modal-title">
+                      {{isAddChapterList ? "Add New Chapter" : "Update Chapter"}}
+                    </h4>
+                  </div>
+                  <div class="modal-body">
+                    <form [formGroup]="chapterListForm" name="chapterListFormGroup">
+                      <div>
+                        <label for="chapterListName">Chapter Name:</label>
+                        <input type="text" id="chapterListName" formControlName="chapterName" placeholder="Enter the chaptername" class="form-control">
+                        <p class="text-danger" *ngIf="chapterListForm.controls.chapterName.errors && (chapterListForm.controls.orderValue.touched || chapterListForm.controls.orderValue.dirty)">*Chapter Name required</p>
+                        
+                      </div>
+                      <div class="row pt-2">
+                        <div class="form-group col-lg-8 ">
+                          <label for="chapterListOrder">Order:</label>
+                          <input type="number" id="chapterListOrder" formControlName="orderValue" placeholder="Order number" class="border form-control" class="form-control">
+                          <p class="text-danger"  *ngIf="chapterListForm.controls.orderValue.errors && (chapterListForm.controls.orderValue.touched || chapterListForm.controls.orderValue.dirty)">*Order required</p>
+                          
+                        </div>
+                        <div class="form-group col-lg-4">
+                          <label class="status row">{{isToggle?
+                            "Inactive":"Active"}}</label>
+                          <label class="toggle-switch mt-1 spaceBetween row">
+                            <input type="checkbox" checked class="change-color" (click)="toggleOn()">
+                            <span class="slider round"></span>
+                          </label>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="submit" class="btn" [disabled]="!chapterListForm.valid" (click)= "isAddChapterList ? insertChapterList() : editChapterList()">
+                      {{isAddChapterList ? "Save" : "Update"}}
+                    </button>
+                    <button type="button" class="btn" data-dismiss="modal">
+                      Close
+                    </button>
                   </div>
                 </div>
               </div>
-              <div class="col-12">
-                <table class="table mx-auto text-center">
-                  <thead>
-                    <tr>
-                      <th class="text-center">#</th>
-                      <th class="text-center">Chapter Name</th>
-                      <th class="text-center">Active Status</th>
-                      <th class="text-center">Action</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>Block Level Element</td>
-                      <td><span class="badge badge-success">Active</span></td>
-                      <td>
-                        <button class="btn" data-toggle="modal" data-target="#addEditchapter"
-                          >
-                          Edit
-                        </button>
-                        <button class="btn" >
-                          Delete
-                        </button>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+            </div>
+            <div class="col-12">
+              <table class="table mx-auto text-center">
+                <thead>
+                  <tr>
+                    <th class="text-center">#</th>
+                    <th class="text-center">Chapter Name</th>
+                    <th class="text-center">Active Status</th>
+                    <th class="text-center">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Block Level Element</td>
+                    <td><span class="trip theme-cl theme-bg-light">Active</span></td>
+                    <td>
+                      <button class="btn" data-toggle="modal" data-target="#addEditChapter" (click)="editButton()">
+                        Edit
+                      </button>
+                      <button class="btn" (click)="deleteChapterList()">
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
