@@ -19,7 +19,7 @@ const routes: Routes = [
     path:'admin',
     component: AdminLayoutComponent,
     loadChildren: () => import('./features/superadmin/superadmin.module').then(module => module.SuperadminModule)
-    
+ 
   },
   {
     path:'student',
