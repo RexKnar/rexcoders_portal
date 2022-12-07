@@ -5,6 +5,7 @@ import { AddTrainingComponent } from './components/add-training/add-training.com
 import { ModuleListComponent } from './components/syllabus/module-list/module-list.component';
 import { ChapterListComponent } from './components/syllabus/chapter-list/chapter-list.component';
 import { TrainingListComponent } from './components/training-list/training-list.component';
+import { TrainingDetailsComponent } from './components/training-details/training-details.component';
 
 const routes: Routes = [
   {
@@ -27,7 +28,12 @@ const routes: Routes = [
  {
   path:'chapter-list',
   component:ChapterListComponent
+ },
+ {
+  path:'training-list',
+  component:TrainingDetailsComponent
  }
+ 
  
 ];
 
