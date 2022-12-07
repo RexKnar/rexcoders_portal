@@ -13,6 +13,7 @@ import { ChapterListComponent } from './components/syllabus/chapter-list/chapter
 import { AddChapterComponent } from './components/syllabus/add-chapter/add-chapter.component';
 import { TopicListComponent } from './components/syllabus/topic-list/topic-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ViewTopicComponent } from './components/syllabus/view-topic/view-topic.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ChapterListComponent,
     AddChapterComponent,
     TopicListComponent,
+    ViewTopicComponent,
 
   ],
   imports: [

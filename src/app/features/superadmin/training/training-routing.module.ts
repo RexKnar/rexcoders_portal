@@ -5,6 +5,7 @@ import { TopicListComponent } from './components/syllabus/topic-list/topic-list.
 
 import { ChapterListComponent } from './components/syllabus/chapter-list/chapter-list.component';
 import { TrainingListComponent } from './components/training-list/training-list.component';
+import { ViewTopicComponent } from './components/syllabus/view-topic/view-topic.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,11 @@ const routes: Routes = [
  
   path:'chapter-list',
   component:ChapterListComponent
+
+ },
+ {
+  path:'view-topic',
+  component:ViewTopicComponent
 
  },
 ]
