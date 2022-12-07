@@ -15,6 +15,9 @@ import { ReviewComponent } from './components/review/review.component';
 
 
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+
 @NgModule({
   declarations: [
     AddTrainingComponent,
@@ -32,7 +35,9 @@ import { ReviewComponent } from './components/review/review.component';
   imports: [
     CommonModule,
     TrainingRoutingModule,
-    CKEditorModule
+    CKEditorModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
 })
 export class TrainingModule { }
