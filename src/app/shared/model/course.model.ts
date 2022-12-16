@@ -6,6 +6,7 @@ export class CourseCardDetails{
     trainingName:string;
     totalHours:string|number;
     imageUrl:any;
+    shortNote:string;
     
     
 }

@@ -13,7 +13,7 @@ export class TrainingCardComponent implements OnInit {
 
   @Input() cardDetails : CourseCardDetails;
   environment=environment;
-
+userRole:number=0;
   constructor() { }
 
   ngOnInit(): void {
