@@ -26,6 +26,13 @@ export const PAYMENT_CONFIG = {
   updateOrderUrl: '/api/payment/updateOrder',
 };
 
+export const COUNTRY_CONFIG = {
+  getCountryListUrl:'/api/country/getall',
+  postCountryListUrl:'/api/country/add',
+  putCountryListUrl:'/api/country/update',
+  deleteCountryListUrl:'/api/country/delete/?countryId=1'
+}
+
 export const STATE_CONFIG = {
   getStateListUrl:'/api/state/getall?countryId=1',
   postStateListUrl:'/api/state/add',
