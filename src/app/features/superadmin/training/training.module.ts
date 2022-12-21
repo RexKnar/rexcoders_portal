@@ -12,6 +12,7 @@ import { ModuleListComponent } from './components/syllabus/module-list/module-li
 import { ChapterListComponent } from './components/syllabus/chapter-list/chapter-list.component';
 import { AddChapterComponent } from './components/syllabus/add-chapter/add-chapter.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     TrainingRoutingModule,
     CKEditorModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ],
 })
 export class TrainingModule { }

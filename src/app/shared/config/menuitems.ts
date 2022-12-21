@@ -10,11 +10,11 @@ export class Menu {
 	children?: Menu[];
 }
 
-export var MENUITEMS: Menu[] = [
+export var MENUITEMS: any = { 'Admin':[
     {
         path: '#', title: 'Dashboard', icon: 'fas fa-th', type: 'link'
     },
-    {
+    { 
         title: 'Trainings', icon: 'fas fa-shopping-basket', type: 'sub', active: false, children: [
 
             { path: '/admin/training/add', title: 'Add Training', type: 'link', },
@@ -52,8 +52,6 @@ export var MENUITEMS: Menu[] = [
     {
         title: 'Settings', icon: 'fas fa-cog', type: 'sub', active: false, children: [
             { path: '/admin/settings/country-list', title: 'Manage Country', type: 'link' },
-            { path: '/admin/settings/state-list', title: 'Manage State', type: 'link' },
-            { path: '/admin/settings/city-list', title: 'Manage City', type: 'link', },
             { path: '/admin/settings/domain-list', title: 'Manage Domain', type: 'link', },
             { path: '/admin/settings/category-list', title: 'Manage Category', type: 'link', }
         ]
@@ -62,4 +60,27 @@ export var MENUITEMS: Menu[] = [
         path: '#', title: 'My Profile', icon: 'fas fa-address-card', type: 'link'
     },
     
-]
+],
+'Student':[ {
+    path: '#', title: 'Dashboard', icon: 'fas fa-th', type: 'link'
+},
+{ 
+    title: 'Trainings', icon: 'fas fa-shopping-basket', type: 'sub', active: false, children: [
+
+        { path: '/admin/training/add', title: 'Add Training', type: 'link', },
+        { path: '/admin/training/list', title: 'Training List', type: 'link' },
+        { path: '/admin/training/approval-list', title: 'Approved List', type: 'link', },
+        { path: '/admin/training/pending-list', title: 'Pending List', type: 'link', },
+        
+    ]
+},
+{
+    title: 'Report', icon: 'fas fa-archive', type: 'sub', active: false, children: [
+        { path: '#', title: 'Admin Revenue', type: 'link' },
+        { path: '#', title: 'Instructors Revenue', type: 'link', }
+    ]
+},
+{
+    path: '#', title: 'My Profile', icon: 'fas fa-address-card', type: 'link'
+}]
+}
