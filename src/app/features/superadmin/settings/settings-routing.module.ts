@@ -32,6 +32,10 @@ const routes: Routes = [
   {
     path:'subcategory-list',
     component: SubCategoryComponent
+  },
+  {
+    path:'state-list:countryId',
+    component:StateComponent
   }
 ];
 
