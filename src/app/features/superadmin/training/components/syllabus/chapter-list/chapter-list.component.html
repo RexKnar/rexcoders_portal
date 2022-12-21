@@ -34,15 +34,13 @@
                       <div>
                         <label for="chapterListName">Chapter Name:</label>
                         <input type="text" id="chapterListName" formControlName="chapterName" placeholder="Enter the chaptername" class="form-control">
-                        <p class="text-danger" *ngIf="chapterListForm.controls.chapterName.errors && (chapterListForm.controls.orderValue.touched || chapterListForm.controls.orderValue.dirty)">*Chapter Name required</p>
-                        
+                        <p class="text-danger" *ngIf="chapterListForm.controls.chapterName.errors && (chapterListForm.controls.chapterName.touched || chapterListForm.controls.chapterName.dirty)">*Chapter Name required</p>                 
                       </div>
                       <div class="row pt-2">
                         <div class="form-group col-lg-8 ">
                           <label for="chapterListOrder">Order:</label>
                           <input type="number" id="chapterListOrder" formControlName="orderValue" placeholder="Order number" class="border form-control" class="form-control">
-                          <p class="text-danger"  *ngIf="chapterListForm.controls.orderValue.errors && (chapterListForm.controls.orderValue.touched || chapterListForm.controls.orderValue.dirty)">*Order required</p>
-                          
+                          <p class="text-danger"  *ngIf="chapterListForm.controls.orderValue.errors && (chapterListForm.controls.orderValue.touched || chapterListForm.controls.orderValue.dirty)">*Order required</p>                        
                         </div>
                         <div class="form-group col-lg-4">
                           <label class="status row">{{isToggle?
