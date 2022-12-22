@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
+import { AuthGuard } from './shared/guard/auth.guard';
 import { AdminLayoutComponent } from './shared/theme/admin-layout/admin-layout.component';
 import { AuthLayoutComponent } from './shared/theme/auth-layout/auth-layout.component';
 
@@ -24,6 +24,7 @@ const routes: Routes = [
   {
     path:'student',
     component: AdminLayoutComponent,
+    canActivate: [AuthGuard],
     loadChildren: () => import('./features/student/student.module').then(module => module.StudentModule),
 
 

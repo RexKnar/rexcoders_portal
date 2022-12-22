@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { AddDomainModel } from 'src/app/shared/model/domain.model';
-import { DomainService } from 'src/app/shared/service/domain.service';
+import { DomainService } from 'src/app/shared/services/domain.service';
 import Swal from 'sweetalert2';
 @Component({
   selector: 'app-domain-list',
@@ -41,9 +41,7 @@ export class DomainListComponent implements OnInit {
       )
       this.getDomain();
 
-      console.log(this.closemodal.nativeElement.getAttribute('type'));
       this.closemodal.nativeElement.click();
-      console.log(this.closemodal.nativeElement.getAttribute('class'));
     })
 
   }
