@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AddCountryModel } from 'src/app/shared/model/country.model';
-import { CountryService } from 'src/app/shared/service/country.service';
+
+
 import Swal from 'sweetalert2';
 
 @Component({
@@ -21,21 +22,21 @@ export class CountryComponent implements OnInit {
     this.isEditCountry=false;
     this.countryData=new AddCountryModel();
   }
-  constructor(private _countryService: CountryService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.getCountry()
+    // this.getCountry()
   }
   sendCountry(countryDetails:any){
     this.countryData=countryDetails;
   }
-  getCountry(){
-    this._countryService.getCountry().subscribe({
-      next : (data:any)=>{
-        console.log(data);
-      }
-    })
-  }
+  // getCountry(){
+  //   this._countryService.getCountry().subscribe({
+  //     next : (data:any)=>{
+  //       console.log(data);
+  //     }
+  //   })
+  // }
   insertCountry()
   {
 

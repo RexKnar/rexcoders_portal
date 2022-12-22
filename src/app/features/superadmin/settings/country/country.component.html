@@ -31,22 +31,26 @@
                     </h4>
                   </div>
                   <div class="modal-body">
-                    <form #countryForm="ngForm" name="country">
+                     <!-- <form #countryForm="ngForm" name="country">
                       <label>Enter the Country Name:</label>
-                      <input type="text" id="countryName" [(ngModel)]="countryData.countryName"
-                        placeholder="Enter the country name" class="form-control" required name="countryName"
-                        #countryName="ngModel" />
+                      <input type="text" id="countryName" [(ngModel)]="countryData.countryName" placeholder="Enter the country name" class="form-control"  required name="countryName"
+                        #countryName="ngModel"/>
                       <p class="alert-msg"
                         *ngIf="countryName.errors?.['required'] && (countryName.touched || countryName.dirty)">
                         Please Enter the Country Name
                       </p>
-                    </form>
+                    </form> -->
+
+
+
+
+
                   </div>
                   <div class="modal-footer">
-                    <button type="submit" class="btn" (click)="isAddCountry ? insertCountry() : updateCountry()"
+                    <!-- <button type="submit" class="btn" (click)="isAddCountry ? insertCountry() : updateCountry()"
                       [disabled]="countryForm.invalid">
                       {{ isAddCountry ? "Save" : "Update" }}
-                    </button>
+                    </button> -->
 
                     <button type="button" class="btn" data-dismiss="modal">
                       Close
@@ -91,4 +95,4 @@
   </div>
 </div>
 
-<button (click)="getCountry()">check</button>
+<!-- <button (click)="getCountry()">check</button> -->
