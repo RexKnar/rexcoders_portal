@@ -20,9 +20,11 @@ import { ReviewComponent } from './components/review/review.component';
 
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { ViewTopicComponent } from './components/syllabus/view-topic/view-topic.component';
 
 import { SharedModule } from 'src/app/shared/shared.module';
+
 
 @NgModule({
   declarations: [
@@ -49,7 +51,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
     CKEditorModule,
     FormsModule,
     ReactiveFormsModule,
+
     SharedModule
+
   ],
 })
 export class TrainingModule { }
