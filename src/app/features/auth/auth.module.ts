@@ -10,8 +10,11 @@ import { AuthComponent } from './auth.component';
 
 
 
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> 016c9866b61a6acefd39634b108d5e65ab8f6465
 @NgModule({
   declarations: [
     LoginComponent,
@@ -23,6 +26,12 @@ import { AuthComponent } from './auth.component';
     AuthRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+<<<<<<< HEAD
+    
+    
+  ],
+=======
+>>>>>>> 016c9866b61a6acefd39634b108d5e65ab8f6465
 
 
 ]

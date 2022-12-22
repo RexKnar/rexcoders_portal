@@ -16,6 +16,5 @@ userType:string='Student';
   }
 getUserType(type:string){
 this.userType=type;
-console.log(this.userType);
 }
 }
