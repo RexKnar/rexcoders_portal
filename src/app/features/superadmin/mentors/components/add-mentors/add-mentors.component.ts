@@ -48,9 +48,9 @@ export class AddMentorsComponent implements OnInit {
 
     this._mentorService
       .addMentorsList(mentorDetails)
-      .subscribe((postMentorRespose: any) => {
+      .subscribe((postMentorResponse: any) => {
         Swal.fire('Good job!', 'Domain name added!', 'success');
-        console.log(postMentorRespose);
+        console.log(postMentorResponse);
       });
   }
 }
