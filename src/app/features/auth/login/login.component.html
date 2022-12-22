@@ -7,8 +7,67 @@
       <div *ngIf="
               loginControls['username'].touched &&
               loginControls['username'].invalid
+<<<<<<< HEAD
             " class="text-danger">
         <span *ngIf="loginControls['username'].errors?.['required']">Email or Mobile number is required.</span>
+=======
+            "
+            class="text-danger"
+          >
+            <span *ngIf="loginControls['username'].errors?.['required']"
+              >User ID is required.</span
+            >
+            <span *ngIf="loginControls['username'].errors?.['email']"
+              >Invalid User</span
+            >
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Password</label>
+          <input
+            type="password"
+            class="form-control"
+            placeholder=""
+            formControlName="password"
+          />
+        </div>
+        <div
+          *ngIf="
+            loginControls['password'].touched &&
+            loginControls['password'].invalid
+          "
+          class="text-danger"
+        >
+          <div *ngIf="loginControls['password'].errors?.['required']">
+            Password is required.
+          </div>
+          <div *ngIf="loginControls['password'].errors?.['minlength']">
+            Password should be minimum 6 character.
+          </div>
+        </div>
+        <div class="form-group">
+          <button
+            type="submit"
+            class="btn full-width btn-md theme-bg text-white"
+          >
+            Login
+          </button>
+        </div>
+      
+      </div>
+  
+    <div class="crs_log__footer d-flex justify-content-between">
+      <div class="fhg_45">
+        <p class="musrt">
+          Don't have account? <a href="signup.html" class="theme-cl">SignUp</a>
+        </p>
+      </div>
+      <div class="fhg_45">
+        <p class="musrt">
+          <a routerLink="/auth/forgot" class="text-danger">Forgot Password?</a>
+        </p>
+>>>>>>> a809897428831a30fd86666f918ab78ca762e29b
       </div>
     </div>
 
