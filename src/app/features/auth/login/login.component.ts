@@ -49,6 +49,8 @@ export class LoginComponent implements OnInit, OnDestroy {
 
     // this.loginSubscription.unsubscribe()
 
+    this.destroy$.next(true);
+    this.destroy$.complete();
   }
   loginSubmit() {
     if (this.loginForm.valid) {
@@ -59,6 +61,15 @@ export class LoginComponent implements OnInit, OnDestroy {
         next: (data) => {
           Swal.fire('Hi '+this.userRole + ', Welcome to Rexcoders');
           this.loginForm.reset();
+      this._authservice
+        .authenticateUser(this.loginForm.value)
+        .pipe(takeUntil(this.destroy$))
+        .subscribe({
+          next: (data) => {
+            this.responsedata = data.data;
+            Swal.fire('Hi ' + this.responsedata?.details?.name + ', Welcome to Rexcoders');
+            this.loginForm.reset();
+            this._cookiesService.setAuthCookies(this.responsedata,this.userRole);
 
             this._router.navigate(['/student']);
           },
@@ -67,5 +78,5 @@ export class LoginComponent implements OnInit, OnDestroy {
           },
         });
     }
-  }
+  
 }

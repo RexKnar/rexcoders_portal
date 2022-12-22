@@ -744,7 +744,7 @@ ul.simple-list li:before {
 .table tr th, .table tr td {
     border-color: #eaeff5;
     padding: 12px 15px;
-    vertical-align: middle;
+    /* vertical-align: middle; */
 }
 .table.tbl-big tr th, .table.tbl-big tr td {
     padding:20px 15px;
@@ -6987,6 +6987,7 @@ ul.nav.nav-second-level.collapse.show {
     font-size:11px;
     text-align: center;
     border-radius: 2px;
+    margin-left: -30px ;
 }
 .dash_list .smalls {
     font-size: 11px;

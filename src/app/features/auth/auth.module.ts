@@ -25,6 +25,8 @@ import { AuthComponent } from './auth.component';
     ReactiveFormsModule,
 
 
+
+
   ],
 
 

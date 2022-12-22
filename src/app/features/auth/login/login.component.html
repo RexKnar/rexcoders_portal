@@ -124,6 +124,8 @@
           <a routerLink="/auth/forgot" class="text-danger">Forgot Password?</a>
         </p>
 
+            " class="text-danger">
+        <span *ngIf="loginControls['username'].errors?.['required']">Email or Mobile number is required.</span>
       </div>
     </div>
 
