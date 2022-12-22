@@ -47,3 +47,8 @@ export const BATCH_CONFIG = {
 export const CONSULT_CONFIG = {
   bookConsultationUrl: '/api/consultation/book'
 }
+
+
+export const MENTORS_CONFIG = {
+  addMentorsUrl: '/api/mentors/add'
+}

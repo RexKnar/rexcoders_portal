@@ -1,0 +1,170 @@
+<div class="container mt">
+  <div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12">
+      <div class="dashboard_wrap">
+        <div class="form_blocs_wrap">
+          <form class="p-3" [formGroup]="addMentorForm">
+            <div class="row">
+              <div class="col-6 add mb">
+                <h3 class="txt-color">Add Mentors</h3>
+              </div>
+            </div>
+            <div class="row mt-5 mb-4">
+              <div class="col">
+                <label>Mentor Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Enter the Mentor Name"
+                  name="mentorName"
+                  formControlName="mentorName"
+                />
+              </div>
+              <div class="col">
+                <label>Mobile Number</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Mobile Number"
+                  name="mobileNumber"
+                  formControlName="mobileNumber"
+                />
+              </div>
+            </div>
+            <div class="row mb-4">
+              <div class="col">
+                <label>Email Id</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Email Id"
+                  name="emailId"
+                  formControlName="emailId"
+                />
+              </div>
+              <div class="col">
+                <label>Designation</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Designation"
+                  name="degination"
+                  formControlName="designation"
+                />
+              </div>
+            </div>
+
+            <div class="row mb-4">
+              <div class="col">
+                <label>Current Company</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Current Company"
+                  name="currentCompany"
+                  formControlName="currentCompany"
+                  
+                />
+              </div>
+              <div class="col">
+                <label>Previous Company</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Previous Company"
+                  name="previousCompany"
+                  formControlName="previousCompany"
+                />
+              </div>
+            </div>
+            <div class="row mb-4">
+              <div class="col">
+                <label>Profile Image</label>
+                <div class="spinner-border ml-2 mr-2"></div>
+                Loading...
+                <input
+                  type="file"
+                  class="form-control"
+                  id="imgurl"
+                  name="imgurl"
+                  formControlName="photo"
+                />
+              </div>
+              <div class="col">
+                <label>Linkedln Id</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Linkedln Id"
+                  name="linkedlnId"
+                  formControlName="linkedlnId"
+                />
+              </div>
+            </div>
+            <div class="row mb-4">
+              <div class="col">
+                <label>Instagram Id</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Instagram Id"
+                  name="instagramId"
+                  formControlName="instagramId"
+                />
+              </div>
+              <div class="col">
+                <label>Twitter Id</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Twitter Id"
+                  name="twitterId"
+                  formControlName="twitterId"
+                />
+              </div>
+            </div>
+            <div class="row mb-4">
+              <div class="col">
+                <label>Facebook Id</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Facebook Id"
+                  name="facebookId"
+                  formControlName="facebookId"
+                />
+              </div>
+              <div class="col">
+                <label>Others</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Others"
+                  name="others"
+                  formControlName="others"
+                />
+              </div>
+            </div>
+            <div class="row mb-4">
+              <div class="col-12">
+                <label>About Mentor</label>
+                <textarea
+                  class="form-control"
+                  name=""
+                  id=""
+                  cols="30"
+                  rows="5"
+                  formControlName="aboutMentor"
+                ></textarea>
+              </div>
+              
+            </div>
+          </form>
+          <div class="row mb-4">
+            <button (click)="addMentors()">Add Mentors</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

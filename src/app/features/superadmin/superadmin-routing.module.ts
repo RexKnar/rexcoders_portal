@@ -15,7 +15,10 @@ const routes: Routes = [
     path:'settings',
     loadChildren:() => import('./settings/settings.module').then(module=>module.SettingsModule)
   },
-
+  {
+    path:'mentors',
+    loadChildren:() => import('./mentors/mentors.module').then(module=>module.MentorsModule)
+  }
 ];
 
 @NgModule({
