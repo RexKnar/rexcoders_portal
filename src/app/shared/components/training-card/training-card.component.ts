@@ -9,6 +9,8 @@ import { environment } from 'src/environments/environment';
 })
 export class TrainingCardComponent implements OnInit {
 
+  statusToggle: boolean = true;
+
   @Input() cardDetails : CourseCardDetails;
   environment=environment;
 
@@ -16,7 +18,9 @@ export class TrainingCardComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  toggleDisplayDiv() {
+    this.statusToggle = !this.statusToggle;
+  }
 }
 
 
