@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
-import { MentorsService } from 'src/app/shared/service/mentors.service';
 import { FormGroup, FormControl } from '@angular/forms';
+import {MentorService} from 'src/app/shared/services/mentor.service';
 @Component({
   selector: 'app-add-mentors',
   templateUrl: './add-mentors.component.html',
@@ -23,7 +23,7 @@ export class AddMentorsComponent implements OnInit {
     others: new FormControl(),
     photo: new FormControl()
   });
-  constructor(private _mentorService: MentorsService) {}
+  constructor(private _mentorService: MentorService) {}
 
   ngOnInit(): void {}
   addMentors() {
