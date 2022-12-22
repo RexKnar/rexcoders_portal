@@ -7,7 +7,13 @@ import { AdminLayoutComponent } from './theme/admin-layout/admin-layout.componen
 import { AuthLayoutComponent } from './theme/auth-layout/auth-layout.component';
 import { FooterComponent } from './theme/footer/footer.component';
 import { HeaderComponent } from './theme/header/header.component';
+import { TrainingCardComponent } from './components/training-card/training-card.component';
+
+
+
 import {CookieService} from 'ngx-cookie-service';
+import { LoginComponent } from '../features/auth/login/login.component';
+
 
 @NgModule({
   declarations: [
@@ -16,15 +22,26 @@ import {CookieService} from 'ngx-cookie-service';
     AdminLayoutComponent,
     AuthLayoutComponent,
     FooterComponent,
-    
+    TrainingCardComponent,
+    //LoginComponent
+
   ],
   imports: [
     CommonModule,
     FormsModule,
     RouterModule
   ],
-  
+
   exports: [
+    HeaderComponent,
+    SidebarComponent,
+    AdminLayoutComponent,
+    AuthLayoutComponent,
+    FooterComponent,
+    TrainingCardComponent,
+    //LoginComponent
+
+
   ],
 
 })

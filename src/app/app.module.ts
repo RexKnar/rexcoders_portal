@@ -6,8 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import {CookieService} from 'ngx-cookie-service';
-import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
 import { CommonModule } from '@angular/common';
+import { AuthInterceptor } from './shared/Interceptors/auth.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +18,9 @@ import { CommonModule } from '@angular/common';
     SharedModule,  
     FormsModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule
+
   ],
   providers: [{provide:HTTP_INTERCEPTORS,
     useClass:AuthInterceptor,
