@@ -11,8 +11,8 @@ import { TrainingCardComponent } from './components/training-card/training-card.
 
 
 
-import {CookieService} from 'ngx-cookie-service';
-import { LoginComponent } from '../features/auth/login/login.component';
+
+
 
 
 @NgModule({
