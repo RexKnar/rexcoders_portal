@@ -40,19 +40,14 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-<<<<<<< HEAD
     this.destroy$.next(true);
     this.destroy$.complete();
-=======
-    // this.loginSubscription.unsubscribe()
->>>>>>> a809897428831a30fd86666f918ab78ca762e29b
   }
   loginSubmit() {
     if (this.loginForm.valid) {
       this.loginForm.patchValue({
         userType: this.userRole,
       });
-<<<<<<< HEAD
       this._authservice
         .authenticateUser(this.loginForm.value)
         .pipe(takeUntil(this.destroy$))
@@ -62,12 +57,6 @@ export class LoginComponent implements OnInit, OnDestroy {
             Swal.fire('Hi ' + this.responsedata?.details?.name + ', Welcome to Rexcoders');
             this.loginForm.reset();
             this._cookiesService.setAuthCookies(this.responsedata,this.userRole);
-=======
-      this.loginSubscription=this._authservice.authenticateUser(this.loginForm.value).subscribe({
-        next: (data) => {
-          Swal.fire('Hi '+this.userRole + ', Welcome to Rexcoders');
-          this.loginForm.reset();
->>>>>>> a809897428831a30fd86666f918ab78ca762e29b
 
             this._router.navigate(['/student']);
           },
