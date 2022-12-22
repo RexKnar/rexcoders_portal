@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   loginForm!: FormGroup;
   responsedata: any;
   @Input() userRole: string;
+  loginSubscription: Subscription;
   constructor(
     private loginFormBuilder: FormBuilder,
     public _authservice: AuthService,
@@ -40,24 +41,24 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
+
     // this.loginSubscription.unsubscribe()
+
     this.destroy$.next(true);
     this.destroy$.complete();
+
+    // this.loginSubscription.unsubscribe()
+
   }
   loginSubmit() {
     if (this.loginForm.valid) {
       this.loginForm.patchValue({
         userType: this.userRole,
       });
-      this._authservice
-        .authenticateUser(this.loginForm.value)
-        .pipe(takeUntil(this.destroy$))
-        .subscribe({
-          next: (data) => {
-            this.responsedata = data.data;
-            Swal.fire('Hi ' + this.responsedata?.details?.name + ', Welcome to Rexcoders');
-            this.loginForm.reset();
-            this._cookiesService.setAuthCookies(this.responsedata,this.userRole);
+      this.loginSubscription=this._authservice.authenticateUser(this.loginForm.value).subscribe({
+        next: (data) => {
+          Swal.fire('Hi '+this.userRole + ', Welcome to Rexcoders');
+          this.loginForm.reset();
 
             this._router.navigate(['/student']);
           },
