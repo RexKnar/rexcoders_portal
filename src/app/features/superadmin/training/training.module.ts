@@ -20,8 +20,12 @@ import { ReviewComponent } from './components/review/review.component';
 
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+<<<<<<< HEAD
 import { ViewTopicComponent } from './components/syllabus/view-topic/view-topic.component';
 
+=======
+import { SharedModule } from 'src/app/shared/shared.module';
+>>>>>>> c4162bab93e7a6b541ffc30941fb888b8ffa839b
 
 @NgModule({
   declarations: [
@@ -48,6 +52,10 @@ import { ViewTopicComponent } from './components/syllabus/view-topic/view-topic.
     CKEditorModule,
     FormsModule,
     ReactiveFormsModule,
+<<<<<<< HEAD
+=======
+    SharedModule
+>>>>>>> c4162bab93e7a6b541ffc30941fb888b8ffa839b
   ],
 })
 export class TrainingModule { }

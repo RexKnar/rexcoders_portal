@@ -1,8 +1,7 @@
-<div class="container border border-success mx-auto" style="margin-top:8%; margin-left:10%;">
-    <form action="">
-        <div class="form-group">
-            <label for="training-name">Training Name</label>
-            <input type="text" class="form-control w-75">
-        </div>
-    </form>
-</div>
+
+<ng-container *ngFor="let trainingDetail of trainingList">
+    <div class="col-lg-4">
+        <app-training-card [cardDetails]="trainingDetail"></app-training-card>
+    </div>
+   
+</ng-container>

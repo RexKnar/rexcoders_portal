@@ -10,11 +10,14 @@ import { HeaderComponent } from './theme/header/header.component';
 import { TrainingCardComponent } from './components/training-card/training-card.component';
 
 
+<<<<<<< HEAD
 
 
 
 
 
+=======
+>>>>>>> c4162bab93e7a6b541ffc30941fb888b8ffa839b
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -23,8 +26,6 @@ import { TrainingCardComponent } from './components/training-card/training-card.
     AuthLayoutComponent,
     FooterComponent,
     TrainingCardComponent,
-    //LoginComponent
-
   ],
   imports: [
     CommonModule,
@@ -39,7 +40,6 @@ import { TrainingCardComponent } from './components/training-card/training-card.
     AuthLayoutComponent,
     FooterComponent,
     TrainingCardComponent,
-    //LoginComponent
 
 
   ],
