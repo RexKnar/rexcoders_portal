@@ -75,10 +75,13 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Block Level Element</td>
-                    <td><span class="trip theme-cl theme-bg-light">Active</span></td>
+                  <tr *ngFor="let chapterData of chapterList; index as i">
+                    <td>{{i+1}}</td>
+                    <td>{{chapterData.chapterName}}</td>
+                    <td>
+                      <span class="trip theme-cl theme-bg-light" *ngIf="chapterData.activeStatus">Active</span>
+                      <span class="trip theme-cl text-danger bg-light-danger" *ngIf="!chapterData.activeStatus">InActive</span>
+                    </td>                    
                     <td>
                       <button class="btn" data-toggle="modal" data-target="#addEditChapter" (click)="editButton()">
                         Edit

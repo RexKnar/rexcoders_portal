@@ -1,3 +1,4 @@
+import { HtmlParser } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
@@ -8,6 +9,25 @@ import Swal from 'sweetalert2';
   styleUrls: ['./chapter-list.component.scss']
 })
 export class ChapterListComponent implements OnInit {
+
+  chapterList: any = [
+    {
+      "chapterListId": 1,
+      "chapterName": "table",
+      "activeStatus": 1
+    },
+    {
+      "chapterListId": 2,
+      "chapterName": "styling",
+      "activeStatus": 0
+    },
+    {
+      "chapterListId": 3,
+      "chapterName": "flex",
+      "activeStatus": 0
+    }
+
+  ]
 
   isAddChapterList: boolean;
   isToggle: boolean;
