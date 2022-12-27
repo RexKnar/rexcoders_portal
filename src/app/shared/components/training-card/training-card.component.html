@@ -19,8 +19,7 @@
         <div class="crs_title">
             <h4><a href="course-detail.html" class="crs_title_link">{{cardDetails.trainingName}}</a></h4>
         </div>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore exercitationem, quisquam aperiam fuga
-            ullam incidunt corporis amet sed recusandae.</p>
+        <p *ngIf="userRole"> {{cardDetails.shortNote}} </p>
         <div class="crs_info_detail">
             <ul>
                 <li><i class="fa fa-clock text-danger"></i><span>{{cardDetails.totalHours}}</span></li>
@@ -29,7 +28,7 @@
         </div>
     </div>
     <div class="crs_grid_foot">
-        <div class="crs_flex">
+        <div class="crs_flex" *ngIf="!userRole">
             <div class="crs_fl_first">
                 <div class="progress">
                     <div class="progress-bar  bg-info" role="progressbar" aria-label="course-prograss"
@@ -39,7 +38,7 @@
                 </div>
             </div>
         </div>
-        <div class="toggle bar d-flex">
+        <div class="toggle bar d-flex"  *ngIf="userRole">
             <div class="form-group col-lg-8">
                 <label class="status row">
                 </label>

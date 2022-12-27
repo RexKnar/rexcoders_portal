@@ -12,10 +12,8 @@ userType:string='Student';
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.userType);
   }
 getUserType(type:string){
 this.userType=type;
-console.log(this.userType);
 }
 }

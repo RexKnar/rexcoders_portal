@@ -15,7 +15,6 @@ export class ForgotPasswordComponent implements OnInit {
   ngOnInit(): void {
   }
   getForgotFormData(form: any) {
-    console.log(form.value);
     this.toggleForgotPasswordForm=false;
   }
 }
