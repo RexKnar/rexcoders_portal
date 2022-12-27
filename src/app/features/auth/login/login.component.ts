@@ -57,10 +57,10 @@ export class LoginComponent implements OnInit, OnDestroy {
       this.loginForm.patchValue({
         userType: this.userRole,
       });
-      this.loginSubscription=this._authservice.authenticateUser(this.loginForm.value).subscribe({
-        next: (data) => {
-          Swal.fire('Hi '+this.userRole + ', Welcome to Rexcoders');
-          this.loginForm.reset();
+      // this.loginSubscription=this._authservice.authenticateUser(this.loginForm.value).subscribe({
+      //   next: (data) => {
+      //     Swal.fire('Hi '+this.userRole + ', Welcome to Rexcoders');
+      //     this.loginForm.reset();
       this._authservice
         .authenticateUser(this.loginForm.value)
         .pipe(takeUntil(this.destroy$))
@@ -78,5 +78,8 @@ export class LoginComponent implements OnInit, OnDestroy {
           },
         });
     }
-  
+  }
 }
+
+
+
