@@ -3,6 +3,7 @@ import {HttpRequest,HttpHeaders,HttpHandler,HttpEvent,HttpInterceptor} from '@an
 import { Observable } from 'rxjs';
 import { CookiesService } from '../services/cookies.service';
 
+
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
   public authReq: any;
@@ -13,8 +14,7 @@ export class AuthInterceptor implements HttpInterceptor {
     console.log(tokenData);
     let newHeaders = request.headers;
     newHeaders = newHeaders.append('Access-Control-Allow-Origin', '*');
-
-    if (tokenData) {
+    if(tokenData) {
     this.authReq = request.clone({
         headers: new HttpHeaders({
           'Content-Type':  'application/json',

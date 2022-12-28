@@ -72,6 +72,7 @@ export class LoginComponent implements OnInit, OnDestroy {
             this._router.navigate(['/student']);
           },
           error: (err) => {
+            console.log(err);
             Swal.fire('Invalid User');
             console.log(err);
           },
