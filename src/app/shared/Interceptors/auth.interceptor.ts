@@ -7,8 +7,8 @@ import {
   HttpInterceptor
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { CookiesService } from '../services/cookies.service';
 
-import { CookiesService } from "../service/cookies.service";
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
@@ -20,8 +20,7 @@ export class AuthInterceptor implements HttpInterceptor {
 
     let newHeaders = request.headers;
     newHeaders = newHeaders.append('Access-Control-Allow-Origin', '*');
-
-    if (tokenData) {
+    if(tokenData) {
     this.authReq = request.clone({
         headers: new HttpHeaders({
           'Content-Type':  'application/json',
