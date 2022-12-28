@@ -9,7 +9,6 @@ import { FooterComponent } from './theme/footer/footer.component';
 import { HeaderComponent } from './theme/header/header.component';
 import { TrainingCardComponent } from './components/training-card/training-card.component';
 
-
 @NgModule({
   declarations: [
     HeaderComponent,

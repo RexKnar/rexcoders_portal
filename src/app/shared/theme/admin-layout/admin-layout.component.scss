@@ -31,6 +31,12 @@
     transition:0.5s;
   }
 
+  .footer-position{
+    position: absolute;
+    bottom:0;
+    margin-bottom: 0;
+  }
+
 
   @media only screen and (max-width: 992px) {
     .left-sidebar-mobile{

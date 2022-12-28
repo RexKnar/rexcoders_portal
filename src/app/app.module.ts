@@ -23,7 +23,7 @@ import { AuthInterceptor } from './shared/Interceptors/auth.interceptor';
     HttpClientModule
 
   ],
-  providers: [CookieService,AdminGuard, AuthGuard, {
+  providers: [CookieService,AdminGuard, AuthGuard,{
     provide:HTTP_INTERCEPTORS,
     useClass:AuthInterceptor,
     multi:true,
