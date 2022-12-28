@@ -24,15 +24,22 @@ export class ChapterListComponent implements OnInit {
       "chapterListId": 3,
       "chapterName": "flex",
       "activeStatus": 0
+    },
+    {
+      "chapterListId": 4,
+      "chapterName": "media quriy",
+      "activeStatus": 0
     }
   ]
-  isAddChapterList: boolean;
+
+  isAddChapter: boolean;
   isToggle: boolean;
+
   addChapterButton() {
-    this.isAddChapterList = true;
+    this.isAddChapter = true;
   }
   editButton() {
-    this.isAddChapterList = false;
+    this.isAddChapter = false;
   }
   toggleOn() {
     this.isToggle = !this.isToggle;
@@ -41,21 +48,21 @@ export class ChapterListComponent implements OnInit {
     chapterName: new FormControl('', Validators.required),
     orderValue: new FormControl('', Validators.required),
   });
-  insertChapterList() {
+  insertChapter() {
     Swal.fire(
       'Good Job',
       'Chapter name added!',
       'success'
     )
   }
-  editChapterList() {
+  editChapter() {
     Swal.fire(
       '',
       'Chapter name updated successfully!',
       'success'
     )
   }
-  deleteChapterList() {
+  deleteChapter() {
     Swal.fire({
       title: 'Are you sure?',
       icon: 'warning',
