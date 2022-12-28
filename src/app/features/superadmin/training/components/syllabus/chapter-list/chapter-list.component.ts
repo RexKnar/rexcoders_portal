@@ -41,7 +41,7 @@ export class ChapterListComponent implements OnInit {
   toggleOn() {
     this.isToggle = !this.isToggle;
   }
-  chapterListForm = new FormGroup({
+  addChapterForm = new FormGroup({
     chapterName: new FormControl('', Validators.required),
     orderValue: new FormControl('', Validators.required),
   });
@@ -74,5 +74,4 @@ export class ChapterListComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

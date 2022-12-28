@@ -26,20 +26,8 @@ const routes: Routes = [
     component: AdminLayoutComponent,
     canActivate: [AuthGuard],
     loadChildren: () => import('./features/student/student.module').then(module => module.StudentModule),
-<<<<<<< HEAD
+
   },
-=======
-
-
-  }
-  
-    
-
-  
->>>>>>> d1addd21de10d688946267a6af463562b58240a9
-
-
-
 ];
 
 @NgModule({
