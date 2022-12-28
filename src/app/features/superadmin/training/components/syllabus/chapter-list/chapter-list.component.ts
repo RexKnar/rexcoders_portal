@@ -9,7 +9,6 @@ import Swal from 'sweetalert2';
   styleUrls: ['./chapter-list.component.scss']
 })
 export class ChapterListComponent implements OnInit {
-
   chapterList: any = [
     {
       "chapterListId": 1,
@@ -19,19 +18,16 @@ export class ChapterListComponent implements OnInit {
     {
       "chapterListId": 2,
       "chapterName": "styling",
-      "activeStatus": 0
+      "activeStatus": 1
     },
     {
       "chapterListId": 3,
       "chapterName": "flex",
       "activeStatus": 0
     }
-
   ]
-
   isAddChapterList: boolean;
   isToggle: boolean;
-
   addChapterButton() {
     this.isAddChapterList = true;
   }
@@ -69,9 +65,7 @@ export class ChapterListComponent implements OnInit {
       confirmButtonText: 'Yes, delete it!'
     })
   }
-
   constructor() { }
-
   ngOnInit(): void {
   }
 }
