@@ -21,6 +21,12 @@ export const DOMAIN_CONFIG = {
   deleteDomainUrl:'/api/domain/delete'
 };
 
+export const MENTOR_CONFIG = {
+  getAllMentorListUrl: '/api/mentors/getall',
+  getMentorListUrl: '/api/mentors/getdetails',
+  addMentorUrl: 'api/mentors/add',
+};
+
 export const PAYMENT_CONFIG = {
   createOrderUrl: '/api/payment/createOrder',
   updateOrderUrl: '/api/payment/updateOrder',

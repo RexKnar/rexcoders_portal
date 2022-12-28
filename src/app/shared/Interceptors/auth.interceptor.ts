@@ -1,14 +1,7 @@
 import { Injectable } from '@angular/core';
-import {
-  HttpRequest,
-  HttpHeaders,
-  HttpHandler,
-  HttpEvent,
-  HttpInterceptor
-} from '@angular/common/http';
+import {HttpRequest,HttpHeaders,HttpHandler,HttpEvent,HttpInterceptor} from '@angular/common/http';
 import { Observable } from 'rxjs';
-
-import { CookiesService } from "../service/cookies.service";
+import { CookiesService } from '../services/cookies.service';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
@@ -17,7 +10,7 @@ export class AuthInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     let tokenData:any = this.CookiesService.getAuthCookies();
-
+    console.log(tokenData);
     let newHeaders = request.headers;
     newHeaders = newHeaders.append('Access-Control-Allow-Origin', '*');
 
@@ -26,7 +19,7 @@ export class AuthInterceptor implements HttpInterceptor {
         headers: new HttpHeaders({
           'Content-Type':  'application/json',
           'Access-Control-Allow-Origin' : '*',
-          'Authorization': "Bearer " +tokenData.token,    
+          'Authorization': "Bearer " +tokenData.token,
         }),
       });
 
@@ -34,7 +27,7 @@ export class AuthInterceptor implements HttpInterceptor {
         this.authReq = request.clone({
             headers: new HttpHeaders({
               'Content-Type':  'application/json',
-              'Access-Control-Allow-Origin' : '*',  
+              'Access-Control-Allow-Origin' : '*',
             }),
           });
     }
