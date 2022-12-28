@@ -48,6 +48,9 @@ export class LoginComponent implements OnInit, OnDestroy {
       this.loginForm.patchValue({
         userType: this.userRole,
       });
+
+      console.log(this.loginForm.value);
+
       this._authservice
         .authenticateUser(this.loginForm.value)
         .pipe(takeUntil(this.destroy$))
@@ -56,12 +59,12 @@ export class LoginComponent implements OnInit, OnDestroy {
             this.responsedata = data.data;
             Swal.fire('Hi ' + this.responsedata?.details?.name + ', Welcome to Rexcoders');
             this.loginForm.reset();
-            this._cookiesService.setAuthCookies(this.responsedata,this.userRole);
-
+            // this._cookiesService.setAuthCookies(this.responsedata,this.userRole);
             this._router.navigate(['/student']);
           },
           error: (err) => {
             Swal.fire('Invalid User');
+            console.log(err);
           },
         });
     }

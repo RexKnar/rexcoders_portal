@@ -1,5 +1,8 @@
-<div class="dashboard-navbar page-sidebar custom-scrollbar">
+<div class="dashboard-navbar page-sidebar custom-scrollbar" style="height:100vh">
     <div class="d-navigation">
+        <a class="nav-brand " href="#">
+            <img src="assets/img/logo.png" class="logo mb-3" alt="" />
+        </a>
         <ul class="">
             <li *ngFor="let menuItem of menuItems;let i=index;"
                 [ngClass]="{active: menuItem.active,show:menuItem.active}">

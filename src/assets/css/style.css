@@ -2559,7 +2559,7 @@ span.expiration {
     color: #07ad7f !important;
 }
 .mobile_nav {
-    display: none;
+    /* display: none; */
 }
 li._my_prt_list a {
     display: inline-flex;

@@ -101,50 +101,53 @@
                 />
               </div>
             </div>
-            <div class="row mb-4">
-              <div class="col">
-                <label>Instagram Id</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Instagram Id"
-                  name="instagramId"
-                  formControlName="instagramId"
-                />
+            <form [formGroup]="mediaLinksForm">
+              <div class="row mb-4">
+                <div class="col">
+                  <label>Instagram Id</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Instagram Id"
+                    name="instagramId"
+                    formControlName="instagramId"
+                  />
+                </div>
+                <div class="col">
+                  <label>Twitter Id</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Twitter Id"
+                    name="twitterId"
+                    formControlName="twitterId"
+                  />
+                </div>
               </div>
-              <div class="col">
-                <label>Twitter Id</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Twitter Id"
-                  name="twitterId"
-                  formControlName="twitterId"
-                />
+              <div class="row mb-4">
+                <div class="col">
+                  <label>Facebook Id</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Facebook Id"
+                    name="facebookId"
+                    formControlName="facebookId"
+                  />
+                </div>
+                <div class="col">
+                  <label>Others</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Others"
+                    name="others"
+                    formControlName="others"
+                  />
+                </div>
               </div>
-            </div>
-            <div class="row mb-4">
-              <div class="col">
-                <label>Facebook Id</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Facebook Id"
-                  name="facebookId"
-                  formControlName="facebookId"
-                />
-              </div>
-              <div class="col">
-                <label>Others</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Others"
-                  name="others"
-                  formControlName="others"
-                />
-              </div>
-            </div>
+            </form>
+            
             <div class="row mb-4">
               <div class="col-12">
                 <label>About Mentor</label>
