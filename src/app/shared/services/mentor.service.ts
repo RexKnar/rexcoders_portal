@@ -12,6 +12,6 @@ export class MentorService {
   constructor(private readonly httpClient: HttpClient) { }
   
   addMentorsList(mentorsPayload: any):Observable<any>{
-    return this.httpClient.post(ROUTE_CONFIG.baseUrl + MENTORS_CONFIG.addMentorsUrl,mentorsPayload)
+    return this.httpClient.post('http://localhost:7700/api/mentors/add',mentorsPayload)
   }
 }
