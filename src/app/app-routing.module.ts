@@ -26,7 +26,6 @@ const routes: Routes = [
     component: AdminLayoutComponent,
     canActivate: [AuthGuard],
     loadChildren: () => import('./features/student/student.module').then(module => module.StudentModule),
-
   },
 ];
 

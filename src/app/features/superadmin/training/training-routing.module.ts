@@ -4,7 +4,7 @@ import { AddTrainingComponent } from './components/add-training/add-training.com
 import { TopicListComponent } from './components/syllabus/topic-list/topic-list.component';
 import { ReviewComponent } from './components/review/review.component';
 import { ModuleListComponent } from './components/syllabus/module-list/module-list.component';
-import { ChapterListComponent } from './components/syllabus/chapter-list/chapter-list.component';
+import { SectionListComponent } from './components/syllabus/section-list/section-list.component';
 import { TrainingListComponent } from './components/training-list/training-list.component';
 import { ViewTopicComponent } from './components/syllabus/view-topic/view-topic.component';
 import { TrainingDetailsComponent } from './components/training-details/training-details.component';
@@ -36,8 +36,8 @@ const routes: Routes = [
     component: TopicListComponent
   },
   {
-    path: 'chapter-list',
-    component: ChapterListComponent
+    path: 'section-list',
+    component: SectionListComponent
   },
   {
     path: 'view-topic',

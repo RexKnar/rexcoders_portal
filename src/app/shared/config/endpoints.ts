@@ -47,3 +47,7 @@ export const BATCH_CONFIG = {
 export const CONSULT_CONFIG = {
   bookConsultationUrl: '/api/consultation/book'
 }
+
+export const SYLLABUS_CONFIG = {
+  sectionListUrl: '/api/syllabus/section/getall?moduleId=2'
+}

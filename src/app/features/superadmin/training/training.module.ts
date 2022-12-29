@@ -9,7 +9,7 @@ import { AddSyllabusComponent } from './components/add-training/add-syllabus/add
 import { ViewSyllabusComponent } from './components/training-details/view-syllabus/view-syllabus.component';
 import { AddModuleComponent } from './components/syllabus/add-module/add-module.component';
 import { ModuleListComponent } from './components/syllabus/module-list/module-list.component';
-import { ChapterListComponent } from './components/syllabus/chapter-list/chapter-list.component';
+import { SectionListComponent } from './components/syllabus/section-list/section-list.component';
 import { AddChapterComponent } from './components/syllabus/add-chapter/add-chapter.component';
 
 import { TopicListComponent } from './components/syllabus/topic-list/topic-list.component';
@@ -35,7 +35,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
     ViewSyllabusComponent,
     AddModuleComponent,
     ModuleListComponent,
-    ChapterListComponent,
+    SectionListComponent,
     AddChapterComponent,
 
     TopicListComponent,
