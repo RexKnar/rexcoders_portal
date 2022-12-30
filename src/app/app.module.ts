@@ -3,7 +3,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
-// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import {CookieService} from 'ngx-cookie-service';
@@ -20,7 +20,9 @@ import { AuthInterceptor } from './shared/Interceptors/auth.interceptor';
     BrowserModule,
     AppRoutingModule,
     SharedModule,
-    // NgbModule,
+
+    SharedModule,
+
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
