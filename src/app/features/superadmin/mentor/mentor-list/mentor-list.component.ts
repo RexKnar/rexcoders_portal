@@ -13,36 +13,30 @@ export class MentorListComponent implements OnInit {
   mentorData: any;
   mentorlist: any;
   closemodal: any;
+  mentorDetails:any;
 
   constructor(private _mentorService: MentorsService) { }
 
   ngOnInit(): void {
-    this.getMentors()
-  }
-  resetAddModal(){
-
+      this.getMentors()
   }
 
   getMentors() {
-  this._mentorService.getMentor().subscribe((getMentorResponse: any) => {
-  this.mentorlist = getMentorResponse;
-  this.mentorData = this.mentorlist;
-});
- }
-
- getMentorDetails(){
-  this._mentorService.getMentors().subscribe({
-    next:(data:any)=>{
-      console.log(data);
-    }
-  })
- }
-  updateMentor(){}
-  insertMentor(){}
+      this._mentorService.getMentorList().subscribe((getMentorResponse: any) => {
+      this.mentorlist = getMentorResponse;
+      this.mentorData = this.mentorlist;
+     });
+     }
 
 
-  deleteMentor(data:any){}
-  sendMentor(datas:any){}
+
+
+
+
+
+
+
+
 
 
 }

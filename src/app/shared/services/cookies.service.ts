@@ -23,10 +23,8 @@ setAuthCookies(authData:any,currentUserRole:string): void
 getAuthCookies()
 {
 
-        let tokenData = this.cookieService.get('_rcusr')  ? JSON.parse(this.cookieService.get('_rcusr'))  : null;
+let tokenData = this.cookieService.get('_rcusr')  ? JSON.parse(this.cookieService.get('_rcusr'))  : null;
 
-
-    console.log(tokenData.token);
     return tokenData;
 
 }

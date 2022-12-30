@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MentorDetailsComponent } from './mentor-details/mentor-details.component';
-
 import { MentorListComponent } from './mentor-list/mentor-list.component';
 
 const routes: Routes = [

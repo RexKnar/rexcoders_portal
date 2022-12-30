@@ -22,8 +22,8 @@ export const DOMAIN_CONFIG = {
 };
 
 export const MENTOR_CONFIG = {
-  getAllMentorListUrl: '/api/mentors/getall',
-  getMentorListUrl: '/api/mentors/getdetails',
+  getMentorListUrl: '/api/mentors/getall',
+  getMentorDetailsUrl: '/api/mentors/getdetails',
   addMentorUrl: 'api/mentors/add',
 };
 

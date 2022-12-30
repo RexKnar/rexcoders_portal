@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { MENTOR_CONFIG, ROUTE_CONFIG } from '../config/endpoints';
@@ -10,14 +10,27 @@ export class MentorsService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getMentor(): Observable<any> {
-    return this.httpClient.get(ROUTE_CONFIG.baseUrl + MENTOR_CONFIG. getAllMentorListUrl);
-  }
-  getMentors(): Observable<any> {
+  getMentorList(): Observable<any> {
+
     return this.httpClient.get(ROUTE_CONFIG.baseUrl + MENTOR_CONFIG. getMentorListUrl);
+
   }
 
-  insertMentor(mentorPayload: any): Observable<any> {
-    return this.httpClient.post(ROUTE_CONFIG.baseUrl + MENTOR_CONFIG.addMentorUrl, mentorPayload);
+  getMentorDetails(mentorID: number): Observable<any> {
+
+    return this.httpClient.get(ROUTE_CONFIG.baseUrl + MENTOR_CONFIG.getMentorDetailsUrl+"?mentorId=" + mentorID);
+
   }
+
+  // getMentorDetails(): Observable<any> {
+
+  //   return this.httpClient.get(ROUTE_CONFIG.baseUrl + MENTOR_CONFIG.getMentorDetailsUrl);
+
+  // }
+
+
+
+
+
+
 }

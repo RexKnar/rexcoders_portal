@@ -9,59 +9,15 @@
             </div>
             <div class="col-6 text-right add mb align-self-center">
               <div>
-                <a href="#" class="add_new_btn" data-toggle="modal" data-target="#addEditDomain"
-                (click)="resetAddModal()" ><i class="fas fa-plus-circle mr-1"></i>Add Mentor</a>
+                <a href="" class="add_new_btn"
+                 ><i class="fas fa-plus-circle mr-1"></i>Add Mentor</a>
               </div>
             </div>
             <div class="col-12">
               <hr class="mt" />
             </div>
 
-            <!-- Modal for Add Domain and Edit Domain -->
-            <div class="modal fade" id="addEditDomain" role="dialog" #closemodal>
-              <div class="modal-dialog">
-                <!-- Modal content-->
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">
-                      &times;
-                    </button>
-                    <h4 class="modal-title">
-                      {{ isAddMentor ? "Add New Mentor" : "Update Mentor" }}
-                    </h4>
-                  </div>
-                  <div class="modal-body">
-                    <form class="form-group" #mentorForm="ngForm" name="demo" >
-                      <label>Mentor Name:</label>
-                      <input type="text" id="mentorName"[(ngModel)]="mentorData.mentorName"
-                        placeholder="Enter the Mentor name" class="form-control" required name="mentorName"
-                        #mentorName="ngModel"/>
-                      <div class="d-flex">
-                        <input type="file" class="form-control-file  mt-3" id="exampleFormControlFile1">
-                        <i class="fas fa-camera-retro mt-4"></i>
-                      </div>
-                      <p class="alert-msg"
-                        *ngIf="mentorName.errors?.['required'] && (mentorName.touched || mentorName.dirty)">
-                        Please Enter the Domain Name
-                      </p>
-                    </form>
-                  </div>
-                  <div class="modal-footer">
-
-                    <button type="submit" class="btn"
-                      [disabled]="mentorForm.invalid" (click)="isAddMentor ? insertMentor() : updateMentor()">
-                      {{ isAddMentor ? "Save" : "Update" }}
-                    </button>
-
-                    <button type="button" class="btn" data-dismiss="modal" >
-                      Close
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-12">
+        <div class="col-12">
 
               <table class="table mx-auto text-center">
                 <thead>
@@ -69,8 +25,6 @@
                     <th class="text-center">#</th>
                     <th class="text-center">Mentor Name</th>
                     <th class="text-center">Mentor Designation</th>
-                    <th class="text-center">Mobile Number</th>
-                    <th class="text-center">Email Id</th>
                     <th class="text-center">Mentor company Details</th>
                     <th class="text-center">Active Status</th>
                     <th class="text-center">Action</th>
@@ -79,23 +33,17 @@
                 <tbody>
                  <ng-container *ngFor="let mentors of mentorlist.data.rows; let i = index">
 
-                  <tr routerLink="/admin/mentors/mentorDetails">
+                  <tr routerLink="/admin/mentors/mentorDetails" [queryParams]="{ mentors: mentors.mentorId}">
                     <td>{{ i + 1 }}</td>
-                    <td>{{ mentors.mentorName }}</td>
-                    <td>{{ mentors.mentorDesignation}}</td>
-                    <td>6786543456</td>
-                    <td>aaa@gmail.com</td>
+                    <td>{{mentors.mentorName }}</td>
+                    <td>{{mentors.mentorDesignation}}</td>
                     <td>{{mentors.currentCompany}}</td>
                     <td>{{mentors.activeStatus}}</td>
                     <td>
-                      <button class="btn" data-toggle="modal" data-target="#addEditDomain" (click)="
-                          isAddMentor = false;
-                          isEditMentor = true;
-                          sendMentor(mentors)
-                        ">
+                      <button class="btn">
                         Edit
                       </button>
-                      <button class="btn" (click)="deleteMentor(mentors)">
+                      <button class="btn">
                         Delete
                       </button>
                     </td>
@@ -115,5 +63,5 @@
 
 
 
-<button (click)="getMentorDetails()">click me</button>
+
 
