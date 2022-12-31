@@ -4,16 +4,17 @@ import { ActivatedRoute, Params} from '@angular/router';
 import { environment } from 'src/environments/environment';
 
 
+
 @Component({
   selector: 'app-mentor-details',
   templateUrl: './mentor-details.component.html',
   styleUrls: ['./mentor-details.component.scss']
 })
 export class MentorDetailsComponent implements OnInit {
-
-  mentorDetails:any;
-  mentorId:any;
   environment=environment;
+  mentorDetails:any;
+  mentorId:number;
+  mentorData:any;
 
 constructor(private _mentorService: MentorsService,private activatedRoute: ActivatedRoute) { }
 
@@ -30,6 +31,8 @@ constructor(private _mentorService: MentorsService,private activatedRoute: Activ
 
         this._mentorService.getMentorDetails(this.mentorId).subscribe((getMentorResponse: any) => {
         this.mentorDetails=getMentorResponse;
+        this.mentorData=this.mentorDetails.data;
+
 
        });
        }

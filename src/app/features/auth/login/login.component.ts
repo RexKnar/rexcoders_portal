@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         userType: this.userRole,
       });
 
-      console.log(this.loginForm.value);
+
 
       this._authservice
         .authenticateUser(this.loginForm.value)

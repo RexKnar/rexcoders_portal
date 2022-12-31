@@ -22,11 +22,7 @@ export class MentorsService {
 
   }
 
-  // getMentorDetails(): Observable<any> {
 
-  //   return this.httpClient.get(ROUTE_CONFIG.baseUrl + MENTOR_CONFIG.getMentorDetailsUrl);
-
-  // }
 
 
 

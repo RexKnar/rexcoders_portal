@@ -8,12 +8,10 @@ import { MentorsService } from 'src/app/shared/services/mentors.service';
 })
 export class MentorListComponent implements OnInit {
 
-  isAddMentor: boolean;
-  isEditMentor: boolean;
+
   mentorData: any;
   mentorlist: any;
-  closemodal: any;
-  mentorDetails:any;
+
 
   constructor(private _mentorService: MentorsService) { }
 

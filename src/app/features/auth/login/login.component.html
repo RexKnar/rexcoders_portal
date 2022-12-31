@@ -8,7 +8,7 @@
               loginControls['username'].touched &&
               loginControls['username'].invalid
             "class="text-danger">
-        <span ngIf="loginControls['username'].errors?.['required']">Email or Mobile number is required.</span>
+        <span *ngIf="loginControls['username'].errors?.['required']">Email or Mobile number is required.</span>
       </div>
     </div>
 

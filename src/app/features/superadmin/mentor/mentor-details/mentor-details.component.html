@@ -4,7 +4,7 @@
       <div class="col-lg-3 col-md-12 col-sm-12">
         <div class="authi_125">
           <div class="authi_125_thumb">
-             <img src="{{environment.baseUrl + mentorDetails.data.mentorProfileImage}}" class="img-fluid rounded" alt="" />
+             <img src="{{environment.baseUrl +  mentorData.mentorProfileImage}}" class="img-fluid rounded" alt="" />
 
           </div>
         </div>
@@ -17,21 +17,21 @@
 
             <div class="ed_header_caption">
               <div class="d-flex">
-              <h2 class="ed_title">{{mentorDetails.data.mentorName}}</h2>
-              <div class="crs_cates cl_1"><span>{{mentorDetails.data.mentorDesignation}}</span></div>
+              <h2 class="ed_title">{{mentorData.mentorName}}</h2>
+              <div class="crs_cates cl_1"><span>{{mentorData.mentorDesignation}}</span></div>
             </div>
               <ul>
-                <li><i class="fa fa-phone"></i>{{mentorDetails.data.mentorMobileNumber}}</li>
-                <li><i class="fa fa-envelope"></i>{{mentorDetails.data.mentorEmailId}}</li>
-                <li><i class="fa fa-linkedin"></i>{{mentorDetails.data.linkedlnId}}</li>
+                <li><i class="fa fa-phone"></i>{{mentorData.mentorMobileNumber}}</li>
+                <li><i class="fa fa-envelope"></i>{{mentorData.mentorEmailId}}</li>
+                <li><i class="fa fa-linkedin"></i>{{mentorData.linkedlnId}}</li>
               </ul>
             </div>
 
             <div class="ed_header_short">
-              <p>Previous Company : {{mentorDetails.data.previousCompany}}</p>
-              <p>Current Company : {{mentorDetails.data.currentCompany}}</p>
-              <p>{{mentorDetails.data.aboutMentor}}</p>
-              <p>Contact : {{mentorDetails.data.mediaLinks}}</p>
+              <p>Previous Company : {{mentorData.previousCompany}}</p>
+              <p>Current Company : {{mentorData.currentCompany}}</p>
+              <p>{{mentorData.aboutMentor}}</p>
+              <p>Contact : {{mentorData.mediaLinks}}</p>
             </div>
 
           </div>
