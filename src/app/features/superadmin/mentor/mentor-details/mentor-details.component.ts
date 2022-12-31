@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MentorsService } from 'src/app/shared/services/mentors.service';
 import { ActivatedRoute, Params} from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -12,6 +13,7 @@ export class MentorDetailsComponent implements OnInit {
 
   mentorDetails:any;
   mentorId:any;
+  environment=environment;
 
 constructor(private _mentorService: MentorsService,private activatedRoute: ActivatedRoute) { }
 

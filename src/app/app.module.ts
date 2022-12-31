@@ -21,7 +21,7 @@ import { AuthInterceptor } from './shared/Interceptors/auth.interceptor';
     AppRoutingModule,
     SharedModule,
 
-    SharedModule,
+
 
     FormsModule,
     ReactiveFormsModule,
