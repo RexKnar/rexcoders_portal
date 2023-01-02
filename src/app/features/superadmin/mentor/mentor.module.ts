@@ -5,6 +5,7 @@ import { MentorRoutingModule } from './mentor-routing.module';
 import { MentorDetailsComponent } from './mentor-details/mentor-details.component';
 import { FormsModule } from '@angular/forms';
 import { MentorListComponent } from './mentor-list/mentor-list.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { MentorListComponent } from './mentor-list/mentor-list.component';
   imports: [
     CommonModule,
     MentorRoutingModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ]
 })
 export class MentorModule { }

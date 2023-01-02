@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MentorsService } from 'src/app/shared/services/mentors.service';
 import { ActivatedRoute, Params} from '@angular/router';
 import { environment } from 'src/environments/environment';
-
-
+import { MentorDetails } from 'src/app/shared/model/mentor.model';
 
 @Component({
   selector: 'app-mentor-details',
@@ -11,10 +10,11 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./mentor-details.component.scss']
 })
 export class MentorDetailsComponent implements OnInit {
+  @Input() mentorData : MentorDetails;
   environment=environment;
   mentorDetails:any;
   mentorId:number;
-  mentorData:any;
+
 
 constructor(private _mentorService: MentorsService,private activatedRoute: ActivatedRoute) { }
 
@@ -22,7 +22,7 @@ constructor(private _mentorService: MentorsService,private activatedRoute: Activ
 
     this.activatedRoute.queryParams.subscribe((params: Params) => {
 
-      this.mentorId=params['mentors'];
+      this.mentorId=params['mentorId'];
       this.getMentorsDetail();
     });
 }
@@ -32,8 +32,6 @@ constructor(private _mentorService: MentorsService,private activatedRoute: Activ
         this._mentorService.getMentorDetails(this.mentorId).subscribe((getMentorResponse: any) => {
         this.mentorDetails=getMentorResponse;
         this.mentorData=this.mentorDetails.data;
-
-
        });
        }
 

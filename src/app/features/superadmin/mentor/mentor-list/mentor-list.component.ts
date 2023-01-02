@@ -16,10 +16,10 @@ export class MentorListComponent implements OnInit {
   constructor(private _mentorService: MentorsService) { }
 
   ngOnInit(): void {
-      this.getMentors()
+      this.getMentorsList()
   }
 
-  getMentors() {
+  getMentorsList() {
       this._mentorService.getMentorList().subscribe((getMentorResponse: any) => {
       this.mentorlist = getMentorResponse;
       this.mentorData = this.mentorlist;
