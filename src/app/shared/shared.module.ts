@@ -9,12 +9,6 @@ import { FooterComponent } from './theme/footer/footer.component';
 import { HeaderComponent } from './theme/header/header.component';
 import { TrainingCardComponent } from './components/training-card/training-card.component';
 
-
-
-import {CookieService} from 'ngx-cookie-service';
-import { LoginComponent } from '../features/auth/login/login.component';
-
-
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -23,8 +17,6 @@ import { LoginComponent } from '../features/auth/login/login.component';
     AuthLayoutComponent,
     FooterComponent,
     TrainingCardComponent,
-    //LoginComponent
-
   ],
   imports: [
     CommonModule,
@@ -39,7 +31,6 @@ import { LoginComponent } from '../features/auth/login/login.component';
     AuthLayoutComponent,
     FooterComponent,
     TrainingCardComponent,
-    //LoginComponent
 
 
   ],

@@ -269,3 +269,10 @@
 		</div>
 	</div>
 </div> 
+
+<ng-container *ngFor="let trainingDetail of trainingList">
+    <div class="col-lg-4">
+        <app-training-card [cardDetails]="trainingDetail"></app-training-card>
+    </div>
+   
+</ng-container>

@@ -11,6 +11,7 @@ export class AuthService {
   }
   authenticateUser(loginPayload:any):Observable<any>
   {
+    console.log(this.httpClient.post(ROUTE_CONFIG.baseUrl + AUTH_CONFIG.loginUrl,loginPayload));
     return this.httpClient.post(ROUTE_CONFIG.baseUrl + AUTH_CONFIG.loginUrl,loginPayload);
   }
 

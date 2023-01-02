@@ -4,6 +4,11 @@ import { StudentCourseListComponent } from './student-course-list/student-course
 
 const routes: Routes = [
   {
+    path:'',
+    redirectTo:'list',
+    pathMatch:'full'
+  },
+  {
     path:'list',
     component:StudentCourseListComponent
   }

@@ -1,11 +1,15 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import {CookieService} from 'ngx-cookie-service';
+import { AdminGuard } from './shared/guard/admin.guard';
+import { AuthGuard } from './shared/guard/auth.guard';
+import { AuthInterceptor } from './shared/Interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -15,12 +19,17 @@ import {CookieService} from 'ngx-cookie-service';
     BrowserModule,
     AppRoutingModule,
     SharedModule,  
+    // NgbModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule
 
   ],
-  providers: [CookieService],
+  providers: [CookieService,AdminGuard, AuthGuard,{
+    provide:HTTP_INTERCEPTORS,
+    useClass:AuthInterceptor,
+    multi:true,
+ }],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })

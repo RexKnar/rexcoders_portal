@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TrainingService } from 'src/app/shared/service/training.service';
+import { TrainingService } from 'src/app/shared/services/training.service';
 
 @Component({
   selector: 'app-student-course-list',
