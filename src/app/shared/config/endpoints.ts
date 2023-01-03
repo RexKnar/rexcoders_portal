@@ -13,6 +13,7 @@ export const USER_CONFIG = {
 export const TRAINING_CONFIG = {
   getTrainingListUrl: '/api/training/getall',
   getTrainingDetailUrl: '/api/training/get?trainingId=',
+  addTrainingListUrl:'/api/training/add'
 };
 export const DOMAIN_CONFIG = {
   getDomainListUrl: '/api/domain/getall',
@@ -51,4 +52,17 @@ export const CONSULT_CONFIG = {
 
 export const MENTORS_CONFIG = {
   addMentorsUrl: '/api/mentors/add'
+}
+
+
+export const LANGUAGE_CONFIG = {
+
+}
+
+export const CATEGORY_CONFIG = {
+  getCategoryListUrl: '/api/category/getall'
+}
+
+export const SUBCATEGORY_CONFIG = {
+  getSubCategoryListUrl: '/api/subCategory/getall'
 }

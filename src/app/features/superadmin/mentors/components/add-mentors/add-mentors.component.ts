@@ -15,21 +15,22 @@ export class AddMentorsComponent implements OnInit {
   mediaLinksForm = new FormGroup({
     instagramId: new FormControl(),
     twitterId: new FormControl(),
-    facebookId: new FormControl(),
-    others: new FormControl(),
+    facebookId: new FormControl()
   });
 
-  addMentorForm = new FormGroup({
+
+addMentorForm = new FormGroup({
     mentorName: new FormControl(),
-    mobileNumber: new FormControl(),
-    emailId: new FormControl(),
-    designation: new FormControl(),
+    mentorMobileNumber: new FormControl(),
+    mentorEmailId: new FormControl(),
+    mentorDesignation: new FormControl(),
     aboutMentor: new FormControl(),
     linkedlnId: new FormControl(),
     mediaLinks: new FormControl(),
     currentCompany: new FormControl(),
     previousCompany: new FormControl(),
     photo: new FormControl(),
+    others: new FormControl()
   });
   progress: number;
   ishide: boolean;
@@ -95,55 +96,64 @@ export class AddMentorsComponent implements OnInit {
     );
     const formData = new FormData();
             formData.append('mentorName',  this.addMentorForm.controls.mentorName.value);
-            formData.append('mobileNumber', this.addMentorForm.controls.mobileNumber.value);
-            formData.append('emailId', this.addMentorForm.controls.emailId.value);
-            formData.append('designation', this.addMentorForm.controls.designation.value);
+            formData.append('mentorMobileNumber', this.addMentorForm.controls.mentorMobileNumber.value);
+            formData.append('mentorEmailId', this.addMentorForm.controls.mentorEmailId.value);
+            formData.append('mentorDesignation', this.addMentorForm.controls.mentorDesignation.value);
             formData.append('aboutMentor', this.addMentorForm.controls.aboutMentor.value);
             formData.append('linkedlnId', this.addMentorForm.controls.linkedlnId.value);
             formData.append('mediaLinks', this.addMentorForm.controls.mediaLinks.value);
             formData.append('currentCompany', this.addMentorForm.controls.currentCompany.value);
             formData.append('previousCompany', this.addMentorForm.controls.previousCompany.value);
             formData.append('photo', this.fileImage);
+            formData.append('others', this.addMentorForm.controls.others.value);
               console.log(formData);
-    if (!this.fileImage) {
-      this.ImagevalidationAlert();
-    } else {
-      this.progress = 0;
-      this.ishide = false;
+              console.log(this.addMentorForm.value);
+              this._mentorService.addMentorsList(formData).subscribe((postMentorRespose: any) => {
+                Swal.fire(
+                  'Good job!',
+                  'Mentor Details dded!',
+                  'success'
+                )
+              })
+    // if (!this.fileImage) {
+    //   this.ImagevalidationAlert();
+    // } else {
+    //   this.progress = 0;
+    //   this.ishide = false;
 
-      this._mentorService
-        .addMentorsList(formData)
-        .pipe(takeUntil(this.ngUnsubscribe))
-        .subscribe((event: HttpEvent<any>) => {
-          switch (event.type) {
-            case HttpEventType.Sent:
-              console.log('Request has been made!');
-              break;
-            case HttpEventType.ResponseHeader:
-              console.log('Response header has been received!');
-              break;
-            case HttpEventType.UploadProgress:
-              var eventTotal = event.total ? event.total : 0;
-              this.progress = Math.round((event.loaded / eventTotal) * 100);
-              console.log('Uploaded! ${ this.progress } %');
-              break;
-            case HttpEventType.Response:
-              console.log('Image Upload Successfully!', event.body);
-              console.log(event.body.data.url);
-              this.imageSrc = event.body.data.url;
-              this.addClass.imageUrl = this.imageSrc;
-              setTimeout(() => {
-                this.ishide = true;
-                this.ImageUploadSuccess();
-              }, 1500);
-          }
-        });
-    }
+    //   this._mentorService
+    //     .addMentorsList(this.addMentorForm.value)
+    //     .pipe(takeUntil(this.ngUnsubscribe))
+    //     .subscribe((event: HttpEvent<any>) => {
+    //       switch (event.type) {
+    //         case HttpEventType.Sent:
+    //           console.log('Request has been made!');
+    //           break;
+    //         case HttpEventType.ResponseHeader:
+    //           console.log('Response header has been received!');
+    //           break;
+    //         case HttpEventType.UploadProgress:
+    //           var eventTotal = event.total ? event.total : 0;
+    //           this.progress = Math.round((event.loaded / eventTotal) * 100);
+    //           console.log('Uploaded! ${ this.progress } %');
+    //           break;
+    //         case HttpEventType.Response:
+    //           console.log('Image Upload Successfully!', event.body);
+    //           console.log(event.body.data.url);
+    //           this.imageSrc = event.body.data.url;
+    //           this.addClass.imageUrl = this.imageSrc;
+    //           setTimeout(() => {
+    //             this.ishide = true;
+    //             this.ImageUploadSuccess();
+    //           }, 1500);
+    //       }
+    //     });
+    // }
   }
-  ImageUploadSuccess() {
-    throw new Error('Method not implemented.');
-  }
-  ImagevalidationAlert() {
-    throw new Error('Method not implemented.');
-  }
+  // ImageUploadSuccess() {
+  //   throw new Error('Method not implemented.');
+  // }
+  // ImagevalidationAlert() {
+  //   throw new Error('Method not implemented.');
+  // }
 }

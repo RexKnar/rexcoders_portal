@@ -13,4 +13,9 @@ export class TrainingService {
   getTrainingList():Observable<any>{
     return this.httpClient.get(ROUTE_CONFIG.baseUrl + TRAINING_CONFIG.getTrainingListUrl )
   }
+
+
+  addTrainingList(TrainingListPayload: any):Observable<any>{
+    return this.httpClient.post(ROUTE_CONFIG.baseUrl + TRAINING_CONFIG.addTrainingListUrl,TrainingListPayload)
+  }
 }

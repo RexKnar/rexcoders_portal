@@ -27,7 +27,7 @@
                   class="form-control"
                   placeholder="Mobile Number"
                   name="mobileNumber"
-                  formControlName="mobileNumber"
+                  formControlName="mentorMobileNumber"
                 />
               </div>
             </div>
@@ -39,7 +39,7 @@
                   class="form-control"
                   placeholder="Email Id"
                   name="emailId"
-                  formControlName="emailId"
+                  formControlName="mentorEmailId"
                 />
               </div>
               <div class="col">
@@ -49,7 +49,7 @@
                   class="form-control"
                   placeholder="Designation"
                   name="degination"
-                  formControlName="designation"
+                  formControlName="mentorDesignation"
                 />
               </div>
             </div>
@@ -138,7 +138,7 @@
                     formControlName="facebookId"
                   />
                 </div>
-                <div class="col">
+                <!-- <div class="col">
                   <label>Others</label>
                   <input
                     type="text"
@@ -147,11 +147,21 @@
                     name="others"
                     formControlName="others"
                   />
-                </div>
+                </div> -->
               </div>
             </form>
             
             <div class="row mb-4">
+              <div class="col">
+                <label>Others</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Others"
+                  name="others"
+                  formControlName="others"
+                />
+              </div>
               <div class="col-12">
                 <label>About Mentor</label>
                 <textarea

@@ -23,7 +23,6 @@ export class AuthInterceptor implements HttpInterceptor {
     if(tokenData) {
     this.authReq = request.clone({
         headers: new HttpHeaders({
-          'Content-Type':  'application/json',
           'Access-Control-Allow-Origin' : '*',
           'Authorization': "Bearer " +tokenData.token,    
         }),
@@ -32,7 +31,6 @@ export class AuthInterceptor implements HttpInterceptor {
     } else {
         this.authReq = request.clone({
             headers: new HttpHeaders({
-              'Content-Type':  'application/json',
               'Access-Control-Allow-Origin' : '*',  
             }),
           });
