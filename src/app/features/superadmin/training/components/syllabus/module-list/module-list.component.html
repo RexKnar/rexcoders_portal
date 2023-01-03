@@ -16,7 +16,6 @@
                         <div class="col-12">
                             <hr class="mt" />
                         </div>
-
                         <!-- Modal for Add Module and Edit Module -->
                         <div class="modal fade" id="addEditModuleList" role="dialog" #closemodal>
                             <div class="modal-dialog">
@@ -71,7 +70,6 @@
                                             [disabled]="categoryForm.invalid">
                                             {{ isAddModuleList ? "Save" : "Update" }}
                                         </button>
-
                                         <button type="button" class="btn" data-dismiss="modal">
                                             Close
                                         </button>
@@ -79,9 +77,8 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="col-12">
-                            <table class="table mx-auto text-center">
+                            <table class="table mx-auto text-center dash_list">
                                 <thead>
                                     <tr>
                                         <th class="text-center">#</th>
@@ -92,11 +89,20 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>Full Stack</td>
-                                        <td><span class="trip theme-cl theme-bg-light">Active</span></td>
+                                    <tr *ngFor="let module of moduleList.data.rows;let i=index">
+                                        <td>{{i+1}}</td>
+                                        <td>{{module.order}}</td>
+                                        <td>{{module.moduleName}}</td>
+                                        <td class="dash_list">
+                                            <span class="trip text-danger bg-light-danger"
+                                                *ngIf="module.activeStatus == 0">inActive</span>
+                                            <span class="trip theme-cl theme-bg-light"
+                                                *ngIf="module.activeStatus == 1">Active</span>
+                                            <span class="trip text-info bg-light-info"
+                                                *ngIf="module.activeStatus == 2">Notverified</span>
+                                            <span class="trip text-warning bg-light-warning"
+                                                *ngIf="module.activeStatus == 3">blocked</span>
+                                        </td>
                                         <td>
                                             <button class="btn" data-toggle="modal" data-target="#addEditModuleList"
                                                 (click)="isAddModuleList=false; isEditModuleList=true;sendModuleList">

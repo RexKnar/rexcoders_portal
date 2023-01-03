@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModuleListModel } from 'src/app/shared/model/ModuleList.model';
+import { ModuleListService } from 'src/app/shared/services/module-list.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -8,21 +9,44 @@ import Swal from 'sweetalert2';
   styleUrls: ['./module-list.component.scss']
 })
 export class ModuleListComponent implements OnInit {
+  moduleList:any;
   moduleListData: ModuleListModel = new ModuleListModel();
   isAddModuleList: boolean;
   isEditModuleList: boolean;
   statusToggle: boolean = true;
+  moduleData: any;
 
   resetAddModal() {
+    
     this.isAddModuleList = true;
     this.isEditModuleList = false;
     this.moduleListData = new ModuleListModel();
   }
 
-  constructor() { }
+  constructor(private _moduleService: ModuleListService) { }
 
   ngOnInit(): void {
+    this.getModule();
   }
+
+getModule() {
+  this._moduleService.getModule().subscribe((getModuleRespose: any) => {
+    console.log(getModuleRespose);
+    this.moduleList = getModuleRespose;
+    this.moduleData = this.moduleList;
+
+  });
+}
+  addModule() {
+
+    this._moduleService.addModule(this.moduleList).subscribe((postModuleRespose: any) => {
+      console.log(postModuleRespose);
+      this.moduleList = postModuleRespose;
+      this.moduleData = this.moduleList;
+  
+    });
+  }
+
 
   toggleDisplayDiv() {
     this.statusToggle = !this.statusToggle;

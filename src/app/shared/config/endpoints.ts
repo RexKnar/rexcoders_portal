@@ -21,6 +21,7 @@ export const DOMAIN_CONFIG = {
   deleteDomainUrl:'/api/domain/delete'
 };
 
+
 export const PAYMENT_CONFIG = {
   createOrderUrl: '/api/payment/createOrder',
   updateOrderUrl: '/api/payment/updateOrder',
@@ -46,4 +47,7 @@ export const BATCH_CONFIG = {
 
 export const CONSULT_CONFIG = {
   bookConsultationUrl: '/api/consultation/book'
+}
+export const MODULE_CONFIG ={
+  getModuleListUrl:'/api/syllabus/module/getall?trainingId=14'
 }
