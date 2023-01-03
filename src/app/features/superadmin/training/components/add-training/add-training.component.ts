@@ -130,7 +130,7 @@ onCategoryChange(event:any){
   formData.append('duration',this.addTrainingForm.controls.duration.value);
   formData.append('onlineDiscount',this.addTrainingForm.controls.onlineDiscount.value);
   formData.append('shortNote',this.addTrainingForm.controls.shortNote.value);
-
+  formData.append('perks',this.addTrainingForm.controls.perks.value);
      if (this.fileImage) {
       this._trainingService
         .addTrainingList(formData)
