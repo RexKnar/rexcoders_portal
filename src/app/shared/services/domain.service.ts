@@ -15,7 +15,6 @@ export class DomainService {
     return this.httpClient.delete(ROUTE_CONFIG.baseUrl + DOMAIN_CONFIG.deleteDomainUrl + "?domainId=" + domainID);
   }
 
-
   insertDomain(domainPayload: any): Observable<any> {
     return this.httpClient.post(ROUTE_CONFIG.baseUrl + DOMAIN_CONFIG.addDomainUrl, domainPayload);
   }

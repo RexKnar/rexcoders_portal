@@ -16,6 +16,8 @@
             <div class="col-12">
               <hr class="mt" />
             </div>
+            
+            
             <!-- Modal for Add Section and Edit Section -->
             <div class="modal fade" id="addEditSection" role="dialog" #closemodal>
               <div class="modal-dialog">
@@ -34,7 +36,7 @@
                       <div>
                         <label for="sectionName">Section Name:</label>
                         <input type="text" id="sectionName" formControlName="sectionName"
-                          placeholder="Enter the sectionname" class="form-control">
+                          placeholder="Enter section name" class="form-control">
                         <p class="text-danger"
                           *ngIf="addSectionForm.controls.sectionName.errors && (addSectionForm.controls.sectionName.touched || addSectionForm.controls.sectionName.dirty)">
                           *Section Name required</p>
@@ -48,14 +50,25 @@
                             *ngIf="addSectionForm.controls.orderValue.errors && (addSectionForm.controls.orderValue.touched || addSectionForm.controls.orderValue.dirty)">
                             *Order required</p>
                         </div>
-                        <div class="form-group col-lg-4">
+
+                        <!-- <div class="form-group col-lg-4">
                           <label class="status row">{{isToggle?
                             "Inactive":"Active"}}</label>
                           <label class="toggle-switch mt-1 spaceBetween row">
-                            <input type="checkbox" checked class="change-color" (click)="toggleOn()">
+                            <input type="checkbox" checked class="change-color" formControlName="activeStatus" (click)="toggleOn()">
                             <span class="slider round"></span>
                           </label>
-                        </div>
+                        </div> -->
+                        
+                          <div class="form-group col-lg-4">
+                            <label>Active Status<i class="req">*</i></label>
+                            <select id="town" formControlName="activeStatus" class="form-control">
+                              <option value="2">Not Verified</option>
+                              <option value="1">Active</option>
+                              <option value="0">Inactive</option>
+                              <option value="3">blocked</option>
+                            </select>
+                          </div>
                       </div>
                     </form>
                   </div>
@@ -72,6 +85,8 @@
               </div>
             </div>
           </div>
+
+          
           <div class="col-12">
             <table class="table mx-auto text-center">
               <thead>

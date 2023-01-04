@@ -13,4 +13,8 @@ export class SectionService {
   getSection(): Observable<any> {
   return this.httpClient.get(ROUTE_CONFIG.baseUrl + SYLLABUS_CONFIG.sectionListUrl);
   }
+
+  addSection(sectionPayload : any): Observable<any> {
+  return this.httpClient.post(ROUTE_CONFIG.baseUrl + SYLLABUS_CONFIG.addSectionUrl,sectionPayload);
+  }
 }

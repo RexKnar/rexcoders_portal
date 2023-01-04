@@ -30,8 +30,6 @@ export class DomainListComponent implements OnInit {
       this.domainData = this.domainlist;
     });
   }
-
-
   insertDomain() {
     this._domainService.insertDomain(this.domainData).subscribe((postDomainRespose: any) => {
       Swal.fire(
@@ -40,10 +38,9 @@ export class DomainListComponent implements OnInit {
         'success'
       )
       this.getDomain();
-
+      
       this.closemodal.nativeElement.click();
     })
-
   }
   sendDomain(domainDetails: any) {
     this.domainData = domainDetails;
@@ -77,7 +74,6 @@ export class DomainListComponent implements OnInit {
             'success'
           )
         });
-
       }
     })
   }

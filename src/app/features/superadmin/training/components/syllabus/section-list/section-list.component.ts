@@ -2,6 +2,8 @@ import { HtmlParser } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { SectionService } from 'src/app/shared/services/section.service';
+import { ActivatedRoute } from '@angular/router';
+import { SectionModel } from 'src/app/shared/model/section.model';
 import Swal from 'sweetalert2';
 @Component({
   selector: 'app-section-list',
@@ -9,16 +11,34 @@ import Swal from 'sweetalert2';
   styleUrls: ['./section-list.component.scss']
 })
 export class SectionListComponent implements OnInit {
-  sectionList: any=[];
-  constructor(private _sectionService : SectionService) { }
-  ngOnInit(): void { this.getSection()
-  } 
-  getSection(){
-    this._sectionService.getSection().subscribe((sectionResponce:any) => {
-      this.sectionList = sectionResponce.data.rows;
-      console.log(this.sectionList);
+  moduleId: number;
+  addSectionForm = new FormGroup({
+    sectionName: new FormControl('', Validators.required),
+    orderValue: new FormControl('', Validators.required),
+    activeStatus: new FormControl('',),
+    moduleId: new FormControl('',)
+  });
+  sectionList: any = [];
+  sectionData: SectionModel = new SectionModel();
+  constructor(private _sectionService: SectionService, private route: ActivatedRoute) { }
+  ngOnInit(): void {
+    this.getSection();
+    this.route.queryParams.subscribe(params => {
+      this.moduleId = params['moduleId'];
     })
-  } 
+  }
+  getSection() {
+    this._sectionService.getSection().subscribe((getSectionResponce: any) => {
+      this.sectionList = getSectionResponce.data.rows;
+    })
+  }
+  addSection() {
+    this.sectionData = this.addSectionForm.value;
+    this.sectionData.moduleId = this.moduleId;
+    this._sectionService.addSection(this.sectionData).subscribe((postSectionResponce: any) => {
+      this.getSection();
+    })
+  }
   isAddSection: boolean;
   isToggle: boolean;
   addSectionButton() {
@@ -30,11 +50,8 @@ export class SectionListComponent implements OnInit {
   toggleOn() {
     this.isToggle = !this.isToggle;
   }
-  addSectionForm = new FormGroup({
-    sectionName: new FormControl('', Validators.required),
-    orderValue: new FormControl('', Validators.required),
-  });
   insertSection() {
+    this.addSection()
     Swal.fire(
       'Good Job',
       'Section name added!',
