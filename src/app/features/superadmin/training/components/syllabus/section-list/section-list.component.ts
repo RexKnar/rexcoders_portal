@@ -11,6 +11,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./section-list.component.scss']
 })
 export class SectionListComponent implements OnInit {
+  isAddSection: boolean;
   moduleId: number;
   addSectionForm = new FormGroup({
     sectionName: new FormControl('', Validators.required),
@@ -39,16 +40,11 @@ export class SectionListComponent implements OnInit {
       this.getSection();
     })
   }
-  isAddSection: boolean;
-  isToggle: boolean;
   addSectionButton() {
     this.isAddSection = true;
   }
   editButton() {
     this.isAddSection = false;
-  }
-  toggleOn() {
-    this.isToggle = !this.isToggle;
   }
   insertSection() {
     this.addSection()
