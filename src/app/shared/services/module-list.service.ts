@@ -14,7 +14,7 @@ export class ModuleListService {
     return this.httpClient.get(ROUTE_CONFIG.baseUrl + MODULE_CONFIG.getModuleListUrl);
   }
   addModule(modulePayload :any) :Observable<any>{
-    return this.httpClient.post(ROUTE_CONFIG.baseUrl + MODULE_CONFIG.addmoduleListUrl,modulePayload);
+    return this.httpClient.post(ROUTE_CONFIG.baseUrl + MODULE_CONFIG.postModuleListUrl,modulePayload);
   }
 }
   

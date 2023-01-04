@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ModuleListModel } from 'src/app/shared/model/ModuleList.model';
 import { ModuleListService } from 'src/app/shared/services/module-list.service';
 import Swal from 'sweetalert2';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-module-list',
@@ -9,7 +10,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./module-list.component.scss']
 })
 export class ModuleListComponent implements OnInit {
-  moduleList:any;
+  moduleList:any ='this.moduleListData';
   moduleListData: ModuleListModel = new ModuleListModel();
   isAddModuleList: boolean;
   isEditModuleList: boolean;
@@ -23,10 +24,15 @@ export class ModuleListComponent implements OnInit {
     this.moduleListData = new ModuleListModel();
   }
 
-  constructor(private _moduleService: ModuleListService) { }
+  constructor(private _moduleService: ModuleListService,private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.getModule();
+    this.route.queryParams.subscribe(Params=>{
+      console.log(Params);
+      console.log(this.moduleListData);
+      // console.log(this.moduleList.order);
+    })
   }
 
 getModule() {
@@ -38,12 +44,10 @@ getModule() {
   });
 }
   addModule() {
-
     this._moduleService.addModule(this.moduleList).subscribe((postModuleRespose: any) => {
       console.log(postModuleRespose);
       this.moduleList = postModuleRespose;
       this.moduleData = this.moduleList;
-  
     });
   }
 
@@ -53,6 +57,9 @@ getModule() {
   }
 
   insertModuleList() {
+   this.addModule()
+   console.log(this.moduleListData);
+  
 
     Swal.fire(
       'Good job!',

@@ -49,5 +49,6 @@ export const CONSULT_CONFIG = {
   bookConsultationUrl: '/api/consultation/book'
 }
 export const MODULE_CONFIG ={
-  getModuleListUrl:'/api/syllabus/module/getall?trainingId=14'
+  getModuleListUrl:'/api/syllabus/module/getall?trainingId=14',
+  postModuleListUrl:'/api/syllabus/section/add'
 }
