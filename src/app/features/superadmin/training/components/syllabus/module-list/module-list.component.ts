@@ -10,15 +10,16 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./module-list.component.scss']
 })
 export class ModuleListComponent implements OnInit {
-  moduleList:any ='this.moduleListData';
   moduleListData: ModuleListModel = new ModuleListModel();
   isAddModuleList: boolean;
   isEditModuleList: boolean;
   statusToggle: boolean = true;
   moduleData: any;
+  moduleList:any;
+  postData:ModuleListModel = new ModuleListModel();
+  trainingId:any;
 
-  resetAddModal() {
-    
+  resetAddModal() {  
     this.isAddModuleList = true;
     this.isEditModuleList = false;
     this.moduleListData = new ModuleListModel();
@@ -30,7 +31,8 @@ export class ModuleListComponent implements OnInit {
     this.getModule();
     this.route.queryParams.subscribe(Params=>{
       console.log(Params);
-      console.log(this.moduleListData);
+      this.trainingId = Params['trainingId']
+      // console.log(this.moduleListData);
       // console.log(this.moduleList.order);
     })
   }
@@ -38,19 +40,27 @@ export class ModuleListComponent implements OnInit {
 getModule() {
   this._moduleService.getModule().subscribe((getModuleRespose: any) => {
     console.log(getModuleRespose);
-    this.moduleList = getModuleRespose;
+    this.moduleList = getModuleRespose.data.rows;
     this.moduleData = this.moduleList;
 
   });
 }
   addModule() {
-    this._moduleService.addModule(this.moduleList).subscribe((postModuleRespose: any) => {
-      console.log(postModuleRespose);
-      this.moduleList = postModuleRespose;
-      this.moduleData = this.moduleList;
-    });
-  }
+    // console.log(this.moduleListData);
+    this.moduleListData.activeStatus = Number(this.moduleListData.activeStatus);
+    this.moduleListData.trainingId = Number(this.trainingId);
+    // console.log(this.moduleListData);
+    this.postData = this.moduleListData;
+    // console.log(this.moduleListData);
+    // console.log(this.postData);
+    console.log(this.moduleListData.activeStatus);
 
+    this._moduleService.addModule(this.postData).subscribe((postModuleRespose: any) => {
+      console.log(postModuleRespose);
+          
+    });
+    this.getModule();
+  }
 
   toggleDisplayDiv() {
     this.statusToggle = !this.statusToggle;
@@ -58,8 +68,7 @@ getModule() {
 
   insertModuleList() {
    this.addModule()
-   console.log(this.moduleListData);
-  
+    
 
     Swal.fire(
       'Good job!',

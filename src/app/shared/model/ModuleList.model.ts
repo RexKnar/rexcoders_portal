@@ -1,8 +1,9 @@
 export class ModuleListModel{
 
-    moduleListId:number;
-    moduleListName:string;
-    moduleListOrder:string;
-    moduleListActice:string;
+    moduleId:number;
+    moduleName:string;
+    order:string;
+    activeStatus:number;
+    trainingId:number;
 
 }

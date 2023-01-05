@@ -34,7 +34,7 @@
                                             <div>
                                                 <label>Module Name:</label>
                                                 <input type="text" id="moduleListName"
-                                                    [(ngModel)]="moduleListData.moduleListName"
+                                                    [(ngModel)]="moduleListData.moduleName"
                                                     placeholder="Enter the Module name" class="form-control" required
                                                     name="moduleListName" #moduleListName="ngModel" />
                                                 <p class="text-danger"
@@ -45,7 +45,7 @@
                                             <div class="row pt-2">
                                                 <div class="form-group col-lg-8 ">
                                                     <label>Order:</label>
-                                                    <input type="number" class="border form-control"  [(ngModel)]="moduleListData.moduleListOrder"
+                                                    <input type="number" class="border form-control"  [(ngModel)]="moduleListData.order"
                                                         placeholder="Order number" class="form-control" required
                                                         name="moduleListOrder" #moduleListOrder="ngModel">
                                                     <p class="text-danger"
@@ -64,12 +64,12 @@
                                                 <div class="col-lg-4 col-md-4 col-sm-12">
                                                     <div class="form-group">
                                                         <label>Active Status<i class="req">*</i></label>
-                                                        <select id="moduleListActive"  name="moduleListActive" class="form-control" [(ngModel)]="moduleListData.moduleListActive">
+                                                        <select id="moduleActive"  name="moduleActive" class="form-control" [(ngModel)]="moduleListData.activeStatus">
                                                             <option value="">&nbsp;</option>
-                                                            <option value="1">Active</option>
-                                                            <option value="2">Inactive</option>
-                                                            <option value="3">Notverified</option>
-                                                            <option value="4">Blocked</option>
+                                                            <option value="0">Active</option>
+                                                            <option value="1">Inactive</option>
+                                                            <option value="2">Notverified</option>
+                                                            <option value="3">Blocked</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -101,7 +101,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let module of moduleList.data.rows;let i=index">
+                                    <tr *ngFor="let module of moduleList;let i=index">
                                         <td>{{i+1}}</td>
                                         <td>{{module.order}}</td>
                                         <td>{{module.moduleName}}</td>
