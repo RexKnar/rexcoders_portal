@@ -7,7 +7,7 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-module-list',
   templateUrl: './module-list.component.html',
-  styleUrls: ['./module-list.component.scss']
+  styleUrls: ['./module-list.component.scss'],
 })
 export class ModuleListComponent implements OnInit {
   moduleListData: ModuleListModel = new ModuleListModel();
@@ -15,98 +15,74 @@ export class ModuleListComponent implements OnInit {
   isEditModuleList: boolean;
   statusToggle: boolean = true;
   moduleData: any;
-  moduleList:any;
-  postData:ModuleListModel = new ModuleListModel();
-  trainingId:any;
+  moduleList: any;
+  postData: ModuleListModel = new ModuleListModel();
+  trainingId: any;
 
-  resetAddModal() {  
+  resetAddModal() {
     this.isAddModuleList = true;
     this.isEditModuleList = false;
     this.moduleListData = new ModuleListModel();
   }
 
-  constructor(private _moduleService: ModuleListService,private route: ActivatedRoute) { }
+  constructor(
+    private _moduleService: ModuleListService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     this.getModule();
-    this.route.queryParams.subscribe(Params=>{
+    this.route.queryParams.subscribe((Params) => {
       console.log(Params);
-      this.trainingId = Params['trainingId']
-      // console.log(this.moduleListData);
-      // console.log(this.moduleList.order);
-    })
+      this.trainingId = Params['trainingId'];
+    });
   }
 
-getModule() {
-  this._moduleService.getModule().subscribe((getModuleRespose: any) => {
-    console.log(getModuleRespose);
-    this.moduleList = getModuleRespose.data.rows;
-    this.moduleData = this.moduleList;
-
-  });
-}
+  getModule() {
+    this._moduleService.getModule().subscribe((getModuleRespose: any) => {
+      console.log(getModuleRespose);
+      this.moduleList = getModuleRespose.data.rows;
+      this.moduleData = this.moduleList;
+    });
+  }
   addModule() {
-    // console.log(this.moduleListData);
     this.moduleListData.activeStatus = Number(this.moduleListData.activeStatus);
     this.moduleListData.trainingId = Number(this.trainingId);
-    // console.log(this.moduleListData);
     this.postData = this.moduleListData;
-    // console.log(this.moduleListData);
-    // console.log(this.postData);
     console.log(this.moduleListData.activeStatus);
-
-    this._moduleService.addModule(this.postData).subscribe((postModuleRespose: any) => {
-      console.log(postModuleRespose);
-          
-    });
+    this._moduleService
+      .addModule(this.postData)
+      .subscribe((postModuleRespose: any) => {
+        console.log(postModuleRespose);
+      });
     this.getModule();
   }
 
   toggleDisplayDiv() {
     this.statusToggle = !this.statusToggle;
   }
-
   insertModuleList() {
-   this.addModule()
-    
-
-    Swal.fire(
-      'Good job!',
-      'Module name added!',
-      'success'
-    )
-
+    this.addModule();
+    Swal.fire('Good job!', 'Module name added!', 'success');
   }
   sendModuleList(moduleListDetails: any) {
     this.moduleListData = moduleListDetails;
   }
   updateModuleList() {
-
-    Swal.fire(
-      '',
-      'Module name updated successfully!',
-      'success'
-    )
+    Swal.fire('', 'Module name updated successfully!', 'success');
   }
   deleteModuleList() {
-
     Swal.fire({
       title: 'Are you sure?',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
-    })
-      .then((result) => {
-        if (result.isConfirmed) {
-          Swal.fire(
-            'Deleted!',
-            'Your Module has been deleted.',
-            'success'
-          )
-        }
-      })
+      confirmButtonText: 'Yes, delete it!',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire('Deleted!', 'Your Module has been deleted.', 'success');
+      }
+    });
   }
-
 }

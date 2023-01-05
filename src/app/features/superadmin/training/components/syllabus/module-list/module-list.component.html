@@ -30,7 +30,8 @@
                                         </h4>
                                     </div>
                                     <div class="modal-body">
-                                        <form #categoryForm="ngForm" ngsubmit="onsubmit(categoryForm)" name="moduleList">
+                                        <form #categoryForm="ngForm" ngsubmit="onsubmit(categoryForm)"
+                                            name="moduleList">
                                             <div>
                                                 <label>Module Name:</label>
                                                 <input type="text" id="moduleListName"
@@ -45,26 +46,20 @@
                                             <div class="row pt-2">
                                                 <div class="form-group col-lg-8 ">
                                                     <label>Order:</label>
-                                                    <input type="number" class="border form-control"  [(ngModel)]="moduleListData.order"
-                                                        placeholder="Order number" class="form-control" required
-                                                        name="moduleListOrder" #moduleListOrder="ngModel">
+                                                    <input type="number" class="border form-control"
+                                                        [(ngModel)]="moduleListData.order" placeholder="Order number"
+                                                        class="form-control" required name="moduleListOrder"
+                                                        #moduleListOrder="ngModel">
                                                     <p class="text-danger"
                                                         *ngIf="moduleListOrder.errors?.['required'] && (moduleListOrder.touched || moduleListOrder.dirty)">
                                                         *Order required</p>
                                                 </div>
-                                                <!-- <div class="form-group col-lg-4">
-                                                    <label class="status row">{{statusToggle?
-                                                        "Active":"Inactive"}}</label>
-                                                    <label class="toggle-switch mt-1 spaceBetween row">
-                                                        <input type="checkbox" checked class="change-color"
-                                                            (click)="toggleDisplayDiv()">
-                                                        <span class="slider round"></span>
-                                                    </label>
-                                                </div> -->
                                                 <div class="col-lg-4 col-md-4 col-sm-12">
                                                     <div class="form-group">
                                                         <label>Active Status<i class="req">*</i></label>
-                                                        <select id="moduleActive"  name="moduleActive" class="form-control" [(ngModel)]="moduleListData.activeStatus">
+                                                        <select id="moduleActive" name="moduleActive"
+                                                            class="form-control"
+                                                            [(ngModel)]="moduleListData.activeStatus">
                                                             <option value="">&nbsp;</option>
                                                             <option value="0">Active</option>
                                                             <option value="1">Inactive</option>
