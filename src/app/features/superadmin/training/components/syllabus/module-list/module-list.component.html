@@ -42,8 +42,8 @@
                   </div>
                   <div class="modal-body">
                     <form
-                      #categoryForm="ngForm"
-                      ngsubmit="onsubmit(categoryForm)"
+                      #moduleForm="ngForm"
+                      ngsubmit="onsubmit(moduleForm)"
                       name="moduleList"
                     >
                       <div>
@@ -114,7 +114,7 @@
                           ? insertModule()
                           : updateModule()
                       "
-                      [disabled]="categoryForm.invalid"
+                      [disabled]="moduleForm.invalid"
                     >
                       {{ isAddModule ? "Save" : "Update" }}
                     </button>
