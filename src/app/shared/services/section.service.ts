@@ -11,14 +11,18 @@ export class SectionService {
   constructor(private httpClient: HttpClient) { }
 
   getSection(): Observable<any> {
-  return this.httpClient.get(ROUTE_CONFIG.baseUrl + SYLLABUS_CONFIG.sectionListUrl);
+    return this.httpClient.get(ROUTE_CONFIG.baseUrl + SYLLABUS_CONFIG.sectionListUrl);
   }
 
-  addSection(sectionPayload : any): Observable<any> {
-  return this.httpClient.post(ROUTE_CONFIG.baseUrl + SYLLABUS_CONFIG.addSectionUrl,sectionPayload);
+  addSection(sectionPayload: any): Observable<any> {
+    return this.httpClient.post(ROUTE_CONFIG.baseUrl + SYLLABUS_CONFIG.addSectionUrl, sectionPayload);
   }
 
-  updateSection(sectionPayload : any): Observable<any> {
-    return this.httpClient.put(ROUTE_CONFIG.baseUrl + SYLLABUS_CONFIG.updateSectionUrl,sectionPayload);
+  updateSection(sectionPayload: any): Observable<any> {
+    return this.httpClient.put(ROUTE_CONFIG.baseUrl + SYLLABUS_CONFIG.updateSectionUrl, sectionPayload);
+  }
+
+  deleteSection(sectionId: number): Observable<any> {
+    return this.httpClient.delete(ROUTE_CONFIG.baseUrl + SYLLABUS_CONFIG.deleteSectionUrl + "?sectionId" + sectionId);
   }
 }

@@ -22,6 +22,8 @@ export class SectionListComponent implements OnInit {
   });
   sectionList: any = [];
   sectionData: SectionModel = new SectionModel();
+  sectionid:number;
+
   constructor(private _sectionService: SectionService, private route: ActivatedRoute) { }
   ngOnInit(): void {
     this.getSection();
@@ -31,6 +33,7 @@ export class SectionListComponent implements OnInit {
   }
   getSection() {
     this._sectionService.getSection().subscribe((getSectionResponce: any) => {
+      console.log(getSectionResponce);
       this.sectionList = getSectionResponce.data.rows;
     })
   }
@@ -61,6 +64,15 @@ export class SectionListComponent implements OnInit {
       })}
     });
   }
+  deleteSection(){
+    this._sectionService.deleteSection(this.sectionid).subscribe((deleteSectionResponce: any) => {
+      Swal.fire(
+        'Deleted!',
+        'Your domain has been deleted.',
+        'success'
+      )
+    })
+  }
   addSectionButton() {
     this.isAddSection = true;
   }
@@ -82,7 +94,8 @@ export class SectionListComponent implements OnInit {
   editSection() {
     this.updateSection()  
   }
-  deleteSection() {
+  removeSection(currentObject:any) {
+   this.sectionid = currentObject.sectionId
     Swal.fire({
       title: 'Are you sure?',
       icon: 'warning',
@@ -90,6 +103,10 @@ export class SectionListComponent implements OnInit {
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
       confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+      if(result.isConfirmed){
+        this.deleteSection()
+      }
     })
   }
 }

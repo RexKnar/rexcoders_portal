@@ -64,5 +64,6 @@ export const CONSULT_CONFIG = {
 export const SYLLABUS_CONFIG = {
   sectionListUrl: '/api/syllabus/section/getall?moduleId=2',
   addSectionUrl: '/api/syllabus/section/add',
-  updateSectionUrl: '/api/syllabus/section/update'
+  updateSectionUrl: '/api/syllabus/section/update',
+  deleteSectionUrl: '/api/syllabus/section/delete'
 }

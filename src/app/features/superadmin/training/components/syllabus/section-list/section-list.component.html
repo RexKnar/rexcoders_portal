@@ -77,20 +77,18 @@
             <table class="table mx-auto text-center">
               <thead>
                 <tr>
-                  <th class="text-center">#</th>
-                  <th class="text-center">Order</th>
-                  <th class="text-center">ID</th>
+                  <th class="text-center">#</th>                 
                   <th class="text-center">Section Name</th>
+                  <th class="text-center">Order</th>
                   <th class="text-center">Active Status</th>
                   <th class="text-center">Action</th>
                 </tr>
               </thead>
               <tbody>
                 <tr *ngFor="let sectionData of sectionList; index as i">
-                  <td>{{i+1}}</td>
-                  <td>{{sectionData.order}}</td>
-                  <td>{{sectionData.sectionId}}</td>
+                  <td>{{i+1}}</td>                 
                   <td>{{sectionData.sectionName}}</td>
+                  <td>{{sectionData.order}}</td>
                   <td class="dash_list">
                     <span class="trip text-danger bg-light-danger" *ngIf="sectionData.activeStatus == 0">InActive</span>
                     <span class="trip theme-cl theme-bg-light" *ngIf="sectionData.activeStatus == 1">Active</span>
@@ -101,7 +99,7 @@
                     <button class="btn" data-toggle="modal" data-target="#addEditSection" (click)="editButton(sectionData)">
                       Edit
                     </button>
-                    <button class="btn" (click)="deleteSection()">
+                    <button class="btn" (click)="removeSection(sectionData)">
                       Delete
                     </button>
                   </td>
