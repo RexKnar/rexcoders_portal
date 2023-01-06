@@ -15,6 +15,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MentorsRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    CKEditorModule
   ]
 })
 export class MentorsModule { }

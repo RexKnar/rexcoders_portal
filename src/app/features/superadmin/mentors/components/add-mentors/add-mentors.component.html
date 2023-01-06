@@ -19,6 +19,13 @@
                   name="mentorName"
                   formControlName="mentorName"
                 />
+                <p *ngIf="
+                addMentorForm.controls.mentorName.errors?.['required'] &&
+                (addMentorForm.controls.mentorName.touched ||
+                addMentorForm.controls.mentorName.dirty)
+              ">
+                  Please Enter Mentor Name
+                </p>
               </div>
               <div class="col">
                 <label>Mobile Number</label>
@@ -29,6 +36,13 @@
                   name="mobileNumber"
                   formControlName="mentorMobileNumber"
                 />
+                <p *ngIf="
+                addMentorForm.controls.mentorMobileNumber.errors?.['required'] &&
+                (addMentorForm.controls.mentorMobileNumber.touched ||
+                addMentorForm.controls.mentorMobileNumber.dirty)
+              ">
+                  Please Enter Mentor Mobile Number
+                </p>
               </div>
             </div>
             <div class="row mb-4">
@@ -41,6 +55,13 @@
                   name="emailId"
                   formControlName="mentorEmailId"
                 />
+                <p *ngIf="
+                addMentorForm.controls.mentorEmailId.errors?.['required'] &&
+                (addMentorForm.controls.mentorEmailId.touched ||
+                addMentorForm.controls.mentorEmailId.dirty)
+              ">
+                  Please Enter Mentor Email 
+                </p>
               </div>
               <div class="col">
                 <label>Designation</label>
@@ -51,6 +72,13 @@
                   name="degination"
                   formControlName="mentorDesignation"
                 />
+                <p *ngIf="
+                addMentorForm.controls.mentorDesignation.errors?.['required'] &&
+                (addMentorForm.controls.mentorDesignation.touched ||
+                addMentorForm.controls.mentorDesignation.dirty)
+              ">
+                  Please Enter Mentor Designation
+                </p>
               </div>
             </div>
 
@@ -63,8 +91,14 @@
                   placeholder="Current Company"
                   name="currentCompany"
                   formControlName="currentCompany"
-                  
                 />
+                <p *ngIf="
+                addMentorForm.controls.currentCompany.errors?.['required'] &&
+                (addMentorForm.controls.currentCompany.touched ||
+                addMentorForm.controls.currentCompany.dirty)
+              ">
+                  Please Enter Current Company
+                </p>
               </div>
               <div class="col">
                 <label>Previous Company</label>
@@ -75,15 +109,18 @@
                   name="previousCompany"
                   formControlName="previousCompany"
                 />
+                <p *ngIf="
+                addMentorForm.controls.previousCompany.errors?.['required'] &&
+                (addMentorForm.controls.previousCompany.touched ||
+                addMentorForm.controls.previousCompany.dirty)
+              ">
+                  Please Enter Previous Company
+                </p>
               </div>
             </div>
             <div class="row mb-4">
               <div class="col">
                 <label>Profile Image</label>
-                <div class="spinner-border ml-2 mr-2"></div>
-                Loading...
-                <img [src]="imageSrc" height="200"> <br/>
-                <!-- <input type='file' (change)="onFileChange($event)"> -->
                 <input
                   type="file"
                   class="form-control"
@@ -92,6 +129,13 @@
                   formControlName="photo"
                   (change)="onFileChange($event)"
                 />
+                <p *ngIf="
+                addMentorForm.controls.photo.errors?.['required'] &&
+                (addMentorForm.controls.photo.touched ||
+                addMentorForm.controls.photo.dirty)
+              ">
+                  Please Choose Profile Image
+                </p>
               </div>
               <div class="col">
                 <label>Linkedln Id</label>
@@ -102,6 +146,13 @@
                   name="linkedlnId"
                   formControlName="linkedlnId"
                 />
+                <p *ngIf="
+                addMentorForm.controls.linkedlnId.errors?.['required'] &&
+                (addMentorForm.controls.linkedlnId.touched ||
+                addMentorForm.controls.linkedlnId.dirty)
+              ">
+                  Please Enter Linkedln Id 
+                </p>
               </div>
             </div>
             <form [formGroup]="mediaLinksForm">
@@ -115,6 +166,13 @@
                     name="instagramId"
                     formControlName="instagramId"
                   />
+                  <p *ngIf="
+                  mediaLinksForm.controls.instagramId.errors?.['required'] &&
+                  (mediaLinksForm.controls.instagramId.touched ||
+                  mediaLinksForm.controls.instagramId.dirty)
+                ">
+                    Please Enter Instagram Id
+                  </p>
                 </div>
                 <div class="col">
                   <label>Twitter Id</label>
@@ -125,6 +183,13 @@
                     name="twitterId"
                     formControlName="twitterId"
                   />
+                  <p *ngIf="
+                  mediaLinksForm.controls.twitterId.errors?.['required'] &&
+                  (mediaLinksForm.controls.twitterId.touched ||
+                  mediaLinksForm.controls.twitterId.dirty)
+                ">
+                    Please Enter Twitter Id
+                  </p>
                 </div>
               </div>
               <div class="row mb-4">
@@ -137,17 +202,14 @@
                     name="facebookId"
                     formControlName="facebookId"
                   />
+                  <p *ngIf="
+                  mediaLinksForm.controls.facebookId.errors?.['required'] &&
+                  (mediaLinksForm.controls.facebookId.touched ||
+                  mediaLinksForm.controls.facebookId.dirty)
+                ">
+                    Please Enter Facebook Id
+                  </p>
                 </div>
-                <!-- <div class="col">
-                  <label>Others</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Others"
-                    name="others"
-                    formControlName="others"
-                  />
-                </div> -->
               </div>
             </form>
             
@@ -164,20 +226,24 @@
               </div>
               <div class="col-12">
                 <label>About Mentor</label>
-                <textarea
-                  class="form-control"
-                  name=""
-                  id=""
-                  cols="30"
-                  rows="5"
-                  formControlName="aboutMentor"
-                ></textarea>
+                <ckeditor name="myckeditor" debounce="300" [editor]="editor" formControlName="aboutMentor"></ckeditor>
+                <p *ngIf="
+                addMentorForm.controls.aboutMentor.errors?.['required'] &&
+                (addMentorForm.controls.aboutMentor.touched ||
+                addMentorForm.controls.aboutMentor.dirty)
+              ">
+                  Please Enter About Mentor Details
+                </p>
               </div>
               
             </div>
           </form>
           <div class="row mb-4">
-            <button (click)="submit()">Add Mentors</button>
+            <button class="btn text-dark text-center" (click)="addMentors()" [disabled]="isAddMentor || (addMentorForm.invalid || mediaLinksForm.invalid) ">
+              <div class="spinner-border ml-2 mr-2" [ngClass]="isAddMentor?'d-inline-flex':'d-none'"></div>
+              <span [ngClass]="isAddMentor?'d-inline-flex':'d-none'">Loading...</span>
+              <span [ngClass]="isAddMentor?'d-none':'d-block'">Add Mentors</span>
+            </button>
           </div>
         </div>
       </div>

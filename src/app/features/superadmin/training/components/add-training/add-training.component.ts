@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Validator, Validators } from '@angular/forms';
+import {  Validators } from '@angular/forms';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { FormBuilder } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { TrainingService } from 'src/app/shared/services/training.service';
 import { DomainService } from 'src/app/shared/services/domain.service';
 import { takeUntil } from 'rxjs/operators';
-import { HttpEvent, HttpEventType } from '@angular/common/http';
 import { Subject } from 'rxjs/internal/Subject';
 import { CategoryService } from 'src/app/shared/services/category.service';
 import { SubCategoryService } from 'src/app/shared/services/sub-category.service';
@@ -47,9 +46,6 @@ export class AddTrainingComponent implements OnInit {
 
   fileImage: any;
   imageSrc: string;
-  progress: number;
-  ishide: boolean;
-  addClass: any;
   private ngUnsubscribe: Subject<boolean> = new Subject<boolean>();
   domainList: any;
   categoryList: any;

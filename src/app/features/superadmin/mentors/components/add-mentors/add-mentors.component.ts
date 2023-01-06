@@ -1,76 +1,43 @@
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MentorService } from 'src/app/shared/services/mentor.service';
 import { HttpEventType, HttpEvent } from '@angular/common/http';
 import { ObservableInput, Subject, takeUntil } from 'rxjs';
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+
 @Component({
   selector: 'app-add-mentors',
   templateUrl: './add-mentors.component.html',
   styleUrls: ['./add-mentors.component.scss'],
 })
 export class AddMentorsComponent implements OnInit {
+ editor = ClassicEditor;
   imageSrc = '';
   fileImage = '';
   mediaLinksForm = new FormGroup({
-    instagramId: new FormControl(),
-    twitterId: new FormControl(),
-    facebookId: new FormControl()
+    instagramId: new FormControl('',Validators.required),
+    twitterId: new FormControl('',Validators.required),
+    facebookId: new FormControl('',Validators.required)
   });
-
-
-addMentorForm = new FormGroup({
-    mentorName: new FormControl(),
-    mentorMobileNumber: new FormControl(),
-    mentorEmailId: new FormControl(),
-    mentorDesignation: new FormControl(),
-    aboutMentor: new FormControl(),
-    linkedlnId: new FormControl(),
-    mediaLinks: new FormControl(),
-    currentCompany: new FormControl(),
-    previousCompany: new FormControl(),
-    photo: new FormControl(),
+  addMentorForm = new FormGroup({
+    mentorName: new FormControl('',Validators.required),
+    mentorMobileNumber: new FormControl('',Validators.required),
+    mentorEmailId: new FormControl('',Validators.required),
+    mentorDesignation: new FormControl('',Validators.required),
+    aboutMentor: new FormControl('',Validators.required),
+    linkedlnId: new FormControl('',Validators.required),
+    mediaLinks: new FormControl(''),
+    currentCompany: new FormControl('',Validators.required),
+    previousCompany: new FormControl('',Validators.required),
+    photo: new FormControl('',Validators.required),
     others: new FormControl()
   });
-  progress: number;
-  ishide: boolean;
-  uploader: any;
+  isAddMentor:boolean = false;
   ngUnsubscribe = new Subject();
-  addClass: any;
+  constructor(private _mentorService: MentorService) { }
 
-  constructor(private _mentorService: MentorService) {}
-
-  ngOnInit(): void {}
-
-  // onSelectFile(event: any) {
-  //   if (event.target.files && event.target.files[0]) {
-  //     var reader = new FileReader();
-
-  //     reader.readAsDataURL(event.target.files[0]); // read file as data url
-
-  //     reader.onload = (event: any) => {
-  //       // called once readAsDataURL is completed
-  //       this.imageSrc = event.target.result;
-  //       this.addMentorForm.patchValue({
-  //         photo: this.fileImage,
-  //       });
-  //     };
-  //   }
-  // }
-
-  // addMentors() {
-  //   this.addMentorForm.controls.mediaLinks.setValue(
-  //     JSON.stringify(this.mediaLinksForm.value)
-  //   );
-  //   let mentorDetails = this.addMentorForm.value;
-  //   console.log(mentorDetails);
-  //   // this._mentorService
-  //   //   .addMentorsList(mentorDetails)
-  //   //   .subscribe((postMentorResponse: any) => {
-  //   //     Swal.fire('Good job!', 'Mentor Details added!', 'success');
-  //   //     console.log(postMentorResponse);
-  //   //   });
-  // }
+  ngOnInit(): void { }
 
   onFileChange(event: any) {
     const reader = new FileReader();
@@ -79,81 +46,40 @@ addMentorForm = new FormGroup({
       this.addMentorForm
         .get('photo')
         .setValue(this.fileImage, { emitModelToViewChange: false });
-      console.log(this.fileImage);
-      reader.onload = () => {
+      reader.onload = (event: any) => {
         this.imageSrc = event.target.result as string;
         this.addMentorForm.patchValue({
           photo: this.fileImage,
         });
       };
     }
-    console.log(this.addMentorForm.value);
   }
 
-  submit() {
+  addMentors() {
+    this.isAddMentor = true;
     this.addMentorForm.controls.mediaLinks.setValue(
       JSON.stringify(this.mediaLinksForm.value)
     );
     const formData = new FormData();
-            formData.append('mentorName',  this.addMentorForm.controls.mentorName.value);
-            formData.append('mentorMobileNumber', this.addMentorForm.controls.mentorMobileNumber.value);
-            formData.append('mentorEmailId', this.addMentorForm.controls.mentorEmailId.value);
-            formData.append('mentorDesignation', this.addMentorForm.controls.mentorDesignation.value);
-            formData.append('aboutMentor', this.addMentorForm.controls.aboutMentor.value);
-            formData.append('linkedlnId', this.addMentorForm.controls.linkedlnId.value);
-            formData.append('mediaLinks', this.addMentorForm.controls.mediaLinks.value);
-            formData.append('currentCompany', this.addMentorForm.controls.currentCompany.value);
-            formData.append('previousCompany', this.addMentorForm.controls.previousCompany.value);
-            formData.append('photo', this.fileImage);
-            formData.append('others', this.addMentorForm.controls.others.value);
-              console.log(formData);
-              console.log(this.addMentorForm.value);
-              this._mentorService.addMentorsList(formData).subscribe((postMentorRespose: any) => {
-                Swal.fire(
-                  'Good job!',
-                  'Mentor Details dded!',
-                  'success'
-                )
-              })
-    // if (!this.fileImage) {
-    //   this.ImagevalidationAlert();
-    // } else {
-    //   this.progress = 0;
-    //   this.ishide = false;
-
-    //   this._mentorService
-    //     .addMentorsList(this.addMentorForm.value)
-    //     .pipe(takeUntil(this.ngUnsubscribe))
-    //     .subscribe((event: HttpEvent<any>) => {
-    //       switch (event.type) {
-    //         case HttpEventType.Sent:
-    //           console.log('Request has been made!');
-    //           break;
-    //         case HttpEventType.ResponseHeader:
-    //           console.log('Response header has been received!');
-    //           break;
-    //         case HttpEventType.UploadProgress:
-    //           var eventTotal = event.total ? event.total : 0;
-    //           this.progress = Math.round((event.loaded / eventTotal) * 100);
-    //           console.log('Uploaded! ${ this.progress } %');
-    //           break;
-    //         case HttpEventType.Response:
-    //           console.log('Image Upload Successfully!', event.body);
-    //           console.log(event.body.data.url);
-    //           this.imageSrc = event.body.data.url;
-    //           this.addClass.imageUrl = this.imageSrc;
-    //           setTimeout(() => {
-    //             this.ishide = true;
-    //             this.ImageUploadSuccess();
-    //           }, 1500);
-    //       }
-    //     });
-    // }
+    formData.append('mentorName', this.addMentorForm.controls.mentorName.value);
+    formData.append('mentorMobileNumber', this.addMentorForm.controls.mentorMobileNumber.value);
+    formData.append('mentorEmailId', this.addMentorForm.controls.mentorEmailId.value);
+    formData.append('mentorDesignation', this.addMentorForm.controls.mentorDesignation.value);
+    formData.append('aboutMentor', this.addMentorForm.controls.aboutMentor.value);
+    formData.append('linkedlnId', this.addMentorForm.controls.linkedlnId.value);
+    formData.append('mediaLinks', this.addMentorForm.controls.mediaLinks.value);
+    formData.append('currentCompany', this.addMentorForm.controls.currentCompany.value);
+    formData.append('previousCompany', this.addMentorForm.controls.previousCompany.value);
+    formData.append('photo', this.fileImage);
+    formData.append('others', this.addMentorForm.controls.others.value);
+    if (this.fileImage) {
+      this._mentorService
+        .addMentorsList(formData)
+        .pipe(takeUntil(this.ngUnsubscribe))
+        .subscribe(() => {
+          Swal.fire('Good job!', 'Mentor Details added!', 'success');
+          this.isAddMentor = false;
+        });
+    }
   }
-  // ImageUploadSuccess() {
-  //   throw new Error('Method not implemented.');
-  // }
-  // ImagevalidationAlert() {
-  //   throw new Error('Method not implemented.');
-  // }
 }
