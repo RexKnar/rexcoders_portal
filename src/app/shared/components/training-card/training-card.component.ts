@@ -12,7 +12,9 @@ export class TrainingCardComponent implements OnInit {
   statusToggle: boolean = true;
 
   @Input() cardDetails : CourseCardDetails;
+
   environment=environment;
+  domainName:any="hhjhjghj";
 userRole:number=0;
   constructor() { }
 

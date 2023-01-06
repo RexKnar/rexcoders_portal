@@ -18,6 +18,7 @@ export class DomainService {
 
   insertDomain(domainPayload: any): Observable<any> {
     return this.httpClient.post(ROUTE_CONFIG.baseUrl + DOMAIN_CONFIG.addDomainUrl, domainPayload);
+
   }
 
   updateDomain(domainPayload: any): Observable<any> {
