@@ -47,8 +47,8 @@ export class DomainListComponent implements OnInit {
     })
 
   }
-  sendDomain(domainDetails: any) {
-    this.domainData = domainDetails;
+  sendDomain(domainDetail: any) {
+    this.domainData = domainDetail;
   }
   updateDomain() {
     this._domainService.updateDomain(this.domainData).subscribe((updateDomainRespose: any) => {
