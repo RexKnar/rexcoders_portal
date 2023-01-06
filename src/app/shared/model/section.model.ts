@@ -4,5 +4,5 @@ export class SectionModel {
     sectionName?: string;
     orderValue?: any;
     activeStatus?: any;
-
+    sectionId?: any;
 }

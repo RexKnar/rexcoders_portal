@@ -17,4 +17,8 @@ export class SectionService {
   addSection(sectionPayload : any): Observable<any> {
   return this.httpClient.post(ROUTE_CONFIG.baseUrl + SYLLABUS_CONFIG.addSectionUrl,sectionPayload);
   }
+
+  updateSection(sectionPayload : any): Observable<any> {
+    return this.httpClient.put(ROUTE_CONFIG.baseUrl + SYLLABUS_CONFIG.updateSectionUrl,sectionPayload);
+  }
 }

@@ -15,9 +15,10 @@ export class SectionListComponent implements OnInit {
   moduleId: number;
   addSectionForm = new FormGroup({
     sectionName: new FormControl('', Validators.required),
-    orderValue: new FormControl('', Validators.required),
+    order: new FormControl('', Validators.required),
     activeStatus: new FormControl('',),
-    moduleId: new FormControl('',)
+    moduleId: new FormControl('',),
+    sectionId: new FormControl('',)
   });
   sectionList: any = [];
   sectionData: SectionModel = new SectionModel();
@@ -35,15 +36,39 @@ export class SectionListComponent implements OnInit {
   }
   addSection() {
     this.sectionData = this.addSectionForm.value;
-    this.sectionData.moduleId = this.moduleId;
+    this.sectionData.moduleId = Number(this.moduleId);
     this._sectionService.addSection(this.sectionData).subscribe((postSectionResponce: any) => {
       this.getSection();
     })
   }
+  updateSection(){
+    this.sectionData = this.addSectionForm.value;
+    this.sectionData.moduleId = Number(this.moduleId);
+    this._sectionService.updateSection(this.sectionData).subscribe({
+      next:(updateSectionResponse) => {
+      Swal.fire(
+        '',
+        'Section name updated successfully!',
+        'success'
+      )  
+      this.getSection();
+      },
+      error:(error) => {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Something went wrong!',
+      })}
+    });
+  }
   addSectionButton() {
     this.isAddSection = true;
   }
-  editButton() {
+  editButton(currentObject:any) {
+    this.addSectionForm.controls['sectionName'].patchValue(currentObject.sectionName);
+    this.addSectionForm.controls['order'].patchValue(currentObject.order);
+    this.addSectionForm.controls['activeStatus'].patchValue(currentObject.activeStatus);
+    this.addSectionForm.controls['sectionId'].patchValue(currentObject.sectionId);
     this.isAddSection = false;
   }
   insertSection() {
@@ -55,11 +80,7 @@ export class SectionListComponent implements OnInit {
     )
   }
   editSection() {
-    Swal.fire(
-      '',
-      'Section name updated successfully!',
-      'success'
-    )
+    this.updateSection()  
   }
   deleteSection() {
     Swal.fire({
