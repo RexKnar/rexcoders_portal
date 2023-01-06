@@ -61,7 +61,7 @@ export class ModuleListComponent implements OnInit {
   updateModule() {
     Swal.fire('', 'Module name updated successfully!', 'success');
   }
-  deleteModuleList() {
+  deleteModule() {
     Swal.fire({
       title: 'Are you sure?',
       icon: 'warning',
