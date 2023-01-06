@@ -17,4 +17,3 @@ export class ModuleListService {
     return this.httpClient.post(ROUTE_CONFIG.baseUrl + MODULE_CONFIG.postModuleListUrl,modulePayload);
   }
 }
-  
