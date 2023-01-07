@@ -10,8 +10,8 @@ export class ModuleListService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getModule(): Observable<any> {
-    return this.httpClient.get(ROUTE_CONFIG.baseUrl + MODULE_CONFIG.getModuleListUrl);
+  getModule(trainingId:any): Observable<any> {
+    return this.httpClient.get(ROUTE_CONFIG.baseUrl + MODULE_CONFIG.getModuleListUrl+'?trainingId='+trainingId);
   }
   addModule(modulePayload :any) :Observable<any>{
     return this.httpClient.post(ROUTE_CONFIG.baseUrl + MODULE_CONFIG.postModuleListUrl,modulePayload);

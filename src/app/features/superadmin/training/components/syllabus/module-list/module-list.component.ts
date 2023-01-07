@@ -13,7 +13,6 @@ export class ModuleListComponent implements OnInit {
   isAddModule: boolean;
   isEditModule: boolean;
   statusToggle: boolean = true;
-  moduleData: any;
   moduleList: any;
   postData: ModuleListModel = new ModuleListModel();
   trainingId: any;
@@ -27,16 +26,15 @@ export class ModuleListComponent implements OnInit {
     private route: ActivatedRoute
   ) {}
   ngOnInit(): void {
-    this.getModule();
     this.route.queryParams.subscribe((Params) => {
-      console.log(Params);
       this.trainingId = Params['trainingId'];
     });
+    this.getModule();
   }
   getModule() {
-    this._moduleService.getModule().subscribe((getModuleRespose: any) => {
+    this.trainingId=Number(this.trainingId)
+    this._moduleService.getModule(this.trainingId).subscribe((getModuleRespose: any) => {
       this.moduleList = getModuleRespose.data.rows;
-      this.moduleData = this.moduleList;
     });
   }
   addModule() {

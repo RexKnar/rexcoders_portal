@@ -9,28 +9,15 @@
             </div>
             <div class="col-6 text-right add mb align-self-center">
               <div>
-                <a
-                  href="#"
-                  class="add_new_btn"
-                  data-toggle="modal"
-                  data-target="#addEditModuleList"
-                  (click)="resetAddModal()"
-                  ><i class="fas fa-plus-circle mr-1"></i>Add Module</a
-                >
+                <a href="#" class="add_new_btn" data-toggle="modal" data-target="#addEditModuleList"
+                  (click)="resetAddModal()"><i class="fas fa-plus-circle mr-1"></i>Add Module</a>
               </div>
             </div>
             <div class="col-12">
               <hr class="mt" />
             </div>
-            <!-- Modal for Add Module and Edit Module -->
-            <div
-              class="modal fade"
-              id="addEditModuleList"
-              role="dialog"
-              #closemodal
-            >
+            <div class="modal fade" id="addEditModuleList" role="dialog" #closemodal>
               <div class="modal-dialog">
-                <!-- Modal content-->
                 <div class="modal-content">
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">
@@ -41,59 +28,33 @@
                     </h4>
                   </div>
                   <div class="modal-body">
-                    <form
-                      #moduleForm="ngForm"
-                      ngsubmit="onsubmit(moduleForm)"
-                      name="moduleList"
-                    >
+                    <form #moduleForm="ngForm" ngsubmit="onsubmit(moduleForm)" name="moduleList">
                       <div>
                         <label>Module Name:</label>
-                        <input
-                          type="text"
-                          id="moduleListName"
-                          [(ngModel)]="moduleListData.moduleName"
-                          placeholder="Enter the Module name"
-                          class="form-control"
-                          required
-                          name="moduleListName"
-                          #moduleListName="ngModel"
-                        />
-                        <p
-                          class="text-danger"
-                          *ngIf="moduleListName.errors?.['required'] && (moduleListName.touched || moduleListName.dirty)"
-                        >
+                        <input type="text" id="moduleListName" [(ngModel)]="moduleListData.moduleName"
+                          placeholder="Enter the Module name" class="form-control" required name="moduleListName"
+                          #moduleListName="ngModel" />
+                        <p class="text-danger"
+                          *ngIf="moduleListName.errors?.['required'] && (moduleListName.touched || moduleListName.dirty)">
                           *Module Name required
                         </p>
                       </div>
                       <div class="row pt-2">
                         <div class="form-group col-lg-8">
                           <label>Order:</label>
-                          <input
-                            type="number"
-                            class="border form-control"
-                            [(ngModel)]="moduleListData.order"
-                            placeholder="Order number"
-                            class="form-control"
-                            required
-                            name="moduleListOrder"
-                            #moduleListOrder="ngModel"
-                          />
-                          <p
-                            class="text-danger"
-                            *ngIf="moduleListOrder.errors?.['required'] && (moduleListOrder.touched || moduleListOrder.dirty)"
-                          >
+                          <input type="number" class="border form-control" [(ngModel)]="moduleListData.order"
+                            placeholder="Order number" class="form-control" required name="moduleListOrder"
+                            #moduleListOrder="ngModel" />
+                          <p class="text-danger"
+                            *ngIf="moduleListOrder.errors?.['required'] && (moduleListOrder.touched || moduleListOrder.dirty)">
                             *Order required
                           </p>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12">
                           <div class="form-group">
                             <label>Active Status<i class="req">*</i></label>
-                            <select
-                              id="moduleActive"
-                              name="moduleActive"
-                              class="form-control"
-                              [(ngModel)]="moduleListData.activeStatus"
-                            >
+                            <select id="moduleActive" name="moduleActive" class="form-control"
+                              [(ngModel)]="moduleListData.activeStatus">
                               <option value="">&nbsp;</option>
                               <option value="0">Active</option>
                               <option value="1">Inactive</option>
@@ -106,16 +67,9 @@
                     </form>
                   </div>
                   <div class="modal-footer">
-                    <button
-                      type="submit"
-                      class="btn"
-                      (click)="
-                        isAddModule
-                          ? insertModule()
-                          : updateModule()
-                      "
-                      [disabled]="moduleForm.invalid"
-                    >
+                    <button type="submit" class="btn" (click)="isAddModule
+                      ? insertModule()
+                      : updateModule()" [disabled]="moduleForm.invalid">
                       {{ isAddModule ? "Save" : "Update" }}
                     </button>
                     <button type="button" class="btn" data-dismiss="modal">
@@ -142,38 +96,18 @@
                     <td>{{ module.order }}</td>
                     <td>{{ module.moduleName }}</td>
                     <td class="dash_list">
-                      <span
-                        class="trip text-danger bg-light-danger"
-                        *ngIf="module.activeStatus == 0"
-                        >inActive</span
-                      >
-                      <span
-                        class="trip theme-cl theme-bg-light"
-                        *ngIf="module.activeStatus == 1"
-                        >Active</span
-                      >
-                      <span
-                        class="trip text-info bg-light-info"
-                        *ngIf="module.activeStatus == 2"
-                        >Notverified</span
-                      >
-                      <span
-                        class="trip text-warning bg-light-warning"
-                        *ngIf="module.activeStatus == 3"
-                        >blocked</span
-                      >
+                      <span class="trip text-danger bg-light-danger" *ngIf="module.activeStatus == 0">inActive
+                      </span>
+                      <span class="trip theme-cl theme-bg-light" *ngIf="module.activeStatus == 1">Active
+                      </span>
+                      <span class="trip text-info bg-light-info" *ngIf="module.activeStatus == 2">Notverified</span>
+                      <span class="trip text-warning bg-light-warning" *ngIf="module.activeStatus == 3">blocked</span>
                     </td>
                     <td>
-                      <button
-                        class="btn"
-                        data-toggle="modal"
-                        data-target="#addEditModule"
-                        (click)="
+                      <button class="btn" data-toggle="modal" data-target="#addEditModule" (click)="
                           isAddModule = false;
                           isEditModule = true;
-                          (sendModule)
-                        "
-                      >
+                          (sendModule)">
                         Edit
                       </button>
                       <button class="btn" (click)="deleteModule()">
