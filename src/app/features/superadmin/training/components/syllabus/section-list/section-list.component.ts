@@ -1,9 +1,9 @@
 import { HtmlParser } from '@angular/compiler';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { SectionService } from 'src/app/shared/services/section.service';
 import { ActivatedRoute } from '@angular/router';
-import { SectionModel } from 'src/app/shared/model/section.model';
+import { SectionList, SectionModel } from 'src/app/shared/model/section.model';
 import Swal from 'sweetalert2';
 @Component({
   selector: 'app-section-list',
@@ -20,9 +20,10 @@ export class SectionListComponent implements OnInit {
     moduleId: new FormControl('',),
     sectionId: new FormControl('',)
   });
-  sectionList: any = [];
+  sectionList: SectionList[];
   sectionData: SectionModel = new SectionModel();
   sectionid:number;
+  @ViewChild('modalForm') closeModal: ElementRef;
   constructor(private _sectionService: SectionService, private route: ActivatedRoute) { }
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
@@ -39,8 +40,24 @@ export class SectionListComponent implements OnInit {
   addSection() {
     this.sectionData = this.addSectionForm.value;
     this.sectionData.moduleId = Number(this.moduleId);
-    this._sectionService.addSection(this.sectionData).subscribe((postSectionResponce: any) => {
-      this.getSection();
+    this._sectionService.addSection(this.sectionData).subscribe({
+      next:(addSectionResponse: any) => {
+        Swal.fire(
+          'Success',
+          'Section name added!',
+          'success'
+        )
+        this.getSection();
+        this.closeModal.nativeElement.click();
+      },
+      error:(error) => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong!',
+        })
+      }
+      
     })
   }
   updateSection(){
@@ -54,6 +71,7 @@ export class SectionListComponent implements OnInit {
         'success'
       )  
       this.getSection();
+      this.closeModal.nativeElement.click();
       },
       error:(error) => {
       Swal.fire({
@@ -81,17 +99,6 @@ export class SectionListComponent implements OnInit {
     this.addSectionForm.controls['activeStatus'].patchValue(currentObject.activeStatus);
     this.addSectionForm.controls['sectionId'].patchValue(currentObject.sectionId);
     this.isAddSection = false;
-  }
-  insertSection() {
-    this.addSection()
-    Swal.fire(
-      'Success',
-      'Section name added!',
-      'success'
-    )
-  }
-  editSection() {
-    this.updateSection()  
   }
   removeSection(currentObject:any) {
    this.sectionid = currentObject.sectionId
