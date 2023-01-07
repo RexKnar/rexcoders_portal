@@ -10,8 +10,8 @@ export class SectionService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getSection(): Observable<any> {
-    return this.httpClient.get(ROUTE_CONFIG.baseUrl + SYLLABUS_CONFIG.sectionListUrl);
+  getSection(moduleId: number): Observable<any> {
+    return this.httpClient.get(ROUTE_CONFIG.baseUrl + SYLLABUS_CONFIG.sectionListUrl + "?moduleId=" + moduleId);
   }
 
   addSection(sectionPayload: any): Observable<any> {
@@ -23,6 +23,6 @@ export class SectionService {
   }
 
   deleteSection(sectionId: number): Observable<any> {
-    return this.httpClient.delete(ROUTE_CONFIG.baseUrl + SYLLABUS_CONFIG.deleteSectionUrl + "?sectionId" + sectionId);
+    return this.httpClient.delete(ROUTE_CONFIG.baseUrl + SYLLABUS_CONFIG.deleteSectionUrl + "?sectionId=" + sectionId);
   }
 }

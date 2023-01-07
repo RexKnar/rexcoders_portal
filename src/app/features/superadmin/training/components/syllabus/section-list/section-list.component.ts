@@ -23,18 +23,21 @@ export class SectionListComponent implements OnInit {
   sectionList: any = [];
   sectionData: SectionModel = new SectionModel();
   sectionid:number;
-
   constructor(private _sectionService: SectionService, private route: ActivatedRoute) { }
   ngOnInit(): void {
-    this.getSection();
     this.route.queryParams.subscribe(params => {
       this.moduleId = params['moduleId'];
-    })
+      console.log(this.moduleId);
+    });
+    this.getSection();
   }
   getSection() {
-    this._sectionService.getSection().subscribe((getSectionResponce: any) => {
-      console.log(getSectionResponce);
+    this.moduleId = Number(this.moduleId);
+    console.log(this.moduleId);
+    this._sectionService.getSection(this.moduleId).subscribe((getSectionResponce: any) => {
       this.sectionList = getSectionResponce.data.rows;
+      console.log(getSectionResponce.data.rows);
+      console.log(this.sectionList);
     })
   }
   addSection() {
@@ -68,7 +71,7 @@ export class SectionListComponent implements OnInit {
     this._sectionService.deleteSection(this.sectionid).subscribe((deleteSectionResponce: any) => {
       Swal.fire(
         'Deleted!',
-        'Your domain has been deleted.',
+        'Your section has been deleted.',
         'success'
       )
     })
@@ -86,7 +89,7 @@ export class SectionListComponent implements OnInit {
   insertSection() {
     this.addSection()
     Swal.fire(
-      'Good Job',
+      'Success',
       'Section name added!',
       'success'
     )
