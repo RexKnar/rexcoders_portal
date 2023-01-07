@@ -27,17 +27,13 @@ export class SectionListComponent implements OnInit {
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       this.moduleId = params['moduleId'];
-      console.log(this.moduleId);
     });
     this.getSection();
   }
   getSection() {
     this.moduleId = Number(this.moduleId);
-    console.log(this.moduleId);
     this._sectionService.getSection(this.moduleId).subscribe((getSectionResponce: any) => {
       this.sectionList = getSectionResponce.data.rows;
-      console.log(getSectionResponce.data.rows);
-      console.log(this.sectionList);
     })
   }
   addSection() {
