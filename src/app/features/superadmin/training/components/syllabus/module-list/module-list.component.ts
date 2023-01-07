@@ -41,12 +41,28 @@ export class ModuleListComponent implements OnInit {
     this.moduleListData.activeStatus = Number(this.moduleListData.activeStatus);
     this.moduleListData.trainingId = Number(this.trainingId);
     this.postData = this.moduleListData;
+    console.log(this.postData)
     this._moduleService
       .addModule(this.postData)
       .subscribe((postModuleRespose: any) => {});
     this.getModule();
   }
-  toggleDisplayDiv() {
+updateModule(){
+  this.postData = this.moduleListData;
+  this.postData.trainingId = this.trainingId;
+  console.log(this.postData)
+  this._moduleService.updateModule(this.postData).subscribe((updateModuleResponse:any)=>{});
+  this.getModule();
+}
+editButton(currentModule:any){
+  this.moduleListData.moduleName = currentModule.moduleName;
+  this.moduleListData.moduleId = currentModule.moduleId;
+  this.moduleListData.order = currentModule.order;
+  this.moduleListData.activeStatus = currentModule.activeStatus;
+  // this.moduleListData.trainingId = currentModule.trainingId;
+  console.log(this.moduleListData)
+}
+toggleDisplayDiv() {
     this.statusToggle = !this.statusToggle;
   }
   insertModule() {
@@ -56,9 +72,9 @@ export class ModuleListComponent implements OnInit {
   sendModule(moduleListDetails: any) {
     this.moduleListData = moduleListDetails;
   }
-  updateModule() {
-    Swal.fire('', 'Module name updated successfully!', 'success');
-  }
+  // updateModule() {
+  //   Swal.fire('', 'Module name updated successfully!', 'success');
+  // }
   deleteModule() {
     Swal.fire({
       title: 'Are you sure?',

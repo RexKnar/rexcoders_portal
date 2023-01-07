@@ -16,4 +16,7 @@ export class ModuleListService {
   addModule(modulePayload :any) :Observable<any>{
     return this.httpClient.post(ROUTE_CONFIG.baseUrl + MODULE_CONFIG.postModuleListUrl,modulePayload);
   }
+  updateModule(modulePayload:any) :Observable<any>{
+    return this.httpClient.put(ROUTE_CONFIG.baseUrl + MODULE_CONFIG.putModuleListUrl,modulePayload);
+  } 
 }

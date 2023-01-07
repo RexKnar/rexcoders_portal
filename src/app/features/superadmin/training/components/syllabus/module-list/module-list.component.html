@@ -104,10 +104,10 @@
                       <span class="trip text-warning bg-light-warning" *ngIf="module.activeStatus == 3">blocked</span>
                     </td>
                     <td>
-                      <button class="btn" data-toggle="modal" data-target="#addEditModule" (click)="
+                      <button class="btn" data-toggle="modal" data-target="#addEditModuleList" (click)="
                           isAddModule = false;
                           isEditModule = true;
-                          (sendModule)">
+                          editButton(module)">
                         Edit
                       </button>
                       <button class="btn" (click)="deleteModule()">

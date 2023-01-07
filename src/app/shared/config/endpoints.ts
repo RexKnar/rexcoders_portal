@@ -60,7 +60,8 @@ export const BATCH_CONFIG = {
 export const CONSULT_CONFIG = {
   bookConsultationUrl: '/api/consultation/book'
 }
-export const MODULE_CONFIG ={
+export const MODULE_CONFIG = {
   getModuleListUrl:'/api/syllabus/module/getall',
-  postModuleListUrl:'/api/syllabus/module/add'
+  postModuleListUrl:'/api/syllabus/module/add',
+  putModuleListUrl:'/api/syllabus/module/update'
 }
