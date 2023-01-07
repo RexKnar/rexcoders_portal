@@ -3,7 +3,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { SectionService } from 'src/app/shared/services/section.service';
 import { ActivatedRoute } from '@angular/router';
-import { SectionList, SectionModel } from 'src/app/shared/model/section.model';
+import { SectionListModel, SectionModel } from 'src/app/shared/model/section.model';
 import Swal from 'sweetalert2';
 @Component({
   selector: 'app-section-list',
@@ -20,7 +20,7 @@ export class SectionListComponent implements OnInit {
     moduleId: new FormControl('',),
     sectionId: new FormControl('',)
   });
-  sectionList: SectionList[];
+  sectionList: SectionListModel[];
   sectionData: SectionModel = new SectionModel();
   sectionid:number;
   @ViewChild('modalForm') closeModal: ElementRef;
@@ -56,8 +56,7 @@ export class SectionListComponent implements OnInit {
           title: 'Oops...',
           text: 'Something went wrong!',
         })
-      }
-      
+      }     
     })
   }
   updateSection(){
@@ -67,7 +66,7 @@ export class SectionListComponent implements OnInit {
       next:(updateSectionResponse) => {
       Swal.fire(
         '',
-        'Section name updated successfully!',
+        'Section details updated successfully!',
         'success'
       )  
       this.getSection();
@@ -89,9 +88,6 @@ export class SectionListComponent implements OnInit {
         'success'
       )
     })
-  }
-  addSectionButton() {
-    this.isAddSection = true;
   }
   editButton(currentObject:any) {
     this.addSectionForm.controls['sectionName'].patchValue(currentObject.sectionName);

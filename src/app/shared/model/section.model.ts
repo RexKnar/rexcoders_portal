@@ -5,7 +5,7 @@ export class SectionModel {
     activeStatus?: any;
     sectionId?: any;
 }
-export class SectionList {
+export class SectionListModel {
     activeStatus: number;
     createdAt: string;
     moduleId: number;
