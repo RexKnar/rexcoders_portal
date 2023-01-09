@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModuleListModel } from 'src/app/shared/model/ModuleList.model';
+import { ModuleList, ModuleListModel } from 'src/app/shared/model/ModuleList.model';
 import { ModuleListService } from 'src/app/shared/services/module-list.service';
 import Swal from 'sweetalert2';
 import { ActivatedRoute } from '@angular/router';
@@ -13,7 +13,7 @@ export class ModuleListComponent implements OnInit {
   isAddModule: boolean;
   isEditModule: boolean;
   statusToggle: boolean = true;
-  moduleList: any;
+  moduleList: ModuleList[];
   postData: ModuleListModel = new ModuleListModel();
   trainingId: any;
   resetAddModal() {
@@ -35,13 +35,12 @@ export class ModuleListComponent implements OnInit {
     this.trainingId=Number(this.trainingId)
     this._moduleService.getModule(this.trainingId).subscribe((getModuleRespose: any) => {
       this.moduleList = getModuleRespose.data.rows;
-    });
+     });
   }
   addModule() {
     this.moduleListData.activeStatus = Number(this.moduleListData.activeStatus);
     this.moduleListData.trainingId = Number(this.trainingId);
     this.postData = this.moduleListData;
-    console.log(this.postData)
     this._moduleService
       .addModule(this.postData)
       .subscribe((postModuleRespose: any) => {});
@@ -50,8 +49,9 @@ export class ModuleListComponent implements OnInit {
 updateModule(){
   this.postData = this.moduleListData;
   this.postData.trainingId = this.trainingId;
-  console.log(this.postData)
-  this._moduleService.updateModule(this.postData).subscribe((updateModuleResponse:any)=>{});
+ this._moduleService.updateModule(this.postData).subscribe((updateModuleResponse:any)=>{
+    Swal.fire('', 'Module name updated successfully!', 'success');
+  });
   this.getModule();
 }
 editButton(currentModule:any){
@@ -59,8 +59,6 @@ editButton(currentModule:any){
   this.moduleListData.moduleId = currentModule.moduleId;
   this.moduleListData.order = currentModule.order;
   this.moduleListData.activeStatus = currentModule.activeStatus;
-  // this.moduleListData.trainingId = currentModule.trainingId;
-  console.log(this.moduleListData)
 }
 toggleDisplayDiv() {
     this.statusToggle = !this.statusToggle;
@@ -72,10 +70,7 @@ toggleDisplayDiv() {
   sendModule(moduleListDetails: any) {
     this.moduleListData = moduleListDetails;
   }
-  // updateModule() {
-  //   Swal.fire('', 'Module name updated successfully!', 'success');
-  // }
-  deleteModule() {
+   removeModule() {
     Swal.fire({
       title: 'Are you sure?',
       icon: 'warning',
