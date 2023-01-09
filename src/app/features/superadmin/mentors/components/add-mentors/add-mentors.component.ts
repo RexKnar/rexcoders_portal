@@ -90,9 +90,9 @@ export class AddMentorsComponent implements OnInit {
   }
 
   submit() {
-    this.addMentorForm.controls.mediaLinks.setValue(
-      JSON.stringify(this.mediaLinksForm.value)
-    );
+    // this.addMentorForm.controls.mediaLinks.setValue(
+    //   JSON.stringify(this.mediaLinksForm.value)
+    // );
     const formData = new FormData();
             formData.append('mentorName',  this.addMentorForm.controls.mentorName.value);
             formData.append('mobileNumber', this.addMentorForm.controls.mobileNumber.value);
@@ -100,11 +100,11 @@ export class AddMentorsComponent implements OnInit {
             formData.append('designation', this.addMentorForm.controls.designation.value);
             formData.append('aboutMentor', this.addMentorForm.controls.aboutMentor.value);
             formData.append('linkedlnId', this.addMentorForm.controls.linkedlnId.value);
-            formData.append('mediaLinks', this.addMentorForm.controls.mediaLinks.value);
+            formData.append('mediaLinks', JSON.stringify(this.mediaLinksForm.value));
             formData.append('currentCompany', this.addMentorForm.controls.currentCompany.value);
             formData.append('previousCompany', this.addMentorForm.controls.previousCompany.value);
             formData.append('photo', this.fileImage);
-              console.log(formData);
+              // console.log(formData);
     if (!this.fileImage) {
       this.ImagevalidationAlert();
     } else {

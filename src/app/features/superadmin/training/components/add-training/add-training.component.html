@@ -3,7 +3,7 @@
         <div class="col-xl-12 col-lg-12 col-md-12">
             <div class="dashboard_wrap">
                 <div class="form_blocs_wrap">
-                    <form action="#" class="p-3">
+                    <form  class="p-3" [formGroup]="addTrainingForm" enctype="multipart/form-data" (ngSubmit)="insertTrainingDetail()">
                         <div class="row">
                             <div class="col-6 add mb">
                                 <h3 class="txt-color">Add Training</h3>
@@ -12,8 +12,13 @@
                         <div class="row mt-5 mb-4">
                             <div class="col">
                                 <label>Training Name</label>
-                                <input type="text" class="form-control" placeholder="Enter the Training Name"
+                                <input type="text" class="form-control" formControlName="trainingName" placeholder="Enter the Training Name"
                                     name="trainingName">
+                            </div>
+                            <div class="col">
+                                <label>Training Slug</label>
+                                <input type="text" class="form-control" formControlName="trainingSlug" placeholder="Training Slug"
+                                    name="trainingNSlug">
                             </div>
                             <div class="col">
                                 <label for="learnersLevel">Learners Level</label>
@@ -41,7 +46,7 @@
                                 <label>Image URL</label>
                                 <div class="spinner-border ml-2 mr-2"></div>
                                 Loading...
-                                <input type="file" class="form-control" id="imgurl" name="imgurl">
+                                <input type="file" (change)="onFileSelect($event)" class="form-control" id="imgurl" name="imgurl">
                             </div>
                             <div class="col">
                                 <label>Sample Video URL</label>
@@ -113,7 +118,7 @@
                                 <ckeditor name="myckeditor" debounce="300" [editor]="editor"></ckeditor>
                             </div>
                         </div>
-
+<button type="submit" class="formControl btn btn-primary">Save</button>
                     </form>
                 </div>
             </div>

@@ -11,6 +11,7 @@ export const USER_CONFIG = {
   getUserByTokenUrl: '/api/user/getbytoken',
 };
 export const TRAINING_CONFIG = {
+  addTrainingDetailsUrl:'/api/training/add',
   getTrainingListUrl: '/api/training/getall',
   getTrainingDetailUrl: '/api/training/get?trainingId=',
 };
