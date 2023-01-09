@@ -35,7 +35,7 @@ export class ModuleListComponent implements OnInit {
     this.trainingId=Number(this.trainingId)
     this._moduleService.getModule(this.trainingId).subscribe((getModuleRespose: any) => {
       this.moduleList = getModuleRespose.data.rows;
-     });
+   });
   }
   addModule() {
     this.moduleListData.activeStatus = Number(this.moduleListData.activeStatus);
