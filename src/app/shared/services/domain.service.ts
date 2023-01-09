@@ -7,6 +7,7 @@ import { ROUTE_CONFIG, DOMAIN_CONFIG } from '../config/endpoints';
 })
 export class DomainService {
   constructor(private httpClient: HttpClient) { }
+  
   getDomain(): Observable<any> {
     return this.httpClient.get(ROUTE_CONFIG.baseUrl + DOMAIN_CONFIG.getDomainListUrl);
   }
