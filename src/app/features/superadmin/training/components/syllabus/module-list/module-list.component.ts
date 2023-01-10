@@ -35,6 +35,7 @@ export class ModuleListComponent implements OnInit {
     this.trainingId=Number(this.trainingId)
     this._moduleService.getModule(this.trainingId).subscribe((getModuleRespose: any) => {
       this.moduleList = getModuleRespose.data.rows;
+      console.log(this.moduleList);
    });
   }
   addModule() {
@@ -54,6 +55,11 @@ updateModule(){
   });
   this.getModule();
 }
+deleteModule(){
+this._moduleService.deleteModule(this.postData).subscribe((deleteModuleResponse :any)=>{
+  Swal.fire('Deleted!', 'Your Module has been deleted.', 'success');
+})
+}
 editButton(currentModule:any){
   this.moduleListData.moduleName = currentModule.moduleName;
   this.moduleListData.moduleId = currentModule.moduleId;
@@ -70,7 +76,9 @@ toggleDisplayDiv() {
   sendModule(moduleListDetails: any) {
     this.moduleListData = moduleListDetails;
   }
-   removeModule() {
+   removeModule(currentModule:any) {
+    this.postData = currentModule.moduleId;
+    console.log(this.postData);
     Swal.fire({
       title: 'Are you sure?',
       icon: 'warning',
@@ -80,7 +88,7 @@ toggleDisplayDiv() {
       confirmButtonText: 'Yes, delete it!',
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire('Deleted!', 'Your Module has been deleted.', 'success');
+        this.deleteModule()
       }
     });
   }

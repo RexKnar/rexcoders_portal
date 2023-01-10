@@ -19,4 +19,7 @@ export class ModuleListService {
   updateModule(modulePayload:any) :Observable<any>{
     return this.httpClient.put(ROUTE_CONFIG.baseUrl + MODULE_CONFIG.putModuleListUrl,modulePayload);
   } 
+  deleteModule(moduleId : any) :Observable<any>{
+    return this.httpClient.delete(ROUTE_CONFIG.baseUrl + MODULE_CONFIG.putModuleListUrl+'?trainingId='+moduleId);
+  }
 }

@@ -63,5 +63,9 @@ export const CONSULT_CONFIG = {
 export const MODULE_CONFIG = {
   getModuleListUrl:'/api/syllabus/module/getall',
   postModuleListUrl:'/api/syllabus/module/add',
-  putModuleListUrl:'/api/syllabus/module/update'
+  putModuleListUrl:'/api/syllabus/module/update',
+  deleteModuleListUrl:'/api/syllabus/module/delete'
+}
+export const TOPIC_CONFIG ={
+  
 }

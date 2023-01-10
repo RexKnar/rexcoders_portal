@@ -1,3 +1,35 @@
 .cate{
     margin-right: 5px;
 }
+$myColor: #03b97c;
+
+.txt-color {
+    color: $myColor;
+}
+
+.mt {
+    margin-top: 10%;
+}
+
+hr.mt {
+    margin-top: -11px;
+}
+
+.btn {
+    background-color: $myColor !important;
+    margin-right: 5px;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 2px;
+
+}
+
+.add.mb {
+    margin-bottom: 2%;
+}
+
+.alert-msg {
+    color: red;
+    font-size: 12px;
+}
