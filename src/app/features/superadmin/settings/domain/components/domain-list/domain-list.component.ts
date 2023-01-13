@@ -31,11 +31,13 @@ export class DomainListComponent implements OnInit {
     });
   }
 
-
+  getDomainDetailPage(domainid:number){
+    
+  }
   insertDomain() {
     this._domainService.insertDomain(this.domainData).subscribe((postDomainRespose: any) => {
       Swal.fire(
-        'Good job!',
+        '',
         'Domain name added!',
         'success'
       )
@@ -76,6 +78,7 @@ export class DomainListComponent implements OnInit {
             'Your domain has been deleted.',
             'success'
           )
+          this.getDomain();
         });
 
       }

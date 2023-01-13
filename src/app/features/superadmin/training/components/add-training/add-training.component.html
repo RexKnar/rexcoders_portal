@@ -10,7 +10,7 @@
               </div>
             </div>
             <div class="row mt-5 mb-4">
-              <div class="col">
+              <div class="col-12 col-lg-6">
                 <label>Training Name</label>
                 <input type="text" class="form-control" placeholder="Enter the Training Name" name="trainingName"
                   formControlName="trainingName" />
@@ -22,7 +22,7 @@
                   Please Enter Training Name
                 </p>
               </div>
-              <div class="col">
+              <div class="col-12 col-lg-6">
                 <label>Training Slug</label>
                 <input type="text" class="form-control" placeholder="Training Slug" name="trainingSlug"
                   formControlName="trainingSlug" />
@@ -36,7 +36,7 @@
               </div>
             </div>
             <div class="row mt-5 mb-4">
-              <div class="col">
+              <div class="col-12 col-lg-6">
                 <label>Learners Level</label>
                 <input type="text" class="form-control" placeholder="Beginners" name="learnersLevel"
                   formControlName="learnersLevel" />
@@ -48,7 +48,7 @@
                     Please Enter Learners Level
                   </p>
               </div>
-              <div class="col">
+              <div class="col-12 col-lg-6">
                 <label>Stack</label>
                 <input type="text" class="form-control" placeholder="Stack" name="stack" formControlName="stack" />
                 <p *ngIf="
@@ -61,7 +61,7 @@
               </div>
             </div>
             <div class="row mb-4">
-              <div class="col">
+              <div class="col-12 col-lg-6">
                 <label>Training Amount</label>
                 <input type="text" class="form-control" placeholder="Enter Training Amount" name="amount"
                   formControlName="amount" />
@@ -73,7 +73,7 @@
                   Please Enter Training Amount
                 </p>
               </div>
-              <div class="col">
+              <div class="col-12 col-lg-6">
                 <label>Discount Amount</label>
                 <input type="text" class="form-control" placeholder="Discount Amount" name="discountAmount"
                   formControlName="discountAmount" />
@@ -85,7 +85,7 @@
                   Please Enter Discount Amount
                 </p>
               </div>
-              <div class="col">
+              <div class="col-12 col-lg-6">
                 <label>Online Discount</label>
                 <input type="text" class="form-control" placeholder="Online Discount" name="onlineDiscount"
                   formControlName="onlineDiscount" />
@@ -99,7 +99,7 @@
               </div>
             </div>
             <div class="row mb-4">
-              <div class="col">
+              <div class="col-12 col-lg-6">
                 <label>Image </label>
                 <input type="file" class="form-control" id="imgurl" name="imgurl" formControlName="photo"
                   (change)="onFileChange($event)" />
@@ -111,7 +111,7 @@
                   Please Choose Image
                 </p>
               </div>
-              <div class="col">
+              <div class="col-12 col-lg-6">
                 <label>Sample Video URL</label>
                 <input type="text" class="form-control" placeholder="Sample Video URL" name="sampleVideoUrl"
                   formControlName="sampleVideoUrl" />
@@ -125,7 +125,7 @@
               </div>
             </div>
             <div class="row mb-4">
-              <div class="col">
+              <div class="col-12 col-lg-6">
                 <label>Domain</label>
                 <select class="form-control" formControlName="domainId" (change)="onDomainChange($event)">
                   <option selected>Select the Domain</option>
@@ -139,7 +139,7 @@
                     Please Select the Domain
                   </p>
               </div>
-              <div class="col">
+              <div class="col-12 col-lg-6">
                 <label>Category</label>
                 <select class="form-control" formControlName="category" (change)="onCategoryChange($event)">
                   <option selected="selected">Select the Category</option>
@@ -156,7 +156,7 @@
 
             </div>
             <div class="row mb-4">
-              <div class="col">
+              <div class="col-12 col-lg-6">
                 <label>Sub Category</label>
                 <select class="form-control" formControlName="subcategory">
                   <option selected>Select the Sub Category</option>
@@ -171,7 +171,7 @@
                     Please Select the Sub Category
                   </p>
               </div>
-              <div class="col">
+              <div class="col-12 col-lg-6">
                 <label>Language</label>
                 <select class="form-control" formControlName="languageId">
                   <option value="1">English</option>
@@ -188,7 +188,7 @@
 
             </div>
             <div class="row mb-4">
-              <div class="col">
+              <div class="col-12 col-lg-6">
                 <label>Medium</label>
                 <select class="form-control" formControlName="medium">
                   <option>Select the Medium</option>
@@ -204,7 +204,7 @@
                     Please Select the Medium
                   </p>
               </div>
-              <div class="col">
+              <div class="col-12 col-lg-6">
                 <label>Class Links</label>
                 <input type="text" class="form-control" placeholder="Class Links" name="classLink"
                   formControlName="classLink" />
@@ -218,7 +218,7 @@
               </div>
             </div>
             <div class="row mb-4">
-              <div class="col">
+              <div class="col-12 col-lg-6">
                 <label>Duration</label>
                 <input type="text" class="form-control" placeholder="Duration" name="duration"
                   formControlName="duration" />
@@ -230,7 +230,7 @@
                     Please Enter Duration
                   </p>
               </div>
-              <div class="col">
+              <div class="col-12 col-lg-6">
                 <label>Total Hours</label>
                 <input type="text" class="form-control" placeholder="Total Hours" name="totalHours"
                   formControlName="totalHours" />
@@ -244,7 +244,7 @@
               </div>
             </div>
             <div class="row mb-4">
-              <div class="col">
+              <div class="col-12 col-lg-6">
                 <label>Fall On</label>
                 <input type="text" class="form-control" placeholder="Fall On" name="fallOn" formControlName="fallon" />
                 <p *ngIf="
@@ -255,7 +255,7 @@
                   Please Enter Fall On
                 </p>
               </div>
-              <div class="col">
+              <div class="col-12 col-lg-6">
                 <label>Short Notes</label>
                 <input type="text" class="form-control" placeholder="Short Notes" name="shortNotes"
                   formControlName="shortNote" />
@@ -269,7 +269,7 @@
               </div>
             </div>
             <div class="row mb-4">
-              <div class="col">
+              <div class="col-12">
                 <label>Prerequisite</label>
                 <ckeditor name="myckeditor" debounce="300" [editor]="editor" formControlName="prerequisite"></ckeditor>
                 <p *ngIf="
@@ -282,7 +282,7 @@
               </div>
             </div>
             <div class="row mb-4">
-              <div class="col">
+              <div class="col-12">
                 <label>Perks</label>
                 <ckeditor name="myckeditor" debounce="300" [editor]="editor" formControlName="perks"></ckeditor>
                 <p *ngIf="
@@ -295,7 +295,7 @@
               </div>
             </div>
             <div class="row mb-4">
-              <div class="col">
+              <div class="col-12">
                 <label>Description</label>
                 <ckeditor name="myckeditor" debounce="300" [editor]="editor" formControlName="description"></ckeditor>
                 <p *ngIf="
@@ -308,7 +308,7 @@
               </div>
             </div>
             <div class="row mb-4">
-              <div class="col">
+              <div class="col-12">
                 <label>Syllabus</label>
                 <ckeditor name="myckeditor" debounce="300" [editor]="editor" formControlName="syllabus"></ckeditor>
                 <p *ngIf="
