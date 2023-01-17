@@ -3685,7 +3685,7 @@ ul.lt_cr_list li i{
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 1;
+    z-index: 1; 
     background: center center no-repeat;
     background-size: cover;
 }
@@ -7811,7 +7811,7 @@ footer.skin-dark-footer ul.footer-bottom-social li a:hover, footer.skin-dark-foo
 @media (max-width: 767px) {
 	.slick-next {
 		right: 0px;
-		z-index:1;
+		z-index:1; 
 	}
 	.dlkio_452 {
 		display: flex;

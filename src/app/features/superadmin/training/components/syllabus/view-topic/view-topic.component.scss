@@ -1,0 +1,13 @@
+.ed_view_box{
+    z-index:0;
+}
+@media only screen and (max-width: 380px){
+    .order div:first-child {
+        order: 1;
+    }
+}
+$myColor: #03b97c;
+
+.txt-color {
+    color: $myColor;
+}
