@@ -22,6 +22,7 @@
     "@ckeditor/ckeditor5-build-classic": "^35.1.0",
     "@ng-bootstrap/ng-bootstrap": "^13.0.0",
     "@ngrx/store": "^14.3.1",
+    "@videogular/ngx-videogular": "^7.0.1",
     "bootstrap": "^5.2.1",
     "cookie": "^0.5.0",
     "cookies": "^0.8.0",
@@ -35,12 +36,14 @@
     "sweetalert2": "^11.5.0",
     "tinymce": "^6.2.0",
     "tslib": "^2.4.0",
+    "youtube-player": "^5.5.2",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^14.2.3",
     "@angular/cli": "~14.2.3",
     "@angular/compiler-cli": "^14.1.0",
+    "@types/core-js": "^2.5.5",
     "@types/jasmine": "~4.0.0",
     "jasmine-core": "~4.2.0",
     "karma": "~6.4.0",

@@ -23,8 +23,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ViewTopicComponent } from './components/syllabus/view-topic/view-topic.component';
 
-import { SharedModule } from 'src/app/shared/shared.module';
-
+// import { SharedModule } from 'src/app/shared/shared.module';
+// import {BrowserModule} from '@angular/platform-browser';
+// import {VgCoreModule} from '@videogular/ngx-videogular/core';
+// import {VgControlsModule} from '@videogular/ngx-videogular/controls';
+// import {VgOverlayPlayModule} from '@videogular/ngx-videogular/overlay-play';
+// import {VgBufferingModule} from '@videogular/ngx-videogular/buffering';
 
 @NgModule({
   declarations: [
@@ -42,6 +46,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
     ViewTopicComponent,
 
     ReviewComponent,
+  
 
 
   ],
@@ -52,8 +57,15 @@ import { SharedModule } from 'src/app/shared/shared.module';
     FormsModule,
     ReactiveFormsModule,
 
-    SharedModule
+    // SharedModule,
+    // BrowserModule,
+    // VgCoreModule,
+    // VgControlsModule,
+    // VgOverlayPlayModule,
+    // VgBufferingModule,
+    
 
   ],
+ 
 })
 export class TrainingModule { }

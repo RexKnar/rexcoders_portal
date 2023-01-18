@@ -5216,7 +5216,7 @@ ul.list_ed_detail2 li.tag-5 strong, ul.list_ed_detail2 li.tag-5 i {
 .property_video.radius{
     position: relative;
     overflow: hidden;
-    border-radius: 14px;
+   
 }
 .ed_view_box .property_video .thumb, .ed_view_box .property_video:before {
     border-radius: 6px;
@@ -5232,13 +5232,14 @@ ul.list_ed_detail2 li.tag-5 strong, ul.list_ed_detail2 li.tag-5 i {
     bottom: 0;
     opacity: 0.3;
     border-radius: 1rem;
+    display: none;
 }
 .property_video .thumb .pro_img {
     min-height: 200px;
     max-height: 200px;
 }
 .ed_view_box .property_video .thumb, .ed_view_box .property_video:before {
-    border-radius: 6px;
+    border-radius: 6px 6px;
 }
 .property_video .thumb .pro_img {
     width: 100%;
