@@ -5062,6 +5062,7 @@ span.tes_quote {
     width: 100%;
     display: block;
     position: relative;
+  
 }
 .ed_header_caption ul {
     padding: 0;
@@ -5280,10 +5281,12 @@ ul.list_ed_detail2 li.tag-5 strong, ul.list_ed_detail2 li.tag-5 i {
 /*------------ Overview --------------*/
 .edu_wraper {
     width: 100%;
-    padding: 2rem;
+    padding: 5rem;
     background: #ffffff;
     border-radius: 0.5rem;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
+    height: auto;
+    
 }
 .font-medium {
     font-weight: 500;
@@ -5296,7 +5299,7 @@ ul.list_ed_detail2 li.tag-5 strong, ul.list_ed_detail2 li.tag-5 i {
     font-size: 18px;
 }
 ul.edu_list {
-    display: flex;
+   
     width: 100%;
     flex-wrap: wrap;
     align-items: center;
@@ -7327,6 +7330,7 @@ th.next.available, .prev.available {
 }
 .tab-content>.tab-pane {
     padding-top: 1rem;
+
 }
 /*-------------------------------------------------
   Footer Start   
