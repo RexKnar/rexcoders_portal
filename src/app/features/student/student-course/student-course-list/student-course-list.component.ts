@@ -18,9 +18,10 @@ export class StudentCourseListComponent implements OnInit {
 
   training(){
   this.trainingservice.getTrainingList().subscribe((trainingData: any) => {
-   
+
               if (trainingData?.rows?.length) {
                this.trainingList = trainingData.rows;
+               console.log(this.trainingList);
               }
            });
 

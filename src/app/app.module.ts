@@ -3,13 +3,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import {CookieService} from 'ngx-cookie-service';
 import { AdminGuard } from './shared/guard/admin.guard';
 import { AuthGuard } from './shared/guard/auth.guard';
 import { AuthInterceptor } from './shared/Interceptors/auth.interceptor';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [
@@ -18,11 +19,11 @@ import { AuthInterceptor } from './shared/Interceptors/auth.interceptor';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule,  
-    ReactiveFormsModule,
+    SharedModule,
     NgbModule,
     FormsModule,
-    HttpClientModule
+    ReactiveFormsModule,
+    HttpClientModule,
 
   ],
   providers: [CookieService,AdminGuard, AuthGuard,{

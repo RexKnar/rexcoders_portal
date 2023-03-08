@@ -1,3 +1,4 @@
+
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import {
   FormGroup,
@@ -49,7 +50,6 @@ export class LoginComponent implements OnInit, OnDestroy {
         userType: this.userRole,
       });
 
-      console.log(this.loginForm.value);
 
       this._authservice
         .authenticateUser(this.loginForm.value)
@@ -71,3 +71,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     }
   }
 }
+
+
+
+
