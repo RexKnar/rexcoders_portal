@@ -11,20 +11,11 @@ import { AddModuleComponent } from './components/syllabus/add-module/add-module.
 import { ModuleListComponent } from './components/syllabus/module-list/module-list.component';
 import { SectionListComponent } from './components/syllabus/section-list/section-list.component';
 import { AddChapterComponent } from './components/syllabus/add-chapter/add-chapter.component';
-
 import { TopicListComponent } from './components/syllabus/topic-list/topic-list.component';
-
 import { ReviewComponent } from './components/review/review.component';
-
-
-
-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 import { ViewTopicComponent } from './components/syllabus/view-topic/view-topic.component';
-
 import { SharedModule } from 'src/app/shared/shared.module';
-
 
 @NgModule({
   declarations: [
@@ -37,13 +28,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
     ModuleListComponent,
     SectionListComponent,
     AddChapterComponent,
-
     TopicListComponent,
     ViewTopicComponent,
-
     ReviewComponent,
-
-
   ],
   imports: [
     CommonModule,
@@ -51,9 +38,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
     CKEditorModule,
     FormsModule,
     ReactiveFormsModule,
-
     SharedModule
-
   ],
 })
 export class TrainingModule { }
