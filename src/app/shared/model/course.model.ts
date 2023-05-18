@@ -1,5 +1,5 @@
 export class CourseCardDetails{
-    
+
     numberOfLectures:string;
     progress:string;
     domain:domain;
@@ -7,10 +7,9 @@ export class CourseCardDetails{
     totalHours:string|number;
     imageUrl:any;
     shortNote:string;
-    
-    
+    domainName:any;
 }
 
 export class domain{
-    domainName:string;
+    domainName:any;
 }

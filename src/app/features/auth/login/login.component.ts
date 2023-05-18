@@ -1,3 +1,4 @@
+
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import {
   FormGroup,
@@ -48,6 +49,9 @@ export class LoginComponent implements OnInit, OnDestroy {
       this.loginForm.patchValue({
         userType: this.userRole,
       });
+
+
+
       this._authservice
         .authenticateUser(this.loginForm.value)
         .pipe(takeUntil(this.destroy$))
@@ -57,14 +61,18 @@ export class LoginComponent implements OnInit, OnDestroy {
             Swal.fire('Hi ' + this.responsedata?.details?.name + ', Welcome to Rexcoders');
             this.loginForm.reset();
             this._cookiesService.setAuthCookies(this.responsedata,this.userRole);
-
             this._router.navigate(['/student']);
           },
           error: (err) => {
             console.log(err);
             Swal.fire('Invalid User');
+            console.log(err);
           },
         });
     }
   }
 }
+
+
+
+
