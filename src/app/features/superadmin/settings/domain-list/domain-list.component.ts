@@ -8,6 +8,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./domain-list.component.scss']
 })
 export class DomainListComponent implements OnInit {
+
   domainlist: any;
   domainData: AddDomainModel = new AddDomainModel();
   isAddDomain: boolean;
@@ -34,6 +35,7 @@ export class DomainListComponent implements OnInit {
 
   insertDomain() {
     this._domainService.insertDomain(this.domainData).subscribe((postDomainRespose: any) => {
+      console.log(postDomainRespose);
       Swal.fire(
         'Good job!',
         'Domain name added!',
@@ -45,8 +47,8 @@ export class DomainListComponent implements OnInit {
     })
 
   }
-  sendDomain(domainDetails: any) {
-    this.domainData = domainDetails;
+  sendDomain(domainDetail: any) {
+    this.domainData = domainDetail;
   }
   updateDomain() {
     this._domainService.updateDomain(this.domainData).subscribe((updateDomainRespose: any) => {

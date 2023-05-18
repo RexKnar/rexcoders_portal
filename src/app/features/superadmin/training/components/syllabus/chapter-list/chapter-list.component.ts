@@ -1,3 +1,4 @@
+import { HtmlParser } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
@@ -8,38 +9,60 @@ import Swal from 'sweetalert2';
   styleUrls: ['./chapter-list.component.scss']
 })
 export class ChapterListComponent implements OnInit {
+  chapterList: any = [
+    {
+      "chapterListId": 1,
+      "chapterName": "table",
+      "activeStatus": 1
+    },
+    {
+      "chapterListId": 2,
+      "chapterName": "styling",
+      "activeStatus": 1
+    },
+    {
+      "chapterListId": 3,
+      "chapterName": "flex",
+      "activeStatus": 0
+    },
+    {
+      "chapterListId": 4,
+      "chapterName": "media quriy",
+      "activeStatus": 0
+    }
+  ]
 
-  isAddChapterList: boolean;
+  isAddChapter: boolean;
   isToggle: boolean;
 
   addChapterButton() {
-    this.isAddChapterList = true;
+    this.isAddChapter = true;
   }
   editButton() {
-    this.isAddChapterList = false;
+    this.isAddChapter = false;
   }
   toggleOn() {
     this.isToggle = !this.isToggle;
   }
-  chapterListForm = new FormGroup({
+  addChapterForm = new FormGroup({
     chapterName: new FormControl('', Validators.required),
     orderValue: new FormControl('', Validators.required),
   });
-  insertChapterList() {
+  insertChapter() {
     Swal.fire(
       'Good Job',
       'Chapter name added!',
       'success'
     )
   }
-  editChapterList() {
+  editChapter() {
     Swal.fire(
       '',
       'Chapter name updated successfully!',
       'success'
     )
   }
-  deleteChapterList() {
+  deleteChapter() {
     Swal.fire({
       title: 'Are you sure?',
       icon: 'warning',
@@ -49,10 +72,7 @@ export class ChapterListComponent implements OnInit {
       confirmButtonText: 'Yes, delete it!'
     })
   }
-
   constructor() { }
-
   ngOnInit(): void {
   }
-
 }

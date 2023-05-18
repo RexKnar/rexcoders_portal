@@ -26,23 +26,27 @@
                       &times;
                     </button>
                     <h4 class="modal-title">
-                      {{isAddChapterList ? "Add New Chapter" : "Update Chapter"}}
+                      {{isAddChapter ? "Add New Chapter" : "Update Chapter"}}
                     </h4>
                   </div>
                   <div class="modal-body">
-                    <form [formGroup]="chapterListForm" name="chapterListFormGroup">
+                    <form [formGroup]="addChapterForm" name="chapterListFormGroup">
                       <div>
-                        <label for="chapterListName">Chapter Name:</label>
-                        <input type="text" id="chapterListName" formControlName="chapterName" placeholder="Enter the chaptername" class="form-control">
-                        <p class="text-danger" *ngIf="chapterListForm.controls.chapterName.errors && (chapterListForm.controls.orderValue.touched || chapterListForm.controls.orderValue.dirty)">*Chapter Name required</p>
-                        
+                        <label for="chapterName">Chapter Name:</label>
+                        <input type="text" id="chapterName" formControlName="chapterName"
+                          placeholder="Enter the chaptername" class="form-control">
+                        <p class="text-danger"
+                          *ngIf="addChapterForm.controls.chapterName.errors && (addChapterForm.controls.chapterName.touched || addChapterForm.controls.chapterName.dirty)">
+                          *Chapter Name required</p>
                       </div>
                       <div class="row pt-2">
                         <div class="form-group col-lg-8 ">
-                          <label for="chapterListOrder">Order:</label>
-                          <input type="number" id="chapterListOrder" formControlName="orderValue" placeholder="Order number" class="border form-control" class="form-control">
-                          <p class="text-danger"  *ngIf="chapterListForm.controls.orderValue.errors && (chapterListForm.controls.orderValue.touched || chapterListForm.controls.orderValue.dirty)">*Order required</p>
-                          
+                          <label for="chapterOrder">Order:</label>
+                          <input type="number" id="chapterOrder" formControlName="orderValue"
+                            placeholder="Order number" class="border form-control" class="form-control">
+                          <p class="text-danger"
+                            *ngIf="addChapterForm.controls.orderValue.errors && (addChapterForm.controls.orderValue.touched || addChapterForm.controls.orderValue.dirty)">
+                            *Order required</p>
                         </div>
                         <div class="form-group col-lg-4">
                           <label class="status row">{{isToggle?
@@ -56,8 +60,9 @@
                     </form>
                   </div>
                   <div class="modal-footer">
-                    <button type="submit" class="btn" [disabled]="!chapterListForm.valid" (click)= "isAddChapterList ? insertChapterList() : editChapterList()">
-                      {{isAddChapterList ? "Save" : "Update"}}
+                    <button type="submit" class="btn" [disabled]="!chapterList.valid"
+                      (click)="isAddChapter ? insertChapter() : editChapter()">
+                      {{isAddChapter ? "Save" : "Update"}}
                     </button>
                     <button type="button" class="btn" data-dismiss="modal">
                       Close
@@ -77,15 +82,18 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Block Level Element</td>
-                    <td><span class="trip theme-cl theme-bg-light">Active</span></td>
+                  <tr *ngFor="let chapterData of chapterList; index as i">
+                    <td>{{i+1}}</td>
+                    <td>{{chapterData.chapterName}}</td>
+                    <td class="dash_list">
+                      <span class="trip theme-cl theme-bg-light" *ngIf="chapterData.activeStatus">Active</span>
+                      <span class="trip text-danger bg-light-danger" *ngIf="!chapterData.activeStatus">InActive</span>
+                    </td>
                     <td>
                       <button class="btn" data-toggle="modal" data-target="#addEditChapter" (click)="editButton()">
                         Edit
                       </button>
-                      <button class="btn" (click)="deleteChapterList()">
+                      <button class="btn" (click)="deleteChapter()">
                         Delete
                       </button>
                     </td>
