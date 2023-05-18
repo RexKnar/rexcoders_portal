@@ -1,0 +1,78 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("./assets/css/plugins/bootstrap.min.css");
+@import url("./assets/css/style.css");
+/* Importing Bootstrap SCSS file. */
+.swal2-confirm {
+  background-color: #03b97c !important;
+}
+
+.collapse-off-sidebar {
+  position: fixed;
+  top: 0;
+  z-index: 15;
+  align-items: center;
+  margin-left: 0px;
+  transition: 0.9s;
+}
+
+.ck.ck-editor__editable.ck-focused:not(.ck-editor__nested-editable) {
+  border: 1px solid #03b97c !important;
+  box-shadow: var(--ck-inner-shadow), 0 0 !important;
+  outline: none !important;
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+  color: #03b97c;
+}
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.toggle-switch .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+}
+.toggle-switch .slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+}
+.toggle-switch input:checked + .slider {
+  background-color: #2196F3;
+}
+.toggle-switch input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+.toggle-switch input:checked + .slider:before {
+  transform: translateX(26px);
+}
+.toggle-switch .custom-control-input:focus ~ .custom-control-label::before {
+  border-color: red !important;
+  box-shadow: 0 0 0 0.2rem rgba(255, 47, 69, 0.25) !important;
+}
+.toggle-switch .change-color:checked ~ .round {
+  border-color: #03b97c;
+  background-color: #03b97c;
+}
+.toggle-switch .slider.round {
+  border-radius: 34px;
+}
+.toggle-switch .slider.round:before {
+  border-radius: 50%;
+}/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sources": [
+    "header.component.scss",
+    "header.component.css"
+  ],
+  "names": [],
+  "mappings": "AAAA;EACI,8BAAA;EACA,qDAAA;ACCJ;;ADCA;EACI,mBAAA;ACEJ",
+  "file": "header.component.css"
+}

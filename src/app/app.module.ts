@@ -10,6 +10,7 @@ import { AdminGuard } from './shared/guard/admin.guard';
 import { AuthGuard } from './shared/guard/auth.guard';
 import { AuthInterceptor } from './shared/Interceptors/auth.interceptor';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
 
   ],
   providers: [CookieService,AdminGuard, AuthGuard,{

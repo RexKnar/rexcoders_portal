@@ -31,8 +31,6 @@ import { TrainingCardComponent } from './components/training-card/training-card.
     AuthLayoutComponent,
     FooterComponent,
     TrainingCardComponent,
-
-
   ],
 
 })

@@ -1,5 +1,4 @@
-
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input, Output, EventEmitter } from '@angular/core';
 import {
   FormGroup,
   FormControl,
@@ -19,14 +18,16 @@ import { Subject, Subscription, takeUntil } from 'rxjs';
 })
 export class LoginComponent implements OnInit, OnDestroy {
   private destroy$: Subject<boolean> = new Subject<boolean>();
+  showProgressBar: boolean = false;
   loginForm!: FormGroup;
   responsedata: any;
   @Input() userRole: string;
+  @Output() isLoginSuccess = new EventEmitter<boolean>;
   constructor(
     private loginFormBuilder: FormBuilder,
     public _authservice: AuthService,
     private _cookiesService: CookiesService,
-    private _router:Router
+    private _router: Router
   ) {}
   get loginControls() {
     return this.loginForm.controls;
@@ -49,29 +50,41 @@ export class LoginComponent implements OnInit, OnDestroy {
       this.loginForm.patchValue({
         userType: this.userRole,
       });
+      this.isLoginSuccess.emit(true);
 
-
-      this._authservice
-        .authenticateUser(this.loginForm.value)
-        .pipe(takeUntil(this.destroy$))
-        .subscribe({
-          next: (data) => {
-            this.responsedata = data.data;
-            Swal.fire('Hi ' + this.responsedata?.details?.name + ', Welcome to Rexcoders');
-            this.loginForm.reset();
-            this._cookiesService.setAuthCookies(this.responsedata,this.userRole);
-            this._router.navigate(['/student']);
-          },
-          error: (err) => {
-            console.log(err);
-            Swal.fire('Invalid User');
-            console.log(err);
-          },
-        });
+      setTimeout(() => {
+        this._authservice
+          .authenticateUser(this.loginForm.value)
+          .pipe(takeUntil(this.destroy$))
+          .subscribe({
+            next: (data) => {
+              this.responsedata = data.data;
+              this.isLoginSuccess.emit(false);
+              Swal.fire(
+                'Hi ' +
+                  this.responsedata?.details?.name +
+                  ', Welcome to Rexcoders'
+              );
+              this.loginForm.reset();
+              this._cookiesService.setAuthCookies(
+                this.responsedata,
+                this.userRole
+              );
+              if (this.userRole == 'Student') {
+                this._router.navigate(['/student']);
+              } else if (this.userRole == 'Admin') {
+                this._router.navigate(['/admin']);
+              }
+            },
+            error: (err) => {
+              console.log(err);
+              this.isLoginSuccess.emit(false);
+              Swal.fire('Invalid User');
+              
+              console.log(err);
+            },
+          });
+      }, 2000);
     }
   }
 }
-
-
-
-

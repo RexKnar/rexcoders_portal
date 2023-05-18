@@ -1,3 +1,10 @@
+<mat-progress-bar
+  mode="indeterminate"
+  color="primary"
+  *ngIf="showProgressBar"
+  style="position: fixed;top:0;z-index:9999;"
+></mat-progress-bar>
+
 <section>
   <div class="container">
     <div class="row justify-content-center">
@@ -15,36 +22,75 @@
               <div class="Lpo09">
                 <h4>Login Your Account</h4>
               </div>
-              <ul class="nav nav-pills mb-3 login-tab" id="pills-tab" role="tablist">
+              <ul
+                class="nav nav-pills mb-3 login-tab"
+                id="pills-tab"
+                role="tablist"
+              >
                 <li class="nav-item">
-                  <button class="nav-link active login-tab-button" data-toggle="pill" data-target="#student"
-                    type="button" role="tab" aria-controls="pills-home" aria-selected="true" #student
-                    (click)="getUserType('Student')">
+                  <button
+                    class="nav-link active login-tab-button"
+                    data-toggle="pill"
+                    data-target="#student"
+                    type="button"
+                    role="tab"
+                    aria-controls="pills-home"
+                    aria-selected="true"
+                    #student
+                    (click)="getUserType('Student')"
+                  >
                     Student
                   </button>
                 </li>
                 <li>
-                  <button class="nav-link login-tab-button" data-toggle="pill" data-target="#staff" type="button"
-                    role="tab" aria-controls="pills-home" aria-selected="true" #staff (click)="getUserType('Staff')">
+                  <button
+                    class="nav-link login-tab-button"
+                    data-toggle="pill"
+                    data-target="#staff"
+                    type="button"
+                    role="tab"
+                    aria-controls="pills-home"
+                    aria-selected="true"
+                    #staff
+                    (click)="getUserType('Staff')"
+                  >
                     Staff
                   </button>
                 </li>
                 <li>
-                  <button class="nav-link login-tab-button" data-toggle="pill" data-target="#admin" type="button"
-                    role="tab" aria-controls="pills-home" aria-selected="true" #admin (click)="getUserType('Admin')">
+                  <button
+                    class="nav-link login-tab-button"
+                    data-toggle="pill"
+                    data-target="#admin"
+                    type="button"
+                    role="tab"
+                    aria-controls="pills-home"
+                    aria-selected="true"
+                    #admin
+                    (click)="getUserType('Admin')"
+                  >
                     Admin
                   </button>
                 </li>
               </ul>
               <div class="tab-content">
                 <div id="student" class="tab-pane fade show active">
-                  <app-login [userRole]="userType"></app-login>
+                  <app-login
+                    (isLoginSuccess)="isLoginSuccess($event)"
+                    [userRole]="userType"
+                  ></app-login>
                 </div>
                 <div id="staff" class="tab-pane fade">
-                  <app-login [userRole]="userType"></app-login>
+                  <app-login
+                    (isLoginSuccess)="isLoginSuccess($event)"
+                    [userRole]="userType"
+                  ></app-login>
                 </div>
                 <div id="admin" class="tab-pane fade">
-                  <app-login [userRole]="userType"></app-login>
+                  <app-login
+                    (isLoginSuccess)="isLoginSuccess($event)"
+                    [userRole]="userType"
+                  ></app-login>
                 </div>
               </div>
             </div>

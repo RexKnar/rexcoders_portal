@@ -12,7 +12,7 @@ import { TrainingDetailsComponent } from './components/training-details/training
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'training-list',
+    redirectTo: 'list',
     pathMatch: 'full'
   },
  {

@@ -1,0 +1,74 @@
+.page-body {
+  margin-left: 0%;
+  transition: 0.3s;
+}
+
+#left-sidebar.slide-in {
+  margin-left: 0;
+  transition: 0.5s;
+}
+
+#parent-container.slide-in {
+  margin-left: 22%;
+  transition: 0.5s;
+}
+
+#nav-header.slide-in {
+  width: 80%;
+}
+
+#left-sidebar.slide-out {
+  margin-left: -25%;
+  transition: 0.5s;
+}
+
+#parent-container.slide-out {
+  margin-left: 0;
+  transition: 0.5s;
+}
+
+#nav-header.slide-out {
+  width: 100%;
+}
+
+.d-hidden {
+  visibility: hidden !important;
+  transition: 0.5s;
+}
+
+.footer-position {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 0;
+}
+
+@media only screen and (max-width: 992px) {
+  .left-sidebar-mobile {
+    margin-left: -25% !important;
+  }
+  .parent-container-mobile {
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+  .nav-header-mobile {
+    width: 100% !important;
+  }
+  .left-sidebar.slide-in-mobile {
+    display: block !important;
+    margin-left: 0 !important;
+    margin-top: 8%;
+    transition: 0.5s;
+    width: 320px;
+    z-index: 1;
+    height: 100vh !important;
+  }
+  .left-sidebar.slide-out-mobile {
+    display: block !important;
+    margin-left: -100% !important;
+    margin-top: 8%;
+    transition: 0.5s;
+    width: 320px;
+    z-index: 1;
+    height: 100vh !important;
+  }
+}/*# sourceMappingURL=admin-layout.component.css.map */

@@ -8,6 +8,7 @@ export class AuthComponent implements OnInit {
 @ViewChild('student') student:ElementRef;
 @ViewChild('staff') staff:ElementRef;
 @ViewChild('admin') admin:ElementRef;
+showProgressBar = false;
 userType:string='Student';
   constructor() { }
 
@@ -15,5 +16,9 @@ userType:string='Student';
   }
 getUserType(type:string){
 this.userType=type;
+}
+
+isLoginSuccess(e:boolean){
+  this.showProgressBar = e;
 }
 }
