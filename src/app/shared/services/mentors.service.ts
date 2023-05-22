@@ -7,10 +7,12 @@ import { MENTOR_CONFIG, ROUTE_CONFIG } from '../config/endpoints';
   providedIn: 'root'
 })
 export class MentorsService {
-  addMentorsList(formData: FormData) {
-    throw new Error('Method not implemented.');
+  addMentorsList(mentorsPayload: any): Observable<any> {
+    return this.httpClient.post(
+      ROUTE_CONFIG.baseUrl + MENTOR_CONFIG.addMentorUrl,
+      mentorsPayload
+    );
   }
-
   constructor(private httpClient: HttpClient) { }
 
   getMentorList(): Observable<any> {
