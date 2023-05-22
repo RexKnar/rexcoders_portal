@@ -7,7 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MentorListComponent } from './mentor-list/mentor-list.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AddMentorsComponent } from './add-mentors/add-mentors.component';
-import { CKEditorModule } from 'ng2-ckeditor';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 
 @NgModule({
@@ -20,7 +20,8 @@ import { CKEditorModule } from 'ng2-ckeditor';
     ReactiveFormsModule,
     FormsModule,
     CKEditorModule,
-    MentorRoutingModule
+    MentorRoutingModule,
+    CommonModule
   ]
 })
 export class MentorModule { }

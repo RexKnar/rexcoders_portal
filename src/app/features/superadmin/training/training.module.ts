@@ -10,12 +10,6 @@ import { ViewSyllabusComponent } from './components/training-details/view-syllab
 import { ReviewComponent } from './components/review/review.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { AddModuleComponent } from './syllabus/components/syllabus/add-module/add-module.component';
-import { ModuleListComponent } from './syllabus/components/syllabus/module-list/module-list.component';
-import { ChapterListComponent } from './syllabus/components/syllabus/chapter-list/chapter-list.component';
-import { TopicListComponent } from './syllabus/components/syllabus/topic-list/topic-list.component';
-import { ViewTopicComponent } from './syllabus/components/syllabus/view-topic/view-topic.component';
-
 
 @NgModule({
   declarations: [
@@ -24,11 +18,6 @@ import { ViewTopicComponent } from './syllabus/components/syllabus/view-topic/vi
     TrainingDetailsComponent,
     AddSyllabusComponent,
     ViewSyllabusComponent,
-    AddModuleComponent,
-    ModuleListComponent,
-    ChapterListComponent,
-    TopicListComponent,
-    ViewTopicComponent,
     ReviewComponent,
 
 
