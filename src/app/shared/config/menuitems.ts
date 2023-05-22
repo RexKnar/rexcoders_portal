@@ -24,6 +24,16 @@ export var MENUITEMS: any = { 'Admin':[
             
         ]
     },
+    { 
+        title: 'Mentors', icon: 'fas fa-shopping-basket', type: 'sub', active: false, children: [
+
+            { path: '/admin/mentors/add', title: 'Add Mentor', type: 'link', },
+            { path: '/admin/mentors/list', title: 'Mentor List', type: 'link' },
+            { path: '/admin/mentors/details', title: 'Mentor Details', type: 'link', },
+           ,
+            
+        ]
+    },
     {
         title: 'Enrollments', icon: 'fas fa-gem', type: 'sub', active: false, children: [
             { path: '#', title: 'Paid', type: 'link' },
