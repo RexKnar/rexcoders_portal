@@ -19,7 +19,8 @@ import { CKEditorModule } from 'ng2-ckeditor';
   imports: [
     ReactiveFormsModule,
     FormsModule,
-    CKEditorModule
+    CKEditorModule,
+    MentorRoutingModule
   ]
 })
 export class MentorModule { }
