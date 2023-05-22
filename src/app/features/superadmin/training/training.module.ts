@@ -7,23 +7,14 @@ import { TrainingDetailsComponent } from './components/training-details/training
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { AddSyllabusComponent } from './components/add-training/add-syllabus/add-syllabus.component';
 import { ViewSyllabusComponent } from './components/training-details/view-syllabus/view-syllabus.component';
-import { AddModuleComponent } from './components/syllabus/add-module/add-module.component';
-import { ModuleListComponent } from './components/syllabus/module-list/module-list.component';
-import { ChapterListComponent } from './components/syllabus/chapter-list/chapter-list.component';
-// import { AddChapterComponent } from './components/syllabus/add-chapter/add-chapter.component';
-
-import { TopicListComponent } from './components/syllabus/topic-list/topic-list.component';
-
 import { ReviewComponent } from './components/review/review.component';
-
-
-
-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-import { ViewTopicComponent } from './components/syllabus/view-topic/view-topic.component';
-
 import { SharedModule } from 'src/app/shared/shared.module';
+import { AddModuleComponent } from './syllabus/components/syllabus/add-module/add-module.component';
+import { ModuleListComponent } from './syllabus/components/syllabus/module-list/module-list.component';
+import { ChapterListComponent } from './syllabus/components/syllabus/chapter-list/chapter-list.component';
+import { TopicListComponent } from './syllabus/components/syllabus/topic-list/topic-list.component';
+import { ViewTopicComponent } from './syllabus/components/syllabus/view-topic/view-topic.component';
 
 
 @NgModule({
@@ -36,11 +27,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     AddModuleComponent,
     ModuleListComponent,
     ChapterListComponent,
-    
-
     TopicListComponent,
     ViewTopicComponent,
-
     ReviewComponent,
 
 

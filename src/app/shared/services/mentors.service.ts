@@ -7,6 +7,9 @@ import { MENTOR_CONFIG, ROUTE_CONFIG } from '../config/endpoints';
   providedIn: 'root'
 })
 export class MentorsService {
+  addMentorsList(formData: FormData) {
+    throw new Error('Method not implemented.');
+  }
 
   constructor(private httpClient: HttpClient) { }
 
@@ -21,12 +24,5 @@ export class MentorsService {
     return this.httpClient.get(ROUTE_CONFIG.baseUrl + MENTOR_CONFIG.getMentorDetailsUrl+"?mentorId=" + mentorID);
 
   }
-
-
-
-
-
-
-
 
 }
