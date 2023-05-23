@@ -25,13 +25,11 @@ export var MENUITEMS: any = { 'Admin':[
         ]
     },
     { 
-        title: 'Mentors', icon: 'fas fa-shopping-basket', type: 'sub', active: false, children: [
+        title: 'Mentors', icon: 'fas fa-solid fa-user-tie', type: 'sub', active: false, children: [
 
             { path: '/admin/mentors/add', title: 'Add Mentor', type: 'link', },
-            { path: '/admin/mentors/list', title: 'Mentor List', type: 'link' },
-            { path: '/admin/mentors/details', title: 'Mentor Details', type: 'link', },
-           ,
-            
+            { path: '/admin/mentors/mentor-list', title: 'Mentor List', type: 'link' },
+            { path: '/admin/mentors/mentor-details', title: 'Mentor Details', type: 'link', }            
         ]
     },
     {

@@ -1,4 +1,3 @@
-
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import {
   FormGroup,
@@ -26,7 +25,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     private loginFormBuilder: FormBuilder,
     public _authservice: AuthService,
     private _cookiesService: CookiesService,
-    private _router:Router
+    private _router: Router
   ) {}
   get loginControls() {
     return this.loginForm.controls;
@@ -50,18 +49,27 @@ export class LoginComponent implements OnInit, OnDestroy {
         userType: this.userRole,
       });
 
-
-
       this._authservice
         .authenticateUser(this.loginForm.value)
         .pipe(takeUntil(this.destroy$))
         .subscribe({
           next: (data) => {
             this.responsedata = data.data;
-            Swal.fire('Hi ' + this.responsedata?.details?.name + ', Welcome to Rexcoders');
+            Swal.fire(
+              'Hi ' +
+                this.responsedata?.details?.name +
+                ', Welcome to Rexcoders'
+            );
             this.loginForm.reset();
-            this._cookiesService.setAuthCookies(this.responsedata,this.userRole);
-            this._router.navigate(['/student']);
+            this._cookiesService.setAuthCookies(
+              this.responsedata,
+              this.userRole
+            );
+            if (this.userRole == 'Student') {
+              this._router.navigate(['/student']);
+            } else if (this.userRole == 'Admin') {
+              this._router.navigate(['/admin']);
+            }
           },
           error: (err) => {
             console.log(err);
@@ -72,7 +80,3 @@ export class LoginComponent implements OnInit, OnDestroy {
     }
   }
 }
-
-
-
-

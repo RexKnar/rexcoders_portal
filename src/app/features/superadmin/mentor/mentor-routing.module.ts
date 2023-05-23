@@ -10,11 +10,11 @@ const routes: Routes = [
     component: AddMentorsComponent
   },
   {
-    path: 'mentorList',
+    path: 'mentor-list',
     component: MentorListComponent
   },
   {
-    path: 'mentorDetails',
+    path: 'mentor-details',
     component: MentorDetailsComponent
   },
 ];
