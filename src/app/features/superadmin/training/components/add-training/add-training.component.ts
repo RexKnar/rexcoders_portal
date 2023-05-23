@@ -1,6 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import {FormControl, FormGroup} from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
+import { DomainService } from 'src/app/shared/services/domain.service';
 
 @Component({
   selector: 'app-add-training',
@@ -8,8 +9,9 @@ import {FormControl, FormGroup} from '@angular/forms';
   styleUrls: ['./add-training.component.scss']
 })
 export class AddTrainingComponent implements OnInit {
+  domainDetail:any
   editor = ClassicEditor;
-  constructor() { }
+  constructor(private domainService:DomainService) { }
 
 addTrainingForm = new FormGroup({
   addTrainingName:new FormControl(''),
@@ -19,6 +21,10 @@ addTrainingForm = new FormGroup({
 
 
   ngOnInit(): void {
+    this.domainService.getDomain().subscribe((response)=>{
+      this.domainDetail=response.data.rows;
+      console.log(response.data)
+    })
   }
 
 }
