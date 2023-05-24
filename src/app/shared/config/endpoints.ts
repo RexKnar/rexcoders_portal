@@ -65,3 +65,10 @@ export const MODULE_CONFIG = {
   postModuleListUrl:'/api/syllabus/module/add',
   putModuleListUrl:'/api/syllabus/module/update'
 }
+export const CATEGORY_CONFIG = {
+  getCategoryListUrl:'/api/category/getall'
+}
+
+export const SUBCATEGORY_CONFIG = {
+  getSubCategoryListUrl:'/api/subcategory/getall'
+}

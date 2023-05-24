@@ -51,37 +51,41 @@
                         </div>
                         <div class="row mb-4">
                             <div class="col">
-                                <label for="category">Category</label>
-                                <select class="form-control">
-                                    <option></option>
+                                <label for="domainId">Domain</label>
+                                <select class="form-control" (change)="getCategoryList($event)">
+                                    <option>Select the domain</option>
+                                    <option [value]="domain.domainId" *ngFor="let domain of domainDetail">{{domain.domainName}}</option>
                                 </select>
                             </div>
                             <div class="col">
-                                <label for="subcategory">Sub Category</label>
-                                <select class="form-control">
-                                    <option></option>
+                                <label for="category">Category</label>
+                                <select class="form-control" (change)="getSubCategoryList($event)">
+                                    <option>Select the category</option>
+                                    <option [value]="category.categoryId"  *ngFor="let category of categoryDetail">{{category.categoryName}}</option>
                                 </select>
                             </div>
+                            
                         </div>
                         <div class="row mb-4">
+                            <div class="col">
+                                <label for="subcategory">Sub Category</label>
+                                <select class="form-control">
+                                    <option  *ngFor="let subCategory of subCategoryDetail">{{subCategory.subcategoryName}}</option>
+                                </select>
+                            </div>
                             <div class="col">
                                 <label for="domainId">Language</label>
                                 <select class="form-control">
                                     <option></option>
                                 </select>
                             </div>
+                            
+                        </div>
+                        <div class="row mb-4">
                             <div class="col">
                                 <label for="category">Medium</label>
                                 <select class="form-control">
                                     <option></option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="row mb-4">
-                            <div class="col">
-                                <label for="domainId">Domain</label>
-                                <select class="form-control" >
-                                    <option *ngFor="let domain of domainDetail">{{domain.domainName}}</option>
                                 </select>
                             </div>
                             <div class="col">
