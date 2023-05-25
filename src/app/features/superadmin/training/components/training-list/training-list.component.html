@@ -14,7 +14,7 @@
 				</thead>
 				<tbody>
 					<tr *ngFor="let items of trainingList ; let i = index">
-						<th scope="row">{{i+1}}</th>
+						<th scope="row">{{items.trainingId}}</th>
 						<td >
 							<h6 >{{items.trainingSlug}}</h6>
 							<p>Instructor:<span>Gabriel L. William</span></p>
@@ -23,8 +23,7 @@
 						<td>
 							<div class="dhs_tags">Finance</div>
 						</td>
-							
-
+					
 						<td><span class="smalls">Total: 12</span></td>
 						<td><span class="trip theme-cl theme-bg-light">Active</span></td>
 	

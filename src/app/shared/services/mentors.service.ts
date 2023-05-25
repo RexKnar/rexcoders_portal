@@ -7,7 +7,12 @@ import { MENTOR_CONFIG, ROUTE_CONFIG } from '../config/endpoints';
   providedIn: 'root'
 })
 export class MentorsService {
-
+  addMentorsList(mentorsPayload: any): Observable<any> {
+    return this.httpClient.post(
+      ROUTE_CONFIG.baseUrl + MENTOR_CONFIG.addMentorUrl,
+      mentorsPayload
+    );
+  }
   constructor(private httpClient: HttpClient) { }
 
   getMentorList(): Observable<any> {
@@ -21,12 +26,5 @@ export class MentorsService {
     return this.httpClient.get(ROUTE_CONFIG.baseUrl + MENTOR_CONFIG.getMentorDetailsUrl+"?mentorId=" + mentorID);
 
   }
-
-
-
-
-
-
-
 
 }

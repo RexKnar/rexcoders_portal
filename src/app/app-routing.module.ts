@@ -29,7 +29,6 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     loadChildren: () => import('./features/student/student.module').then(module => module.StudentModule),
 
-
   }];
 
 @NgModule({
