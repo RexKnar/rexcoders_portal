@@ -1,0 +1,68 @@
+<div class="container mt">
+  <div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12">
+      <div class="dashboard_wrap">
+        <div class="form_blocs_wrap">
+          <div class="row">
+            <div class="col-6 add mb">
+              <h3 class="txt-color">Add Modules</h3>
+            </div>
+           
+          </div>
+          <div class="row mb-4">
+            <div class="col">
+                <select class="form-control" >
+                  <option>Choose the domain</option>
+                    <option>Development</option>
+                </select>
+            </div>
+            <div class="col">
+              <select class="form-control" >
+                <option>Choose the category</option>
+                  <option>Front End Development</option>
+              </select>
+          </div>
+          <div class="col">
+            <select class="form-control" >
+              <option>Choose the subcategory</option>
+                <option>Angular</option>
+            </select>
+        </div>
+        </div>
+          <div>
+            <form [formGroup]="moduleForm" class="flex">
+              <div formArrayName="moduleName">
+                <div *ngFor="let item of moduleName.controls; let i = index">
+                  <div class="input-group mt-3">
+                    <input
+                      type="text"
+                      id="moduleName"
+                      placeholder="Enter the module name"
+                      class="form-control inline"
+                      required
+                      name="categoryName"
+                      [formControlName]="i"
+                      
+                    />
+                    <button
+                      class="input-group-text px-4"
+                      type="button"
+                      (click)="removeModuleNames(i)"
+                    >
+                      -
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <button class="px-4" type="button" (click)="addModuleNames()">+</button>
+            </form>
+          </div>
+          <div>
+            <button type="button" (click)="onSubmit()">Add Modules</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

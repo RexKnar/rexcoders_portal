@@ -4,6 +4,7 @@ import { AddTrainingComponent } from './components/add-training/add-training.com
 import { ReviewComponent } from './components/review/review.component';
 import { TrainingListComponent } from './components/training-list/training-list.component';
 import { TrainingDetailsComponent } from './components/training-details/training-details.component';
+import { AddModulesComponent } from './syllabus/components/modules/add-modules/add-modules.component';
 const routes: Routes = [
   {
     path: '',
@@ -25,8 +26,12 @@ const routes: Routes = [
 },
 
  {
-  path:'training-list',
+  path:'training-details',
   component:TrainingDetailsComponent
+ },
+ {
+  path:'add-modules',
+  component:AddModulesComponent
  }
 ];
 
