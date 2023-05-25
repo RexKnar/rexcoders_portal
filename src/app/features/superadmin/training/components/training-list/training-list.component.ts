@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 import { TrainingService } from 'src/app/shared/services/training.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { TrainingService } from 'src/app/shared/services/training.service';
 })
 export class TrainingListComponent implements OnInit {
 
-  constructor(public _trainingService: TrainingService) { }
+  constructor(public _trainingService: TrainingService, private router:Router) { }
 
   trainingList:any;
 
@@ -18,7 +18,11 @@ export class TrainingListComponent implements OnInit {
    
   }
 
-  
+  getId(id:number){
+
+    this.router.navigateByUrl('/admin/training/training-details')
+
+  }
 
   getTrainingList()
   {

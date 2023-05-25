@@ -25,7 +25,7 @@ const routes: Routes = [
 },
 
  {
-  path:'training-list',
+  path:'training-details',
   component:TrainingDetailsComponent
  }
 ];

@@ -13,4 +13,10 @@ export class TrainingService {
   getTrainingList():Observable<any>{
     return this.httpClient.get(ROUTE_CONFIG.baseUrl + TRAINING_CONFIG.getTrainingListUrl )
   }
+  getTrainingDetails():Observable<any>{
+    return this.httpClient.get(ROUTE_CONFIG.baseUrl + TRAINING_CONFIG.getTrainingDetailUrl + '1')
+
+  }
+
+  
 }
