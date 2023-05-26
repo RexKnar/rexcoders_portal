@@ -29,8 +29,10 @@ export class CategoryComponent implements OnInit {
   }
 
   getAllCategory(){
-
-
+this.categoryService.getAllCategory().subscribe(categoryresponse =>{
+  console.log(categoryresponse)
+  categoryresponse=this.categoryAllList
+})
   }
 
   insertCategory() {
