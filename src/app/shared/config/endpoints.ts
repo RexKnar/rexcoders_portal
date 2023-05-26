@@ -72,3 +72,6 @@ export const CATEGORY_CONFIG = {
 export const SUBCATEGORY_CONFIG = {
   getSubCategoryListUrl:'/api/subcategory/getall'
 }
+export const LANGUAGE_CONFIG = {
+  getLanguageListUrl:'/api/language/getall'
+}
