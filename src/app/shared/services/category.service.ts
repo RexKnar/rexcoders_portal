@@ -1,15 +1,21 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ROUTE_CONFIG, CATEGORY_CONFIG  } from '../config/endpoints';
+import { CATEGORY_CONFIG, ROUTE_CONFIG, } from '../config/endpoints';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategoryService {
 
-  constructor(private httpclient:HttpClient) { }
-  getCategory(domainId:any): Observable<any> {
-    return this.httpclient.get(ROUTE_CONFIG.baseUrl + CATEGORY_CONFIG .getCategoryListUrl+"?domainId="+parseInt(domainId));
+  constructor(public httpClient:HttpClient) {  }
+
+  addCategory(payLoad:any):Observable<any>{
+    return this.httpClient.post(ROUTE_CONFIG.baseUrl + CATEGORY_CONFIG.addCategoryUrl,payLoad )
+  }
+
+  getAllCategory(){
+    return this.httpClient.get(ROUTE_CONFIG.baseUrl + CATEGORY_CONFIG.getAllCategoryUrl)
   }
 }

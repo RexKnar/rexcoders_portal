@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AddCategoryModel } from 'src/app/shared/model/category.model';
+import { CategoryService } from 'src/app/shared/services/category.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -12,6 +13,7 @@ export class CategoryComponent implements OnInit {
   categoryData: AddCategoryModel = new AddCategoryModel();
   isAddCategory: boolean;
   isEditCategory: boolean;
+  categoryAllList:any
 
   resetAddModal() {
     this.isAddCategory = true;
@@ -19,13 +21,23 @@ export class CategoryComponent implements OnInit {
     this.categoryData = new AddCategoryModel();
   }
 
-  constructor() { }
+  constructor(private categoryService:CategoryService) { }
 
   ngOnInit(): void {
+
+    this.getAllCategory()
+  }
+
+  getAllCategory(){
+
+
   }
 
   insertCategory() {
 
+    this.categoryService.addCategory(this.categoryData).subscribe((response:any)=>{
+      console.log(response)
+    })
     Swal.fire(
       'Good job!',
       'Category name added!',

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TrainingService } from 'src/app/shared/services/training.service';
 
 @Component({
   selector: 'app-training-details',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TrainingDetailsComponent implements OnInit {
 
-  constructor() { }
-
+  constructor( private traningService:TrainingService) { }
+trainingDetails:any
   ngOnInit(): void {
+    this.traningService.getTrainingDetails().subscribe(trainingDetails=>{
+      console.log(trainingDetails);
+      this.trainingDetails=trainingDetails;
+    })
   }
 
 }
