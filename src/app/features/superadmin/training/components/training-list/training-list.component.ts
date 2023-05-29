@@ -18,12 +18,6 @@ export class TrainingListComponent implements OnInit {
    
   }
 
-  getId(id:number){
-
-    this.router.navigateByUrl('/admin/training/training-details')
-
-  }
-
   getTrainingList()
   {
     this._trainingService.getTrainingList().subscribe({
@@ -33,5 +27,8 @@ export class TrainingListComponent implements OnInit {
       }
       
     });
+  }
+  getId(){
+    this.router.navigateByUrl('admin/training/training-details')
   }
 }
