@@ -13,6 +13,7 @@ export const USER_CONFIG = {
 export const TRAINING_CONFIG = {
   getTrainingListUrl: '/api/training/getall',
   getTrainingDetailUrl: '/api/training/get?trainingId=',
+  addButtonUrl:'/api/training/add'
 };
 export const DOMAIN_CONFIG = {
   getDomainListUrl: '/api/domain/getall',
