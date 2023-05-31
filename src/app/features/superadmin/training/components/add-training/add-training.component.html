@@ -3,36 +3,36 @@
         <div class="col-xl-12 col-lg-12 col-md-12">
             <div class="dashboard_wrap">
                 <div class="form_blocs_wrap">
-                    <form action="#" class="p-3">
+                    <form [formGroup]="addTrainingForm" action="#" class="p-3">
                         <div class="row">
                             <div class="col-6 add mb">
                                 <h3 class="txt-color">Add Training</h3>
                             </div>
                         </div>
-                        <div [formGroup]="addTrainingForm" class="row mt-5 mb-4">
+                        <div  class="row mt-5 mb-4">
                             <div class="col">
                                 <label for="trainingName">Training Name</label>
-                                <input formControlName="addtraining" type="text" class="form-control" id="trainingName" placeholder="Enter the Training Name"
+                                <input formControlName="trainingName" type="text" class="form-control" id="trainingName" placeholder="Enter the Training Name"
                                     name="trainingName">
                             </div>
                             <div class="col">
                                 <label for="learnersLevel">Learners Level</label>
-                                <input formControlName="addtraining"type="text" class="form-control" placeholder="Beginners" name="trainingName" id="learnersLevel">
+                                <input formControlName="learnersLevel"type="text" class="form-control" placeholder="Beginners" name="trainingName" id="learnersLevel">
                             </div>
                             <div class="col">
                                 <label>Stack</label>
-                                <input type="text" class="form-control" placeholder="Stack" name="stack">
+                                <input formControlName="stack" type="text" class="form-control" placeholder="Stack" name="stack">
                             </div>
                         </div>
                         <div class="row mb-4">
                             <div class="col">
                                 <label>Training Amount</label>
-                                <input type="text" class="form-control" placeholder="Enter Training Amount"
+                                <input formControlName="amount" type="text" class="form-control" placeholder="Enter Training Amount"
                                     name="amount">
                             </div>
                             <div class="col">
                                 <label>Discount Amount</label>
-                                <input type="text" class="form-control" placeholder="Discount Amount"
+                                <input formControlName="discountAmount" type="text" class="form-control" placeholder="Discount Amount"
                                     name="discountAmount">
                             </div>
                         </div>
@@ -41,76 +41,84 @@
                                 <label>Image URL</label>
                                 <div class="spinner-border ml-2 mr-2"></div>
                                 Loading...
-                                <input type="file" class="form-control" id="imgurl" name="imgurl">
+                                <input formControlName="photo" type="file" class="form-control" id="imgurl" name="photo"  (change)="onFileChange($event)">
                             </div>
                             <div class="col">
                                 <label>Sample Video URL</label>
-                                <input type="text" class="form-control" placeholder="Sample Video URL"
+                                <input formControlName="sampleVideoUrl" type="text" class="form-control" placeholder="Sample Video URL"
                                     name="sampleVideoUrl">
                             </div>
                         </div>
                         <div class="row mb-4">
                             <div class="col">
-                                <label for="category">Category</label>
-                                <select class="form-control">
-                                    <option></option>
+                                <label for="domainId">Domain</label>
+                                <select formControlName="domainId" class="form-control" (change)="getCategoryList($event)">
+                                    <option>Select the domain</option>
+                                    <option  [value]="domain.domainId" *ngFor="let domain of domainDetail">{{domain.domainName}}</option>
                                 </select>
                             </div>
+                            <div class="col">
+                                <label for="category">Category</label>
+                                <select formControlName="category" class="form-control" (change)="getSubCategoryList($event)">
+                                    <option>Select the category</option>
+                                    <option  [value]="category.categoryId"  *ngFor="let category of categoryDetail">{{category.categoryName}}</option>
+                                </select>
+                            </div>
+                            
+                        </div>
+                        <div class="row mb-4">
                             <div class="col">
                                 <label for="subcategory">Sub Category</label>
-                                <select class="form-control">
-                                    <option></option>
+                                <select formControlName="subcategory" class="form-control">
+                                    <option value="0">sub category</option>
+                                    <option [value]="subCategory.subcategoryId" *ngFor="let subCategory of subCategoryDetail">{{subCategory.subcategoryName}}</option>
                                 </select>
                             </div>
-                        </div>
-                        <div class="row mb-4">
                             <div class="col">
                                 <label for="domainId">Language</label>
-                                <select class="form-control">
-                                    <option></option>
+                                <select formControlName="languageId" class="form-control">
+                                    <option>Select the language</option>
+                                    <option [value]="language.languageId" *ngFor="let language of languageDetail">{{language.languageName}}</option>
                                 </select>
                             </div>
-                            <div class="col">
-                                <label for="category">Medium</label>
-                                <select class="form-control">
-                                    <option></option>
-                                </select>
-                            </div>
+                            
                         </div>
                         <div class="row mb-4">
                             <div class="col">
-                                <label for="domainId">Domain</label>
-                                <select class="form-control" >
-                                    <option *ngFor="let domain of domainDetail">{{domain.domainName}}</option>
+                                <label for="category">Medium</label>
+                                <select formControlName="medium" class="form-control">
+                                    <option >slect your medium</option>
+                                    <option value="0">Online</option>
+                                    <option value="1">Offline</option>
+                                    <option value="2">Hybrid</option>
                                 </select>
                             </div>
                             <div class="col">
                                 <label>Class Links</label>
-                                <input type="text" class="form-control" placeholder="Class Links" name="classLink">
+                                <input formControlName="classLink" type="text" class="form-control" placeholder="Class Links" name="classLink">
                             </div>
                         </div>
                         <div class="row mb-4">
                             <div class="col">
                                 <label>Prerequisite</label>
-                                <ckeditor name="myckeditor" debounce="300" [editor]="editor"></ckeditor>
+                                <ckeditor formControlName="prerequisite" name="myckeditor" debounce="300" [editor]="editor"></ckeditor>
                             </div>
                         </div>
                         <div class="row mb-4">
                             <div class="col">
                                 <label>Perks</label>
-                                <ckeditor name="myckeditor" debounce="300" [editor]="editor"></ckeditor>
+                                <ckeditor formControlName="perks" name="myckeditor" debounce="300" [editor]="editor"></ckeditor>
                             </div>
                         </div>
                         <div class="row mb-4">
                             <div class="col">
                                 <label>Description</label>
-                                <ckeditor name="myckeditor" debounce="300" [editor]="editor"></ckeditor>
+                                <ckeditor formControlName="description" name="myckeditor" debounce="300" [editor]="editor"></ckeditor>
                             </div>
                         </div>
-                        <div class="row mb-4">
-                            <div class="col">
-                                <label>Syllabus</label>
-                                <ckeditor name="myckeditor" debounce="300" [editor]="editor"></ckeditor>
+                        <div class="row mb-4 ">
+                            <div class="col d-flex justify-content-center">
+                                <button type="submit" (click)="addTraining()">ADD</button>
                             </div>
                         </div>
 

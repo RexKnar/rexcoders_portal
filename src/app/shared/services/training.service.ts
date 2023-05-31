@@ -17,6 +17,9 @@ export class TrainingService {
     return this.httpClient.get(ROUTE_CONFIG.baseUrl + TRAINING_CONFIG.getTrainingDetailUrl + '1')
 
   }
+  addTrainingDetails(Payload: any): Observable<any> {
+    return this.httpClient.post(ROUTE_CONFIG.baseUrl + TRAINING_CONFIG.addButtonUrl,Payload);
+  }
 
   
 }
