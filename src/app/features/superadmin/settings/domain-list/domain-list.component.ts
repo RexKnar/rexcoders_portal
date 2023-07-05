@@ -31,11 +31,15 @@ export class DomainListComponent implements OnInit {
       this.domainData = this.domainlist;
     });
   }
+
+  getDomainDetailPage(domainid:number){
+    
+  }
   insertDomain() {
     this._domainService.insertDomain(this.domainData).subscribe((postDomainRespose: any) => {
       console.log(postDomainRespose);
       Swal.fire(
-        'Good job!',
+        '',
         'Domain name added!',
         'success'
       )
@@ -44,8 +48,8 @@ export class DomainListComponent implements OnInit {
       this.closemodal.nativeElement.click();
     })
   }
-  sendDomain(domainDetails: any) {
-    this.domainData = domainDetails;
+  sendDomain(domainDetail: any) {
+    this.domainData = domainDetail;
   }
   updateDomain() {
     this._domainService.updateDomain(this.domainData).subscribe((updateDomainRespose: any) => {
@@ -75,6 +79,7 @@ export class DomainListComponent implements OnInit {
             'Your domain has been deleted.',
             'success'
           )
+          this.getDomain();
         });
       }
     })

@@ -1,0 +1,252 @@
+<div class="container mt">
+  <div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12">
+      <div class="dashboard_wrap">
+        <div class="form_blocs_wrap">
+          <form class="p-3" [formGroup]="addMentorForm">
+            <div class="row">
+              <div class="col-6 add mb">
+                <h3 class="txt-color">Add Mentors</h3>
+              </div>
+            </div>
+            <div class="row mt-5 mb-4">
+              <div class="col-12 col-lg-6">
+                <label>Mentor Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Enter the Mentor Name"
+                  name="mentorName"
+                  formControlName="mentorName"
+                />
+                <p *ngIf="
+                addMentorForm.controls.mentorName.errors?.['required'] &&
+                (addMentorForm.controls.mentorName.touched ||
+                addMentorForm.controls.mentorName.dirty)
+              ">
+                  Please Enter Mentor Name
+                </p>
+              </div>
+              <div class="col-12 col-lg-6">
+                <label>Mobile Number</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Mobile Number"
+                  name="mobileNumber"
+                  formControlName="mentorMobileNumber"
+                />
+                <p *ngIf="
+                addMentorForm.controls.mentorMobileNumber.errors?.['required'] &&
+                (addMentorForm.controls.mentorMobileNumber.touched ||
+                addMentorForm.controls.mentorMobileNumber.dirty)
+              ">
+                  Please Enter Mentor Mobile Number
+                </p>
+              </div>
+            </div>
+            <div class="row mb-4">
+              <div class="col-12 col-lg-6">
+                <label>Email Id</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Email Id"
+                  name="emailId"
+                  formControlName="mentorEmailId"
+                />
+                <p *ngIf="
+                addMentorForm.controls.mentorEmailId.errors?.['required'] &&
+                (addMentorForm.controls.mentorEmailId.touched ||
+                addMentorForm.controls.mentorEmailId.dirty)
+              ">
+                  Please Enter Mentor Email 
+                </p>
+              </div>
+              <div class="col-12 col-lg-6">
+                <label>Designation</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Designation"
+                  name="degination"
+                  formControlName="mentorDesignation"
+                />
+                <p *ngIf="
+                addMentorForm.controls.mentorDesignation.errors?.['required'] &&
+                (addMentorForm.controls.mentorDesignation.touched ||
+                addMentorForm.controls.mentorDesignation.dirty)
+              ">
+                  Please Enter Mentor Designation
+                </p>
+              </div>
+            </div>
+
+            <div class="row mb-4">
+              <div class="col-12 col-lg-6">
+                <label>Current Company</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Current Company"
+                  name="currentCompany"
+                  formControlName="currentCompany"
+                />
+                <p *ngIf="
+                addMentorForm.controls.currentCompany.errors?.['required'] &&
+                (addMentorForm.controls.currentCompany.touched ||
+                addMentorForm.controls.currentCompany.dirty)
+              ">
+                  Please Enter Current Company
+                </p>
+              </div>
+              <div class="col-12 col-lg-6">
+                <label>Previous Company</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Previous Company"
+                  name="previousCompany"
+                  formControlName="previousCompany"
+                />
+                <p *ngIf="
+                addMentorForm.controls.previousCompany.errors?.['required'] &&
+                (addMentorForm.controls.previousCompany.touched ||
+                addMentorForm.controls.previousCompany.dirty)
+              ">
+                  Please Enter Previous Company
+                </p>
+              </div>
+            </div>
+            <div class="row mb-4">
+              <div class="col-12 col-lg-6">
+                <label>Profile Image</label>
+                <input
+                  type="file"
+                  class="form-control"
+                  id="imgurl"
+                  name="imgurl"
+                  formControlName="photo"
+                  (change)="onFileChange($event)"
+                />
+                <p *ngIf="
+                addMentorForm.controls.photo.errors?.['required'] &&
+                (addMentorForm.controls.photo.touched ||
+                addMentorForm.controls.photo.dirty)
+              ">
+                  Please Choose Profile Image
+                </p>
+              </div>
+              <div class="col-12 col-lg-6">
+                <label>Linkedln Id</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Linkedln Id"
+                  name="linkedlnId"
+                  formControlName="linkedlnId"
+                />
+                <p *ngIf="
+                addMentorForm.controls.linkedlnId.errors?.['required'] &&
+                (addMentorForm.controls.linkedlnId.touched ||
+                addMentorForm.controls.linkedlnId.dirty)
+              ">
+                  Please Enter Linkedln Id 
+                </p>
+              </div>
+            </div>
+            <form [formGroup]="mediaLinksForm">
+              <div class="row mb-4">
+                <div class="col-12 col-lg-6">
+                  <label>Instagram Id</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Instagram Id"
+                    name="instagramId"
+                    formControlName="instagramId"
+                  />
+                  <p *ngIf="
+                  mediaLinksForm.controls.instagramId.errors?.['required'] &&
+                  (mediaLinksForm.controls.instagramId.touched ||
+                  mediaLinksForm.controls.instagramId.dirty)
+                ">
+                    Please Enter Instagram Id
+                  </p>
+                </div>
+                <div class="col-12 col-lg-6">
+                  <label>Twitter Id</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Twitter Id"
+                    name="twitterId"
+                    formControlName="twitterId"
+                  />
+                  <p *ngIf="
+                  mediaLinksForm.controls.twitterId.errors?.['required'] &&
+                  (mediaLinksForm.controls.twitterId.touched ||
+                  mediaLinksForm.controls.twitterId.dirty)
+                ">
+                    Please Enter Twitter Id
+                  </p>
+                </div>
+              </div>
+              <div class="row mb-4">
+                <div class="col-12 col-lg-6">
+                  <label>Facebook Id</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Facebook Id"
+                    name="facebookId"
+                    formControlName="facebookId"
+                  />
+                  <p *ngIf="
+                  mediaLinksForm.controls.facebookId.errors?.['required'] &&
+                  (mediaLinksForm.controls.facebookId.touched ||
+                  mediaLinksForm.controls.facebookId.dirty)
+                ">
+                    Please Enter Facebook Id
+                  </p>
+                </div>
+              </div>
+            </form>
+            
+            <div class="row mb-4">
+              <div class="col-12">
+                <label>Others</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Others"
+                  name="others"
+                  formControlName="others"
+                />
+              </div>
+              <div class="col-12">
+                <label>About Mentor</label>
+                <ckeditor name="myckeditor" debounce="300" [editor]="editor" formControlName="aboutMentor"></ckeditor>
+                <p *ngIf="
+                addMentorForm.controls.aboutMentor.errors?.['required'] &&
+                (addMentorForm.controls.aboutMentor.touched ||
+                addMentorForm.controls.aboutMentor.dirty)
+              ">
+                  Please Enter About Mentor Details
+                </p>
+              </div>
+              
+            </div>
+          </form>
+          <div class="row mb-4">
+            <button class="btn text-dark text-center" (click)="addMentors()" [disabled]="isAddMentor || (addMentorForm.invalid || mediaLinksForm.invalid) ">
+              <div class="spinner-border ml-2 mr-2" [ngClass]="isAddMentor?'d-inline-flex':'d-none'"></div>
+              <span [ngClass]="isAddMentor?'d-inline-flex':'d-none'">Loading...</span>
+              <span [ngClass]="isAddMentor?'d-none':'d-block'">Add Mentors</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

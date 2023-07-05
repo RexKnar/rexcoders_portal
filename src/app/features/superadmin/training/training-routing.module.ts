@@ -15,38 +15,49 @@ const routes: Routes = [
     redirectTo: 'training-list',
     pathMatch: 'full'
   },
-  {
-    path: 'list',
-    component: TrainingListComponent
-  },
-  {
-    path: 'add',
-    component: AddTrainingComponent
-  },
-  {
-    path: 'review',
-    component: ReviewComponent
-  },
-  {
-    path: 'module-list',
-    component: ModuleListComponent
-  },
-  {
-    path: 'topic-list',
-    component: TopicListComponent
-  },
-  {
-    path: 'section-list',
-    component: SectionListComponent
-  },
-  {
-    path: 'view-topic',
-    component: ViewTopicComponent
-  },
-  {
-    path: 'training-list',
-    component: TrainingDetailsComponent
-  }
+ {
+  path:'list',
+  component:TrainingListComponent
+ },
+ {
+  path:'add',
+  component:AddTrainingComponent
+ },
+
+{
+  path:'review',
+  component:ReviewComponent
+},
+ {
+  path:'module-list',
+  component:ModuleListComponent
+ },
+ {
+ 
+
+  path:'topic-list',
+  component:TopicListComponent
+ },
+//  {
+ 
+//   path:'chapter-list',
+//   component:ChapterListComponent
+//  },
+ {
+  path:'module-list',
+  component:ModuleListComponent
+
+ },
+ {
+  path:'view-topic',
+  component:ViewTopicComponent
+
+
+ },
+ {
+  path:'training-list',
+  component:TrainingDetailsComponent
+ }
 ];
 
 @NgModule({

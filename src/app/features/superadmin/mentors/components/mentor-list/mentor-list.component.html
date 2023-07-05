@@ -33,7 +33,7 @@
                 <tbody>
                  <ng-container *ngFor="let mentors of mentorlist.data.rows; let i = index">
 
-                  <tr routerLink="/admin/mentors/mentorDetails" [queryParams]="{ mentorId: mentors.mentorId}">
+                  <tr routerLink="/admin/mentors/mentor-details" [queryParams]="{ mentorId: mentors.mentorId}">
                     <td>{{ i + 1 }}</td>
                     <td>{{mentors.mentorName }}</td>
                     <td>{{mentors.mentorDesignation}}</td>

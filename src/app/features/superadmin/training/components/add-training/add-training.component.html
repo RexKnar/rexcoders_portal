@@ -1,122 +1,335 @@
 <div class="container mt">
-    <div class="row">
-        <div class="col-xl-12 col-lg-12 col-md-12">
-            <div class="dashboard_wrap">
-                <div class="form_blocs_wrap">
-                    <form action="#" class="p-3">
-                        <div class="row">
-                            <div class="col-6 add mb">
-                                <h3 class="txt-color">Add Training</h3>
-                            </div>
-                        </div>
-                        <div class="row mt-5 mb-4">
-                            <div class="col">
-                                <label>Training Name</label>
-                                <input type="text" class="form-control" placeholder="Enter the Training Name"
-                                    name="trainingName">
-                            </div>
-                            <div class="col">
-                                <label for="learnersLevel">Learners Level</label>
-                                <input type="text" class="form-control" placeholder="Beginners" name="trainingName">
-                            </div>
-                            <div class="col">
-                                <label>Stack</label>
-                                <input type="text" class="form-control" placeholder="Stack" name="stack">
-                            </div>
-                        </div>
-                        <div class="row mb-4">
-                            <div class="col">
-                                <label>Training Amount</label>
-                                <input type="text" class="form-control" placeholder="Enter Training Amount"
-                                    name="amount">
-                            </div>
-                            <div class="col">
-                                <label>Discount Amount</label>
-                                <input type="text" class="form-control" placeholder="Discount Amount"
-                                    name="discountAmount">
-                            </div>
-                        </div>
-                        <div class="row mb-4">
-                            <div class="col">
-                                <label>Image URL</label>
-                                <div class="spinner-border ml-2 mr-2"></div>
-                                Loading...
-                                <input type="file" class="form-control" id="imgurl" name="imgurl">
-                            </div>
-                            <div class="col">
-                                <label>Sample Video URL</label>
-                                <input type="text" class="form-control" placeholder="Sample Video URL"
-                                    name="sampleVideoUrl">
-                            </div>
-                        </div>
-                        <div class="row mb-4">
-                            <div class="col">
-                                <label for="category">Category</label>
-                                <select class="form-control">
-                                    <option></option>
-                                </select>
-                            </div>
-                            <div class="col">
-                                <label for="subcategory">Sub Category</label>
-                                <select class="form-control">
-                                    <option></option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="row mb-4">
-                            <div class="col">
-                                <label for="domainId">Language</label>
-                                <select class="form-control">
-                                    <option></option>
-                                </select>
-                            </div>
-                            <div class="col">
-                                <label for="category">Medium</label>
-                                <select class="form-control">
-                                    <option></option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="row mb-4">
-                            <div class="col">
-                                <label for="domainId">Domain</label>
-                                <select class="form-control">
-                                    <option></option>
-                                </select>
-                            </div>
-                            <div class="col">
-                                <label>Class Links</label>
-                                <input type="text" class="form-control" placeholder="Class Links" name="classLink">
-                            </div>
-                        </div>
-                        <div class="row mb-4">
-                            <div class="col">
-                                <label>Prerequisite</label>
-                                <ckeditor name="myckeditor" debounce="300" [editor]="editor"></ckeditor>
-                            </div>
-                        </div>
-                        <div class="row mb-4">
-                            <div class="col">
-                                <label>Perks</label>
-                                <ckeditor name="myckeditor" debounce="300" [editor]="editor"></ckeditor>
-                            </div>
-                        </div>
-                        <div class="row mb-4">
-                            <div class="col">
-                                <label>Description</label>
-                                <ckeditor name="myckeditor" debounce="300" [editor]="editor"></ckeditor>
-                            </div>
-                        </div>
-                        <div class="row mb-4">
-                            <div class="col">
-                                <label>Syllabus</label>
-                                <ckeditor name="myckeditor" debounce="300" [editor]="editor"></ckeditor>
-                            </div>
-                        </div>
-
-                    </form>
-                </div>
+  <div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12">
+      <div class="dashboard_wrap">
+        <div class="form_blocs_wrap">
+          <form class="p-3" [formGroup]="addTrainingForm">
+            <div class="row">
+              <div class="col-6 add mb">
+                <h3 class="txt-color">Add Training</h3>
+              </div>
             </div>
+            <div class="row mt-5 mb-4">
+              <div class="col-12 col-lg-6">
+                <label>Training Name</label>
+                <input type="text" class="form-control" placeholder="Enter the Training Name" name="trainingName"
+                  formControlName="trainingName" />
+                <p *ngIf="
+                addTrainingForm.controls.trainingName.errors?.['required'] &&
+                (addTrainingForm.controls.trainingName.touched ||
+                addTrainingForm.controls.trainingName.dirty)
+              ">
+                  Please Enter Training Name
+                </p>
+              </div>
+              <div class="col-12 col-lg-6">
+                <label>Training Slug</label>
+                <input type="text" class="form-control" placeholder="Training Slug" name="trainingSlug"
+                  formControlName="trainingSlug" />
+                  <p *ngIf="
+                  addTrainingForm.controls.trainingSlug.errors?.['required'] &&
+                  (addTrainingForm.controls.trainingSlug.touched ||
+                  addTrainingForm.controls.trainingSlug.dirty)
+                ">
+                    Please Enter Training Slug
+                  </p>
+              </div>
+            </div>
+            <div class="row mt-5 mb-4">
+              <div class="col-12 col-lg-6">
+                <label>Learners Level</label>
+                <input type="text" class="form-control" placeholder="Beginners" name="learnersLevel"
+                  formControlName="learnersLevel" />
+                  <p *ngIf="
+                  addTrainingForm.controls.learnersLevel.errors?.['required'] &&
+                  (addTrainingForm.controls.learnersLevel.touched ||
+                  addTrainingForm.controls.learnersLevel.dirty)
+                ">
+                    Please Enter Learners Level
+                  </p>
+              </div>
+              <div class="col-12 col-lg-6">
+                <label>Stack</label>
+                <input type="text" class="form-control" placeholder="Stack" name="stack" formControlName="stack" />
+                <p *ngIf="
+                addTrainingForm.controls.stack.errors?.['required'] &&
+                (addTrainingForm.controls.stack.touched ||
+                addTrainingForm.controls.stack.dirty)
+              ">
+                  Please Enter Stack
+                </p>
+              </div>
+            </div>
+            <div class="row mb-4">
+              <div class="col-12 col-lg-6">
+                <label>Training Amount</label>
+                <input type="text" class="form-control" placeholder="Enter Training Amount" name="amount"
+                  formControlName="amount" />
+                  <p *ngIf="
+                addTrainingForm.controls.amount.errors?.['required'] &&
+                (addTrainingForm.controls.amount.touched ||
+                addTrainingForm.controls.amount.dirty)
+              ">
+                  Please Enter Training Amount
+                </p>
+              </div>
+              <div class="col-12 col-lg-6">
+                <label>Discount Amount</label>
+                <input type="text" class="form-control" placeholder="Discount Amount" name="discountAmount"
+                  formControlName="discountAmount" />
+                  <p *ngIf="
+                addTrainingForm.controls.discountAmount.errors?.['required'] &&
+                (addTrainingForm.controls.discountAmount.touched ||
+                addTrainingForm.controls.discountAmount.dirty)
+              ">
+                  Please Enter Discount Amount
+                </p>
+              </div>
+              <div class="col-12 col-lg-6">
+                <label>Online Discount</label>
+                <input type="text" class="form-control" placeholder="Online Discount" name="onlineDiscount"
+                  formControlName="onlineDiscount" />
+                  <p *ngIf="
+                addTrainingForm.controls.onlineDiscount.errors?.['required'] &&
+                (addTrainingForm.controls.onlineDiscount.touched ||
+                addTrainingForm.controls.onlineDiscount.dirty)
+              ">
+                  Please Enter OnlineDiscount Amount
+                </p>
+              </div>
+            </div>
+            <div class="row mb-4">
+              <div class="col-12 col-lg-6">
+                <label>Image </label>
+                <input type="file" class="form-control" id="imgurl" name="imgurl" formControlName="photo"
+                  (change)="onFileChange($event)" />
+                  <p *ngIf="
+                addTrainingForm.controls.photo.errors?.['required'] &&
+                (addTrainingForm.controls.photo.touched ||
+                addTrainingForm.controls.photo.dirty)
+              ">
+                  Please Choose Image
+                </p>
+              </div>
+              <div class="col-12 col-lg-6">
+                <label>Sample Video URL</label>
+                <input type="text" class="form-control" placeholder="Sample Video URL" name="sampleVideoUrl"
+                  formControlName="sampleVideoUrl" />
+                  <p *ngIf="
+                  addTrainingForm.controls.sampleVideoUrl.errors?.['required'] &&
+                  (addTrainingForm.controls.sampleVideoUrl.touched ||
+                  addTrainingForm.controls.sampleVideoUrl.dirty)
+                ">
+                    Please Enter Sample Video Url
+                  </p>
+              </div>
+            </div>
+            <div class="row mb-4">
+              <div class="col-12 col-lg-6">
+                <label>Domain</label>
+                <select class="form-control" formControlName="domainId" (change)="onDomainChange($event)">
+                  <option selected>Select the Domain</option>
+                  <option *ngFor="let list of domainList;" [value]="list.domainId">{{list.domainName}}</option>
+                </select>
+                <p *ngIf="
+                  addTrainingForm.controls.domainId.errors?.['required'] &&
+                  (addTrainingForm.controls.domainId.touched ||
+                  addTrainingForm.controls.domainId.dirty)
+                ">
+                    Please Select the Domain
+                  </p>
+              </div>
+              <div class="col-12 col-lg-6">
+                <label>Category</label>
+                <select class="form-control" formControlName="category" (change)="onCategoryChange($event)">
+                  <option selected="selected">Select the Category</option>
+                  <option *ngFor="let list of categoryList;" [value]="list.categoryId">{{list.categoryName}}</option>
+                </select>
+                <p *ngIf="
+                  addTrainingForm.controls.category.errors?.['required'] &&
+                  (addTrainingForm.controls.category.touched ||
+                  addTrainingForm.controls.category.dirty)
+                ">
+                    Please Select the Category
+                  </p>
+              </div>
+
+            </div>
+            <div class="row mb-4">
+              <div class="col-12 col-lg-6">
+                <label>Sub Category</label>
+                <select class="form-control" formControlName="subcategory">
+                  <option selected>Select the Sub Category</option>
+                  <option *ngFor="let list of subCategoryList | async;" [ngValue]="list.subcategoryId">
+                    {{list.subcategoryName}}</option>
+                </select>
+                <p *ngIf="
+                  addTrainingForm.controls.subcategory.errors?.['required'] &&
+                  (addTrainingForm.controls.subcategory.touched ||
+                  addTrainingForm.controls.subcategory.dirty)
+                ">
+                    Please Select the Sub Category
+                  </p>
+              </div>
+              <div class="col-12 col-lg-6">
+                <label>Language</label>
+                <select class="form-control" formControlName="languageId">
+                  <option value="1">English</option>
+                  <option value="2">Tamil</option>
+                </select>
+                <p *ngIf="
+                  addTrainingForm.controls.languageId.errors?.['required'] &&
+                  (addTrainingForm.controls.languageId.touched ||
+                  addTrainingForm.controls.languageId.dirty)
+                ">
+                    Please Select the Language
+                  </p>
+              </div>
+
+            </div>
+            <div class="row mb-4">
+              <div class="col-12 col-lg-6">
+                <label>Medium</label>
+                <select class="form-control" formControlName="medium">
+                  <option>Select the Medium</option>
+                  <option>Offline</option>
+                  <option>Online</option>
+                  <option>Hybrid</option>
+                </select>
+                <p *ngIf="
+                  addTrainingForm.controls.medium.errors?.['required'] &&
+                  (addTrainingForm.controls.medium.touched ||
+                  addTrainingForm.controls.medium.dirty)
+                ">
+                    Please Select the Medium
+                  </p>
+              </div>
+              <div class="col-12 col-lg-6">
+                <label>Class Links</label>
+                <input type="text" class="form-control" placeholder="Class Links" name="classLink"
+                  formControlName="classLink" />
+                  <p *ngIf="
+                  addTrainingForm.controls.classLink.errors?.['required'] &&
+                  (addTrainingForm.controls.classLink.touched ||
+                  addTrainingForm.controls.classLink.dirty)
+                ">
+                    Please Enter Class Link
+                  </p>
+              </div>
+            </div>
+            <div class="row mb-4">
+              <div class="col-12 col-lg-6">
+                <label>Duration</label>
+                <input type="text" class="form-control" placeholder="Duration" name="duration"
+                  formControlName="duration" />
+                  <p *ngIf="
+                  addTrainingForm.controls.duration.errors?.['required'] &&
+                  (addTrainingForm.controls.duration.touched ||
+                  addTrainingForm.controls.duration.dirty)
+                ">
+                    Please Enter Duration
+                  </p>
+              </div>
+              <div class="col-12 col-lg-6">
+                <label>Total Hours</label>
+                <input type="text" class="form-control" placeholder="Total Hours" name="totalHours"
+                  formControlName="totalHours" />
+                  <p *ngIf="
+                  addTrainingForm.controls.totalHours.errors?.['required'] &&
+                  (addTrainingForm.controls.totalHours.touched ||
+                  addTrainingForm.controls.totalHours.dirty)
+                ">
+                    Please Enter Total Hours uration
+                  </p>
+              </div>
+            </div>
+            <div class="row mb-4">
+              <div class="col-12 col-lg-6">
+                <label>Fall On</label>
+                <input type="text" class="form-control" placeholder="Fall On" name="fallOn" formControlName="fallon" />
+                <p *ngIf="
+                addTrainingForm.controls.fallon.errors?.['required'] &&
+                (addTrainingForm.controls.fallon.touched ||
+                addTrainingForm.controls.fallon.dirty)
+              ">
+                  Please Enter Fall On
+                </p>
+              </div>
+              <div class="col-12 col-lg-6">
+                <label>Short Notes</label>
+                <input type="text" class="form-control" placeholder="Short Notes" name="shortNotes"
+                  formControlName="shortNote" />
+                   <p *ngIf="
+                addTrainingForm.controls.shortNote.errors?.['required'] &&
+                (addTrainingForm.controls.shortNote.touched ||
+                addTrainingForm.controls.shortNote.dirty)
+              ">
+                  Please Enter Short Notes
+                </p>
+              </div>
+            </div>
+            <div class="row mb-4">
+              <div class="col-12">
+                <label>Prerequisite</label>
+                <ckeditor name="myckeditor" debounce="300" [editor]="editor" formControlName="prerequisite"></ckeditor>
+                <p *ngIf="
+                addTrainingForm.controls.prerequisite.errors?.['required'] &&
+                (addTrainingForm.controls.prerequisite.touched ||
+                addTrainingForm.controls.prerequisite.dirty)
+              ">
+                  Please Enter Prerequisite
+                </p>
+              </div>
+            </div>
+            <div class="row mb-4">
+              <div class="col-12">
+                <label>Perks</label>
+                <ckeditor name="myckeditor" debounce="300" [editor]="editor" formControlName="perks"></ckeditor>
+                <p *ngIf="
+                addTrainingForm.controls.perks.errors?.['required'] &&
+                (addTrainingForm.controls.perks.touched ||
+                addTrainingForm.controls.perks.dirty)
+              ">
+                  Please Enter Perks
+                </p>
+              </div>
+            </div>
+            <div class="row mb-4">
+              <div class="col-12">
+                <label>Description</label>
+                <ckeditor name="myckeditor" debounce="300" [editor]="editor" formControlName="description"></ckeditor>
+                <p *ngIf="
+                addTrainingForm.controls.description.errors?.['required'] &&
+                (addTrainingForm.controls.description.touched ||
+                addTrainingForm.controls.description.dirty)
+              ">
+                  Please Enter Description
+                </p>
+              </div>
+            </div>
+            <div class="row mb-4">
+              <div class="col-12">
+                <label>Syllabus</label>
+                <ckeditor name="myckeditor" debounce="300" [editor]="editor" formControlName="syllabus"></ckeditor>
+                <p *ngIf="
+                addTrainingForm.controls.syllabus.errors?.['required'] &&
+                (addTrainingForm.controls.syllabus.touched ||
+                addTrainingForm.controls.syllabus.dirty)
+              ">
+                  Please Enter Syllabus
+                </p>
+              </div>
+            </div>
+          </form>
+          <div class="d-flex justify-content-center">
+            <button class="btn text-dark text-center" (click)="addTrainingDetails()" [disabled]="isAddTraining || addTrainingForm.invalid ">
+              <div class="spinner-border ml-2 mr-2" [ngClass]="isAddTraining?'d-inline-flex':'d-none'"></div>
+              <span [ngClass]="isAddTraining?'d-inline-flex':'d-none'">Loading...</span>
+              <span [ngClass]="isAddTraining?'d-none':'d-block'">Add Training</span>
+            </button>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>
