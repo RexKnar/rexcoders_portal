@@ -9,6 +9,7 @@ import {CookieService} from 'ngx-cookie-service';
 import { AdminGuard } from './shared/guard/admin.guard';
 import { AuthGuard } from './shared/guard/auth.guard';
 import { AuthInterceptor } from './shared/Interceptors/auth.interceptor';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -17,10 +18,11 @@ import { AuthInterceptor } from './shared/Interceptors/auth.interceptor';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule,  
+    SharedModule,
+    NgbModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
 
   ],
   providers: [CookieService,AdminGuard, AuthGuard,{

@@ -15,7 +15,7 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     StudentCourseRoutingModule,
     SharedModule,
-    FormsModule
+    FormsModule,
   ],
   schemas:[
     CUSTOM_ELEMENTS_SCHEMA

@@ -20,6 +20,13 @@ this.addTrainingForm=this._formBuilder.group({
 
    }
 
+// addTrainingForm = new FormGroup({
+//   addTrainingName:new FormControl(''),
+//   learningLevel:new FormControl('')
+
+// })
+
+
   ngOnInit(): void {
   }
 

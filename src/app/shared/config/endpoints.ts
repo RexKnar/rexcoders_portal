@@ -22,10 +22,23 @@ export const DOMAIN_CONFIG = {
   deleteDomainUrl:'/api/domain/delete'
 };
 
+export const MENTOR_CONFIG = {
+  getMentorListUrl: '/api/mentors/getall',
+  getMentorDetailsUrl: '/api/mentors/getdetails',
+  addMentorUrl: 'api/mentors/add',
+};
+
 export const PAYMENT_CONFIG = {
   createOrderUrl: '/api/payment/createOrder',
   updateOrderUrl: '/api/payment/updateOrder',
 };
+
+export const COUNTRY_CONFIG = {
+  getCountryListUrl:'/api/country/getall',
+  postCountryListUrl:'/api/country/add',
+  putCountryListUrl:'/api/country/update',
+  deleteCountryListUrl:'/api/country/delete/?countryId=1'
+}
 
 export const STATE_CONFIG = {
   getStateListUrl:'/api/state/getall?countryId=1',
@@ -52,4 +65,9 @@ export const CONSULT_CONFIG = {
 
 export const MENTORS_CONFIG = {
   addMentorsUrl: '/api/mentors/add'
+}
+export const MODULE_CONFIG = {
+  getModuleListUrl:'/api/syllabus/module/getall',
+  postModuleListUrl:'/api/syllabus/module/add',
+  putModuleListUrl:'/api/syllabus/module/update'
 }

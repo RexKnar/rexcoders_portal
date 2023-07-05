@@ -9,10 +9,10 @@
                                 <h3 class="txt-color">Add Training</h3>
                             </div>
                         </div>
-                        <div class="row mt-5 mb-4">
+                        <div [formGroup]="addTrainingForm" class="row mt-5 mb-4">
                             <div class="col">
-                                <label>Training Name</label>
-                                <input type="text" class="form-control" formControlName="trainingName" placeholder="Enter the Training Name"
+                                <label for="trainingName">Training Name</label>
+                                <input formControlName="addtraining" type="text" class="form-control" id="trainingName" placeholder="Enter the Training Name"
                                     name="trainingName">
                             </div>
                             <div class="col">
@@ -22,7 +22,7 @@
                             </div>
                             <div class="col">
                                 <label for="learnersLevel">Learners Level</label>
-                                <input type="text" class="form-control" placeholder="Beginners" name="trainingName">
+                                <input formControlName="addtraining"type="text" class="form-control" placeholder="Beginners" name="trainingName" id="learnersLevel">
                             </div>
                             <div class="col">
                                 <label>Stack</label>

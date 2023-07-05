@@ -1,3 +1,4 @@
+
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import {
   FormGroup,
@@ -21,6 +22,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   loginForm!: FormGroup;
   responsedata: any;
   @Input() userRole: string;
+
   constructor(
     private loginFormBuilder: FormBuilder,
     public _authservice: AuthService,
@@ -49,8 +51,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         userType: this.userRole,
       });
 
-      console.log(this.loginForm.value);
-
+    
       this._authservice
         .authenticateUser(this.loginForm.value)
         .pipe(takeUntil(this.destroy$))
@@ -71,3 +72,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     }
   }
 }
+
+
+
+
