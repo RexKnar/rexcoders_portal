@@ -18,12 +18,7 @@ import { TrainingCardComponent } from './components/training-card/training-card.
     FooterComponent,
     TrainingCardComponent,
   ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    RouterModule
-  ],
-
+  imports: [CommonModule, FormsModule, RouterModule],
   exports: [
     HeaderComponent,
     SidebarComponent,
@@ -31,10 +26,6 @@ import { TrainingCardComponent } from './components/training-card/training-card.
     AuthLayoutComponent,
     FooterComponent,
     TrainingCardComponent,
-
-
   ],
-
 })
-export class SharedModule { }
-
+export class SharedModule {}
