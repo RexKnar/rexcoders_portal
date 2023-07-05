@@ -17,9 +17,8 @@ const routes: Routes = [
   },
   {
     path:'mentors',
-    loadChildren:() => import('./mentor/mentor.module').then(module=>module.MentorModule)
+    loadChildren:() => import('./mentors/mentors.module').then(module=>module.MentorsModule)
   }
-
 ];
 
 @NgModule({

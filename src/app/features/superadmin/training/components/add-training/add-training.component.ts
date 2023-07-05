@@ -1,7 +1,12 @@
 import { Component, OnInit} from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+<<<<<<< HEAD
+import { TrainingService } from 'src/app/shared/services/training.service';
+=======
 import { FormControl, FormGroup } from '@angular/forms';
 import { DomainService } from 'src/app/shared/services/domain.service';
+>>>>>>> a4ac9158008532b26007a965863c4d2247734248
 
 @Component({
   selector: 'app-add-training',
@@ -11,13 +16,25 @@ import { DomainService } from 'src/app/shared/services/domain.service';
 export class AddTrainingComponent implements OnInit {
   domainDetail:any
   editor = ClassicEditor;
+<<<<<<< HEAD
+  addTrainingForm: FormGroup;
+  constructor(private _formBuilder: FormBuilder, private _trainingService: TrainingService) {
+this.addTrainingForm=this._formBuilder.group({
+  photo:[''],
+  trainingSlug:[''],
+  trainingName:['']
+});
+=======
   constructor(private domainService:DomainService) { }
+>>>>>>> a4ac9158008532b26007a965863c4d2247734248
 
-addTrainingForm = new FormGroup({
-  addTrainingName:new FormControl(''),
-  learningLevel:new FormControl('')
+   }
 
-})
+// addTrainingForm = new FormGroup({
+//   addTrainingName:new FormControl(''),
+//   learningLevel:new FormControl('')
+
+// })
 
 
   ngOnInit(): void {
@@ -27,4 +44,23 @@ addTrainingForm = new FormGroup({
     })
   }
 
+
+  onFileSelect(event:any)
+  {
+    const file=event.target.files[0];
+    this.addTrainingForm.get('photo').setValue(file);
+  }
+  insertTrainingDetail()
+  {
+
+    let addTrainingFormData:FormData= new FormData();
+    addTrainingFormData.append('trainingName',this.addTrainingForm.get('trainingName').value);
+    addTrainingFormData.append('trainingSlug',this.addTrainingForm.get('trainingSlug').value);
+    addTrainingFormData.append('photo',this.addTrainingForm.get('photo').value);
+    this._trainingService.addTrainingDetail(addTrainingFormData).subscribe((responseData:any)=>{
+
+      console.log(responseData);
+
+    });
+  }
 }

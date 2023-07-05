@@ -11,7 +11,6 @@ import { AuthGuard } from './shared/guard/auth.guard';
 import { AuthInterceptor } from './shared/Interceptors/auth.interceptor';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-
 @NgModule({
   declarations: [
     AppComponent,

@@ -11,6 +11,7 @@ export const USER_CONFIG = {
   getUserByTokenUrl: '/api/user/getbytoken',
 };
 export const TRAINING_CONFIG = {
+  addTrainingDetailsUrl:'/api/training/add',
   getTrainingListUrl: '/api/training/getall',
   getTrainingDetailUrl: '/api/training/get?trainingId=',
 };
@@ -59,6 +60,11 @@ export const BATCH_CONFIG = {
 
 export const CONSULT_CONFIG = {
   bookConsultationUrl: '/api/consultation/book'
+}
+
+
+export const MENTORS_CONFIG = {
+  addMentorsUrl: '/api/mentors/add'
 }
 export const MODULE_CONFIG = {
   getModuleListUrl:'/api/syllabus/module/getall',

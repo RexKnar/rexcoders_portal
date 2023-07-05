@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   loginForm!: FormGroup;
   responsedata: any;
   @Input() userRole: string;
+
   constructor(
     private loginFormBuilder: FormBuilder,
     public _authservice: AuthService,
@@ -49,6 +50,10 @@ export class LoginComponent implements OnInit, OnDestroy {
         userType: this.userRole,
       });
 
+<<<<<<< HEAD
+    
+=======
+>>>>>>> a4ac9158008532b26007a965863c4d2247734248
       this._authservice
         .authenticateUser(this.loginForm.value)
         .pipe(takeUntil(this.destroy$))
